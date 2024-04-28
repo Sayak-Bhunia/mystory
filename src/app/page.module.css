@@ -1,0 +1,33 @@
+.main {
+    display: flex;
+    height: 100vh;
+    align-items: flex-end;
+    justify-content: center;
+    margin-bottom: 100vh;
+    color: rgb(211, 211, 211);
+}
+
+@media (max-width: 768px) {
+    .main {
+        height: 80vh; 
+        margin-bottom: 80vh; 
+        padding-bottom: 10vh; 
+    }
+}
+
+.body {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.body p {
+    font-size: 3.5vw;
+    margin: 0px;
+    margin-right: 1.5vw;
+    font-weight: 700;
+}
+
+.body span {
+    opacity: 0.2;
+}
