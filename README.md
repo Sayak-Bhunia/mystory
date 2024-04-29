@@ -1,6 +1,7 @@
 # MyStory - Next.js Blog/Story telling Template
 
-Welcome to MyStory, a Next.js blog template designed for sharing personal experiences and stories anonymously.
+## Welcome to MyStory, a Next.js blog template designed for sharing personal experiences and stories anonymously.
+
 ![image](https://github.com/Sayak-Bhunia/mystory/assets/110457746/eaa2d219-cd23-4c4a-9bbc-e49ecac9ba4e)
 
 ## About
