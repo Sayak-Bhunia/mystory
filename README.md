@@ -32,4 +32,4 @@ To get started with MyStory, follow these steps:
    npm run dev
 ## Maintainers
 
-- [Sayak Bhunia](https://github.com/Sayak-Bhunia)
+- [xenotron](https://github.com/Sayak-Bhunia)
