@@ -30,5 +30,3 @@ To get started with MyStory, follow these steps:
 4. **Run the Development Server**: Start the Next.js development server.
    ```bash
    npm run dev
-   npm install
-4. **Run the Development Server**: Start the Next.js development server.
