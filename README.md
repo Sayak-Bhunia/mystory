@@ -2,7 +2,7 @@
 
 ## Welcome to MyStory, a Next.js blog template designed for sharing personal experiences and stories anonymously.
 
-![image](https://github.com/Sayak-Bhunia/mystory/assets/110457746/eaa2d219-cd23-4c4a-9bbc-e49ecac9ba4e)
+![Blue Futuristic Technology Presentation](https://github.com/Sayak-Bhunia/mystory/assets/110457746/2eb19d93-ed61-4fa4-b20e-7fbe60469814)
 
 ## About
 
