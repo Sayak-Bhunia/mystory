@@ -1,8 +1,9 @@
+![Blue Futuristic Technology Presentation](https://github.com/Sayak-Bhunia/mystory/assets/110457746/fbf14e0d-7be7-4866-a0a2-c318e3e8eca9)
+
+
 # MyStory - Next.js Blog/Story telling Template
 
 ## Welcome to MyStory, a Next.js blog template designed for sharing personal experiences and stories anonymously.
-
-![Blue Futuristic Technology Presentation](https://github.com/Sayak-Bhunia/mystory/assets/110457746/2eb19d93-ed61-4fa4-b20e-7fbe60469814)
 
 ## About
 
