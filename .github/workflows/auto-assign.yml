@@ -1,0 +1,8 @@
+            - name: Auto assign PR
+  # You may pin to the exact commit or the version.
+  # uses: li-sumup/actions-assigner@964e42cd4fe645e3ea169ce3887db85e8bb128c3
+  uses: li-sumup/actions-assigner@v1.0.2
+  with:
+    # GitHub token
+    token: # optional, default is ${{ github.token }}
+          
