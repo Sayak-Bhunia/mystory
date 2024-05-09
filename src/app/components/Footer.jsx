@@ -1,21 +1,22 @@
 import '../globals.css';
-import { trapBold } from './fonts';
-import { Open_Sans, Syne } from 'next/font/google';
+import { Open_Sans } from 'next/font/google';
 import React, { useEffect, useState } from 'react';
+import { FiTwitter, FiInstagram } from 'react-icons/fi';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
-const inter = Open_Sans({ subsets: ['latin'] })
+const inter = Open_Sans({ subsets: ['latin'] });
 
 const thankyouList = [
-  "thank you",
-  "gracias",
-  "धन्यवाद",
-  "merci",
-  "danke",
-  "ありがとう",
-  "谢谢",
-  "Спасибо",
-  "شكراً",
-  "감사합니다",
+  'thank you',
+  'gracias',
+  'धन्यवाद',
+  'merci',
+  'danke',
+  'ありがとう',
+  '谢谢',
+  'Спасибо',
+  'شكراً',
+  '감사합니다',
 ];
 
 export default function Footer() {
@@ -33,22 +34,46 @@ export default function Footer() {
     };
   }, [currthank]);
 
-    return (
-        <>
-            <div className="bg-white h-64 flex justify-center items-center py-5 px-5 space-x-56 md:max-xl:space-x-20 mx-auto text-center">
-                <div className={`${inter.className} flex items-center justify-center gap-1 md:max-xl:ml-10 cursor-pointer`}>
-                    <p className={`text-slate-400 text-[2rem] font-bold md:w-[385px] md:text-[3rem]`}>
-                        {currthank === "شكراً" && "!"} {currthank}{" "}
-                        {currthank != "شكراً" && "!"}
-                    </p> 
-                </div>
+  return (
+    <>
+      <footer>
+        <div className='flex flex-col-reverse items-center justify-between space-y-8 md:space-y-0 md:grid md:grid-cols-2 py-12'>
+          <div className='flex flex-col items-center justify-center'>
+            <div className='p-8 md:p-0'>
+              <h2 className='text-4xl font-bold text-center md:text-left'>mystory</h2>
+              <p className='text-gray-400 text-center'>
+                A way to share stories anonymously.
+              </p>
+              <div className='flex mt-4 space-x-4 items-center justify-center md:items-start md:justify-start'>
+                <a href='/' target='_blank'>
+                  <FiTwitter className='text-white ' />
+                </a>
+                <a href='/' target='_blank'>
+                  <FiInstagram className='text-white ' />
+                </a>
+                <a href='/' target='_blank'>
+                  <FaLinkedin className='text-white ' />
+                </a>
+                <a href='/' target='_blank'>
+                  <FaGithub className='text-white ' />
+                </a>
+              </div>
             </div>
-            <hr className="w-12 border-t-2 border-dashed border-slate-600 mx-auto" />
-            <div className="bg-white flex justify-center items-center py-5 px-5 space-x-56 md:max-xl:space-x-20 mx-auto text-center">
-                    <div className={`flex items-center justify-center gap-1 md:max-xl:ml-10 cursor-pointer`}>
-                        <p claName={`${inter.className}`}>@{new Date().getFullYear()} mystory. all rights reserved.</p>
-                    </div>
-            </div>
-        </>
-    );
-};
+          </div>
+          <div className='flex flex-col items-center justify-center text-6xl font-semibold'>
+            <p>
+              {currthank === 'شكراً' && '!'} {currthank}{' '}
+              {currthank !== 'شكراً' && '!'}
+            </p>
+          </div>
+        </div>
+
+        <div className='py-8 border-t border-gray-600 '>
+          <p className='text-sm text-gray-500 text-center'>
+            &copy; {new Date().getFullYear()} mystory. All rights reserved.
+          </p>
+        </div>
+      </footer>
+    </>
+  );
+}
