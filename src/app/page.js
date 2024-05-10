@@ -1,12 +1,12 @@
-import Content from "@/components/Content";
-import Header from "@/components/Header";
+'use client';
 import Footer from '@/components/Footer';
-
+import HeroScrollDemo from '@/components/HeroScrollDemo';
+import CardStackDemo from '@/components/CardStack';
 export default function Home() {
   return (
-    <main>
-      <Header />
-      <Content />
+    <main>      
+      <HeroScrollDemo />
+      <CardStackDemo />
       <Footer />
     </main>
   );
