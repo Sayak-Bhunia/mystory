@@ -1,10 +1,12 @@
-'use client';
-import React, { useState } from 'react';
-import { AiOutlineMenu } from 'react-icons/ai';
-import { RxCross1 } from 'react-icons/rx';
-import { motion, AnimatePresence } from 'framer-motion';
+"use client";
+import React, { useState } from "react";
+import { AiOutlineMenu } from "react-icons/ai";
+import { RxCross1 } from "react-icons/rx";
+import { motion, AnimatePresence } from "framer-motion";
+import { useSession } from "next-auth/react";
 
 const NavBar = () => {
+  const { data: session } = useSession();
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const toggleNav = () => {
@@ -23,58 +25,67 @@ const NavBar = () => {
   my-2 hover:w-[90%]`;
 
   return (
-    <div className='border-b border-b-neutral-500'>
-      <div className='mx-8 lg:mx-20 flex justify-between items-center py-8 md:py-10'>
-        <a href='/' className='text-4xl font-bold'>
+    <div className="border-b border-b-neutral-500">
+      <div className="mx-8 lg:mx-20 flex justify-between items-center py-8 md:py-10">
+        <a href="/" className="text-4xl font-bold">
           mystory
         </a>
 
-        <div className='justify-center gap-6 hidden lg:flex items-center space-x-4'>
-          <a href='/' className={navClass}>
+        <div className="justify-center gap-6 hidden lg:flex items-center space-x-4">
+          <a href="/" className={navClass}>
             Home
           </a>
-          <a href='/about' className={navClass}>
+          <a href="/about" className={navClass}>
             About
           </a>
-          <a href='/faqs' className={navClass}>
+          <a href="/faqs" className={navClass}>
             FAQs
           </a>
-          <a href='/epics' className={navClass}>
+          <a href="/epics" className={navClass}>
             Share
           </a>
-          <a href='/schools-of-thought' className={navClass}>
+          <a href="/schools-of-thought" className={navClass}>
             Confess
           </a>
+          {session ? (
+            <a href="/login" className={navClass}>
+              {session.user.name}
+            </a>
+          ) : (
+            <a href="/login" className={navClass}>
+              Login
+            </a>
+          )}
         </div>
         {!isNavOpen ? (
           <AiOutlineMenu
             onClick={toggleNav}
-            className='flex lg:hidden w-6 h-6 cursor-pointer'
+            className="flex lg:hidden w-6 h-6 cursor-pointer"
           />
         ) : (
           <RxCross1
             onClick={toggleNav}
-            className='flex lg:hidden w-6 h-6 cursor-pointer'
+            className="flex lg:hidden w-6 h-6 cursor-pointer"
           />
         )}
       </div>
 
       {isNavOpen && ( // Render the navigation links if isNavOpen is true
         <motion.div whileInView={{ opacity: 1 }} initial={{ opacity: 0 }}>
-          <div className='flex flex-col lg:hidden justify-center items-center m-4'>
-            <a href='/' className={smNavClass}>
+          <div className="flex flex-col lg:hidden justify-center items-center m-4">
+            <a href="/" className={smNavClass}>
               Home
             </a>
-            <a href='/about' className={smNavClass}>
+            <a href="/about" className={smNavClass}>
               About
             </a>
-            <a href='/faqs' className={smNavClass}>
+            <a href="/faqs" className={smNavClass}>
               FAQs
             </a>
-            <a href='/share' className={smNavClass}>
+            <a href="/share" className={smNavClass}>
               Share
             </a>
-            <a href='/confess' className={smNavClass}>
+            <a href="/confess" className={smNavClass}>
               Confess
             </a>
           </div>
