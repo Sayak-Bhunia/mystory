@@ -1,5 +1,4 @@
-
-import { cn } from "@/utils/cn";
+import { cn } from '@/utils/cn';
 // Small utility to highlight the content of specific section of a testimonial content
 export const Highlight = ({ children, className }) => {
   return (
@@ -17,43 +16,36 @@ export const Highlight = ({ children, className }) => {
 const CARDS = [
   {
     id: 0,
-    name: 'Manu Arora',
-    designation: 'Senior Software Engineer',
+    name: 'Anon #1',
+
     content: (
       <p>
-        These cards are amazing, <Highlight>I want to use them</Highlight> in my
-        project. Framer motion is a godsend ngl tbh fam 🙏
+        I like tasting ice-creams with, <Highlight>Lemon</Highlight> Please don`t judge me 🙏
       </p>
     ),
   },
   {
     id: 1,
-    name: 'Elon Musk',
-    designation: 'Senior Shitposter',
+    name: 'DelhiBoy',
+
     content: (
       <p>
-        I dont like this Twitter thing,{' '}
-        <Highlight>deleting it right away</Highlight> because yolo. Instead, I
-        would like to call it <Highlight>X.com</Highlight> so that it can easily
-        be confused with adult sites.
+        I dont like this Twitter thing, instead I use
+        <Highlight>Reddit</Highlight> because yolo!
       </p>
     ),
   },
   {
     id: 2,
     name: 'Tyler Durden',
-    designation: 'Manager Project Mayhem',
     content: (
       <p>
         The first rule of
-        <Highlight>Fight Club</Highlight> is that you do not talk about fight
-        club. The second rule of
-        <Highlight>Fight club</Highlight> is that you DO NOT TALK about fight
-        club.
+        <Highlight>CS Degree</Highlight> is that you do not talk about placements.
+        Btw I like my  <Highlight>coffee black ☕</Highlight>
       </p>
     ),
   },
 ];
-
 
 export default CARDS;
