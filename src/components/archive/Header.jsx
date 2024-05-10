@@ -1,6 +1,6 @@
 import React from 'react';
 import '../app/globals.css';
-import { trapBold } from './fonts';
+import { trapBold } from '../app/fonts';
 
 export default function Header() {
     return (
