@@ -1,21 +1,11 @@
-'use client';
-import React, { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import { FaUser } from 'react-icons/fa';
+import Image from 'next/image';
 
 export default function CallToAction() {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: false,
-    });
-  }, []);
-
   return (
     <div
-      data-aos='flip-up'
-      data-aos-duration='1000'
+      data-aos='flip-down'
+      data-aos-once='true'
       className='container mx-auto my-24 px-6 sm:px-8 lg:px-10'
     >
       <div className='flex flex-col-reverse md:flex-row justify-center items-center space-x-8 py-8 px-10 lg:py-4 border rounded-lg border-purple-800 bg-purple-950/20'>
@@ -44,42 +34,14 @@ export default function CallToAction() {
             </span>
           </a>
         </div>
-        <img
-          src={'/getStarted.svg'}
-          alt={'getStarted'}
+        <Image
+          src='/getStarted.svg' // Adjust the path to your image file
+          alt='getStarted'
+          width={384} // Adjust the width according to your design (96 * 4)
+          height={288} // Adjust the height according to your design (auto height)
           className='h-auto md:w-96 object-cover'
         />
       </div>
     </div>
   );
-}
-
-{
-  /* <div className='flex flex-col items-center justify-center'>
-          <h1 className='text-5xl'>Contributor</h1>
-          <p className='w-[60%] text-center mt-4 font-extralight'>
-            Get Started with sharing your confessions which you were keeping
-            since so long
-          </p>
-          <div
-            data-aos='fade-in'
-            className='flex flex-col items-center justify-between sm:justify-center rounded-lg sm:mx-4'
-          >
-            <img
-              src={'/developer.svg'}
-              alt={'developer '}
-              className='h-auto w-96 object-cover'
-            />
-            <a
-              href='https://github.com/Sayak-Bhunia/mystory/'
-              target='_blank'
-              className='bg-neutral-700 hover:bg-neutral-800  text-white font-bold py-2 px-6 rounded-md text-lg '
-            >
-              <div className='flex items-center justify-between space-x-2'>
-                <h1>Visit Repository</h1>
-                <FaGithub />
-              </div>
-            </a>
-          </div>
-        </div> */
 }

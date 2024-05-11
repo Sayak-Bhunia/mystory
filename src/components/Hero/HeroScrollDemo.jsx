@@ -7,8 +7,8 @@ export default function HeroScrollDemo() {
       <ContainerScroll
         titleComponent={
           <>
-            <div className='mb-16 mt-32'>
-              <h1 className='text-3xl sm:text-4xl lg:text-6xl font-bold text-black dark:text-white animate-pulse mb-6'>
+            <div className='mb-16 mt-16 sm:mt-24 md:mt-28'>
+              <h1 className='text-2xl sm:text-4xl lg:text-6xl font-bold text-black dark:text-white animate-pulse mb-6 mx-2'>
                 Unleash the power of Anonymity
               </h1>
               <h1 className='font-extrabold text-transparent text-7xl sm:text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-fuchsia-600 pb-6'>

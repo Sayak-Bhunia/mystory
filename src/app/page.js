@@ -1,4 +1,4 @@
-import Footer from '@/components/Footer';
+import Footer from '@/components/Footer/Footer';
 import HeroScrollDemo from '@/components/Hero/HeroScrollDemo';
 import TitleSpecial from '@/components/Features/TitleSpecial';
 import Features from '@/components/Features/Features';

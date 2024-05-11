@@ -1,4 +1,4 @@
-'use client';
+'use client'
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -9,12 +9,13 @@ export default function Seamless() {
   useEffect(() => {
     AOS.init({
       duration: 2000,
-      once: true,
+      once: false,
     });
   }, []);
   return (
     <div
-      data-aos='fade-left'
+      data-aos='fade-up'
+      data-aos-once='true'
       className='flex flex-col lg:flex-row items-center justify-between w-full 
     space-x-6 space-y-16 lg:space-y-0 px-8 sm:px-20 md:px-28 py-12 md:text-left text-center'
     >

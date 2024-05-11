@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function BuyMeACoffee() {
   return (
     <div>
-      <div className='fixed bottom-5 right-5 z-10'>
+      <div className='fixed bottom-5 right-5 z-50'>
         <a
           href='https://www.buymeacoffee.com/sbhunia2909'
           target='_blank'
