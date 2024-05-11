@@ -6,6 +6,7 @@ export default function PrivacyMatters() {
     <>
       <div
         data-aos='fade-right'
+        data-aos-once='true'
         className='flex flex-col lg:flex-row-reverse items-center justify-between w-full 
       space-x-6 space-y-16 lg:space-y-0 px-8 sm:px-20 md:px-28 py-12 md:text-left text-center'
       >
