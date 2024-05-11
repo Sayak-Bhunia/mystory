@@ -2,8 +2,9 @@
 import { Open_Sans } from 'next/font/google';
 import React, { useEffect, useState } from 'react';
 import { FiInstagram } from 'react-icons/fi';
-import {FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
+import styles from './page.module.css'
 
 const openSans = Open_Sans({ subsets: ['latin'] });
 
@@ -22,12 +23,14 @@ const thankyouList = [
 
 export default function Footer() {
   const [currthank, setCurrThank] = useState(thankyouList[0]);
+  const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       const currentIndex = thankyouList.indexOf(currthank);
       const nextIndex = (currentIndex + 1) % thankyouList.length;
       setCurrThank(thankyouList[nextIndex]);
+      setCurrentTime(new Date().toLocaleTimeString());
     }, 1500);
 
     return () => {
@@ -72,6 +75,10 @@ export default function Footer() {
         <div className='pb-8'>
           <p className='text-sm text-neutral-400 text-center'>
             &copy; {new Date().getFullYear()} mystory. All rights reserved.
+          </p>
+          <p className='text-center text-neutral-400 text-lg font-bold'>
+            <span className={styles['glow-circle']}></span>
+            <span className='text-neutral-500'>{currentTime}</span>
           </p>
         </div>
       </footer>
