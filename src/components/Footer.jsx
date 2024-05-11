@@ -1,3 +1,4 @@
+// <<<<<<< HEAD
 "use client";
 import { Open_Sans } from "next/font/google";
 import React, { useEffect, useState } from "react";
@@ -5,6 +6,17 @@ import { FiInstagram } from "react-icons/fi";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import styles from "./page.module.css";
+// =======
+
+// import { Open_Sans } from 'next/font/google';
+// import React, { useEffect, useState } from 'react';
+// import { FiInstagram } from 'react-icons/fi';
+// import { FaLinkedin, FaGithub } from 'react-icons/fa';
+// import { FaXTwitter } from 'react-icons/fa6';
+// import styles from './page.module.css'
+import Image from "next/image";
+import { format } from "date-fns";
+// >>>>>>> 562b3bb2062247de32d6d1456426563f43323788
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
@@ -23,6 +35,12 @@ const thankyouList = [
 
 export default function Footer() {
   const [currthank, setCurrThank] = useState(thankyouList[0]);
+  // <<<<<<< HEAD1
+  // =======
+  const [currentTime, setCurrentTime] = useState(
+    format(new Date(), "hh:mm:ss a")
+  );
+  // >>>>>>> 562b3bb2062247de32d6d1456426563f43323788
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -70,14 +88,38 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* <<<<<<< HEAD */}
         <div className="pb-8">
           <p className="text-sm text-neutral-400 text-center">
             &copy; mystory. All rights reserved.
+            {/* ======= */}
+          </p>
+        </div>
+        <div className="pb-16 sm:pb-10">
+          <p className="text-sm text-neutral-400 text-center">
+            &copy; {new Date().getFullYear()} mystory. All rights reserved.
+            {/* >>>>>>> 562b3bb2062247de32d6d1456426563f43323788 */}
           </p>
           <p className="text-center text-neutral-400 text-lg font-bold">
             <span className={styles["glow-circle"]}></span>
             <span className="text-neutral-500"></span>
           </p>
+        </div>
+        {/* Buy me a coffee button */}
+        <div className="fixed bottom-5 right-5 z-10">
+          <a
+            href="https://www.buymeacoffee.com/sbhunia2909"
+            target="_blank"
+            className="block w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden active:scale-90 hover:scale-110 transition duration-150"
+          >
+            <Image
+              src="https://cdn.dribbble.com/users/3349322/screenshots/14039201/media/616e4ae6995fb288e434c3f0927541ce.png?resize=400x0"
+              layout="fill"
+              objectFit="cover"
+              alt="Buy Me A Coffee"
+              className="rounded-full"
+            />
+          </a>
         </div>
       </footer>
     </>
