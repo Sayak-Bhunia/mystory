@@ -83,11 +83,9 @@ export default function Footer() {
           </p>
         </div>
         {/* Buy me a coffee button */}
-        {/* Buy me a coffee button */}
-        {/* Buy me a coffee button */}
         <div className="fixed bottom-5 right-5 z-10">
-          <a href="https://www.buymeacoffee.com/mohan12" target="_blank">
-            <Image src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height={160} width={160} alt="Buy Me A Coffee" className="" />
+          <a href="https://www.buymeacoffee.com/sbhunia2909" target="_blank" className="block w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden active:scale-90 hover:scale-110 transition duration-150">
+            <Image src="https://cdn.dribbble.com/users/3349322/screenshots/14039201/media/616e4ae6995fb288e434c3f0927541ce.png?resize=400x0" layout="fill" objectFit="cover" alt="Buy Me A Coffee" className='rounded-full' />
           </a>
         </div>
       </footer>
