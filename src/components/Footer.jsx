@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { useState, useEffect } from 'react';
 import { FiInstagram } from 'react-icons/fi';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
@@ -6,6 +6,7 @@ import { FaXTwitter } from 'react-icons/fa6';
 import Image from 'next/image';
 import { format } from 'date-fns';
 import { Open_Sans } from 'next/font/google';
+import styles from './page.module.css';
 
 const openSans = Open_Sans({ subsets: ['latin'] });
 
@@ -24,7 +25,9 @@ const thankyouList = [
 
 export default function Footer() {
   const [currthank, setCurrThank] = useState(thankyouList[0]);
-  const [currentTime, setCurrentTime] = useState(format(new Date(), 'hh:mm:ss a'));
+  const [currentTime, setCurrentTime] = useState(
+    format(new Date(), 'hh:mm:ss a')
+  );
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -68,7 +71,12 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          {currthank}
+          <div className='flex flex-col items-center justify-center text-6xl font-semibold'>
+            <p>
+              {currthank === 'شكراً' && '!'} {currthank}{' '}
+              {currthank !== 'شكراً' && '!'}
+            </p>
+          </div>
         </div>
 
         <div className='pb-16 sm:pb-10'>
@@ -81,12 +89,22 @@ export default function Footer() {
           </p>
         </div>
         {/* Buy me a coffee button */}
-        <div className="fixed bottom-5 right-5 z-10">
-          <a href="https://www.buymeacoffee.com/sbhunia2909" target="_blank" className="block w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden active:scale-90 hover:scale-110 transition duration-150">
-            <Image src="https://cdn.dribbble.com/users/3349322/screenshots/14039201/media/616e4ae6995fb288e434c3f0927541ce.png?resize=400x0" layout="fill" objectFit="cover" alt="Buy Me A Coffee" className='rounded-full' />
+        <div className='fixed bottom-5 right-5 z-10'>
+          <a
+            href='https://www.buymeacoffee.com/sbhunia2909'
+            target='_blank'
+            className='block w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden active:scale-90 hover:scale-110 transition duration-150'
+          >
+            <Image
+              src='https://cdn.dribbble.com/users/3349322/screenshots/14039201/media/616e4ae6995fb288e434c3f0927541ce.png?resize=400x0'
+              layout='fill'
+              objectFit='cover'
+              alt='Buy Me A Coffee'
+              className='rounded-full'
+            />
           </a>
         </div>
       </footer>
     </>
   );
-} 
+}
