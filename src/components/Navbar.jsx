@@ -4,6 +4,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { RxCross1 } from "react-icons/rx";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 
 const NavBar = () => {
   const { data: session } = useSession();
@@ -32,29 +33,29 @@ const NavBar = () => {
         </a>
 
         <div className="justify-center gap-6 hidden lg:flex items-center space-x-4">
-          <a href="/" className={navClass}>
+          <Link href="/" className={navClass}>
             Home
-          </a>
-          <a href="/about" className={navClass}>
+          </Link>
+          <Link href="/about" className={navClass}>
             About
-          </a>
-          <a href="/faqs" className={navClass}>
+          </Link>
+          <Link href="/faqs" className={navClass}>
             FAQs
-          </a>
-          <a href="/epics" className={navClass}>
+          </Link>
+          <Link href="/epics" className={navClass}>
             Share
-          </a>
-          <a href="/schools-of-thought" className={navClass}>
+          </Link>
+          <Link href="/schools-of-thought" className={navClass}>
             Confess
-          </a>
+          </Link>
           {session ? (
-            <a href="/login" className={navClass}>
+            <Link href="/login" className={navClass}>
               {session.user.name}
-            </a>
+            </Link>
           ) : (
-            <a href="/login" className={navClass}>
+            <Link href="/login" className={navClass}>
               Login
-            </a>
+            </Link>
           )}
         </div>
         {!isNavOpen ? (

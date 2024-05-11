@@ -7,7 +7,12 @@ export function SignIn() {
         await signIn("github", { redirectTo: "/" });
       }}
     >
-      <button type="submit">Github</button>
+      <button
+        className="border border-white px-2 py-1 md:px-4 md:py-2 rounded-lg hover:text-black hover:bg-white transition-all duration-300"
+        type="submit"
+      >
+        Github
+      </button>
     </form>
   );
 }
