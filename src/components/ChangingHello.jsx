@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { Open_Sans } from 'next/font/google';
 import React, { useEffect, useState } from 'react';
 
@@ -32,7 +32,9 @@ export default function ChangingHello() {
     };
   }, [currthank]);
   return (
-    <div className={`${openSans.className} flex flex-col items-center justify-center text-6xl font-semibold`}>
+    <div
+      className={`${openSans.className} flex flex-col items-center justify-center text-6xl font-semibold`}
+    >
       <p>
         {currthank === 'شكراً' && '!'} {currthank}{' '}
         {currthank !== 'شكراً' && '!'}

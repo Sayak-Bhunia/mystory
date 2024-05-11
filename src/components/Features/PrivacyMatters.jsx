@@ -4,7 +4,7 @@ import { FaLock } from 'react-icons/fa6';
 export default function PrivacyMatters() {
   return (
     <>
-      <div className='flex flex-col md:flex-row items-center justify-between w-full space-y-16 md:space-y-0 px-8 md:px-36 py-12 md:text-left text-center'>
+      <div className='flex flex-col lg:flex-row-reverse items-center justify-between w-full space-y-16 lg:space-y-0 px-8 md:px-36 py-12 md:text-left text-center'>
         <div className='flex flex-col items-start md:justify-center justify-between md:w-[50%]'>
           <div className='text-3xl lg:text-5xl font-semibold inline-flex space-x-3 items-center justify-center'>
             <h1>Privacy Matters</h1>

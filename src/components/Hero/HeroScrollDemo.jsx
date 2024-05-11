@@ -1,4 +1,3 @@
-import React from 'react';
 import { ContainerScroll } from '@/components/ui/container-scroll-animation';
 import Image from 'next/image';
 
@@ -12,7 +11,7 @@ export default function HeroScrollDemo() {
               <h1 className='text-4xl md:text-4xl lg:text-6xl font-bold text-black dark:text-white animate-pulse mb-6'>
                 Unleash the power of Anonymity
               </h1>
-              <h1 className='font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 pb-6'>
+              <h1 className='font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-fuchsia-600 pb-6'>
                 mystory
               </h1>
               <div className='mt-4'>

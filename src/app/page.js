@@ -1,17 +1,16 @@
 import Footer from '@/components/Footer';
-import HeroScrollDemo from '@/components/HeroScrollDemo';
-import Seamless from '@/components/Seamless';
-import PrivacyMatters from '@/components/PrivacyMatters';
-import TitleSpecial from '@/components/TitleSpecial';
-import ShareEasily from '@/components/ShareEasily';
+import HeroScrollDemo from '@/components/Hero/HeroScrollDemo';
+import TitleSpecial from '@/components/Features/TitleSpecial';
+import Features from '@/components/Features/Features';
+import CallToAction from '@/components/CallToAction';
+
 export default function Home() {
   return (
     <main>
       <HeroScrollDemo />
       <TitleSpecial />
-      <Seamless />
-      <PrivacyMatters />
-      <ShareEasily />
+      <Features />
+      <CallToAction />
       <Footer />
     </main>
   );

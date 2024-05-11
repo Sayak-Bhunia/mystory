@@ -25,7 +25,10 @@ export default function Footer() {
               <a href='/' target='_blank'>
                 <FaLinkedin className='text-white ' />
               </a>
-              <a href='/' target='_blank'>
+              <a
+                href='https://github.com/Sayak-Bhunia/mystory/'
+                target='_blank'
+              >
                 <FaGithub className='text-white ' />
               </a>
             </div>
