@@ -6,6 +6,7 @@ import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import styles from './page.module.css'
 import Image from 'next/image';
+import { format } from 'date-fns';
 
 const openSans = Open_Sans({ subsets: ['latin'] });
 
@@ -24,7 +25,7 @@ const thankyouList = [
 
 export default function Footer() {
   const [currthank, setCurrThank] = useState(thankyouList[0]);
-  const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
+  const [currentTime, setCurrentTime] = useState(format(new Date(), 'hh:mm:ss a'));
 
   useEffect(() => {
     const intervalId = setInterval(() => {
