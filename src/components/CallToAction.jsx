@@ -1,10 +1,11 @@
 import { FaUser } from 'react-icons/fa';
+import Image from 'next/image';
 
 export default function CallToAction() {
   return (
     <div
-    data-aos='flip-up'
-    data-aos-once='true'
+      data-aos='flip-down'
+      data-aos-once='true'
       className='container mx-auto my-24 px-6 sm:px-8 lg:px-10'
     >
       <div className='flex flex-col-reverse md:flex-row justify-center items-center space-x-8 py-8 px-10 lg:py-4 border rounded-lg border-purple-800 bg-purple-950/20'>
@@ -33,9 +34,11 @@ export default function CallToAction() {
             </span>
           </a>
         </div>
-        <img
-          src={'/getStarted.svg'}
-          alt={'getStarted'}
+        <Image
+          src='/getStarted.svg' // Adjust the path to your image file
+          alt='getStarted'
+          width={384} // Adjust the width according to your design (96 * 4)
+          height={288} // Adjust the height according to your design (auto height)
           className='h-auto md:w-96 object-cover'
         />
       </div>

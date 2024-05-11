@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { RxCross1 } from 'react-icons/rx';
 import { motion } from 'framer-motion';
-import smNavClass from '@/utils/smnavClass';
+import smNavClass from '@/utils/smNavClass';
 import navClass from '@/utils/navClass';
 
 const NavBar = () => {

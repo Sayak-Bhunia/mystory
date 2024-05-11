@@ -1,5 +1,6 @@
 import { PinContainer } from '@/components/ui/3d-pin';
 import { BsFillShareFill } from 'react-icons/bs';
+import Image from 'next/image';
 
 export default function ShareEasily() {
   return (
@@ -32,9 +33,11 @@ export default function ShareEasily() {
             <div className='text-base !m-0 !p-0 font-normal'>
               <span className='text-slate-500 '>My dog step on a bee~! 🐝</span>
             </div>
-            <img
+            <Image
               src='/share.svg'
               alt='getStarted'
+              width={500}
+              height={200}
               className='flex flex-1 w-full h-[14rem] object-conver rounded-lg py-4 bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500'
             />
           </div>

@@ -4,7 +4,6 @@ import axios from 'axios';
 
 const LocationDisplay = () => {
   const [city, setCity] = useState(null);
-  const [country, setCountry] = useState(null);
 
   useEffect(() => {
     const getLocation = async () => {
@@ -38,7 +37,7 @@ const LocationDisplay = () => {
   }, []);
 
   if (city) {
-    return <span>Near To {city}</span>;
+    return <span>Near: {city}</span>;
   } else {
     return <span>Loading...</span>;
   }
