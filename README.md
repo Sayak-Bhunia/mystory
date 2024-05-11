@@ -16,6 +16,8 @@ MyStory aims to provide a platform where individuals can share their stories wit
 - Markdown Support: Write your stories using Markdown for easy formatting.
 - Responsive Design: MyStory is designed to be responsive, ensuring a seamless experience across devices.
 
+![MyStory Flowchart](/public/flowchart.png)
+
 ## Feel free to Contribute
 
 To get started with MyStory, follow these steps:
