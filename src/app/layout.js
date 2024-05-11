@@ -3,6 +3,12 @@ import { Inter } from "next/font/google";
 import NavBar from "@/components/Navbar";
 const inter = Inter({ subsets: ["latin"] });
 import SessionWrapper from "@/components/SessionWrapper";
+// =======
+import "./globals.css";
+
+import { Plus_Jakarta_Sans } from "next/font/google";
+
+// >>>>>>> c39496839c93e4ca35d284dac050663c83055a30
 export const metadata = {
   title: "mystory | share your stories anonymously",
   description:
@@ -45,5 +51,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-
-//

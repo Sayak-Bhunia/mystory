@@ -1,12 +1,12 @@
-// <<<<<<< HEAD
 "use client";
-import { Open_Sans } from "next/font/google";
-import React, { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { FiInstagram } from "react-icons/fi";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import Image from "next/image";
+import { format } from "date-fns";
+import { Open_Sans } from "next/font/google";
 import styles from "./page.module.css";
-// =======
 
 // import { Open_Sans } from 'next/font/google';
 // import React, { useEffect, useState } from 'react';
@@ -14,8 +14,7 @@ import styles from "./page.module.css";
 // import { FaLinkedin, FaGithub } from 'react-icons/fa';
 // import { FaXTwitter } from 'react-icons/fa6';
 // import styles from './page.module.css'
-import Image from "next/image";
-import { format } from "date-fns";
+
 // >>>>>>> 562b3bb2062247de32d6d1456426563f43323788
 
 const openSans = Open_Sans({ subsets: ["latin"] });
@@ -35,12 +34,9 @@ const thankyouList = [
 
 export default function Footer() {
   const [currthank, setCurrThank] = useState(thankyouList[0]);
-  // <<<<<<< HEAD1
-  // =======
   const [currentTime, setCurrentTime] = useState(
     format(new Date(), "hh:mm:ss a")
   );
-  // >>>>>>> 562b3bb2062247de32d6d1456426563f43323788
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -56,7 +52,7 @@ export default function Footer() {
 
   return (
     <>
-      <footer className={openSans.className}>
+      <footer>
         <div className="flex flex-col-reverse items-center justify-between space-y-8 md:space-y-0 md:grid md:grid-cols-2 py-12 border-t border-neutral-600">
           <div className="flex flex-col items-center justify-between pt-16 md:pt-0">
             <h2 className="text-4xl md:text-6xl font-bold text-center md:text-left pb-2">
@@ -75,7 +71,10 @@ export default function Footer() {
               <a href="/" target="_blank">
                 <FaLinkedin className="text-white " />
               </a>
-              <a href="/" target="_blank">
+              <a
+                href="https://github.com/Sayak-Bhunia/mystory/"
+                target="_blank"
+              >
                 <FaGithub className="text-white " />
               </a>
             </div>
