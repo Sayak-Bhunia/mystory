@@ -1,6 +1,3 @@
-'use client'
-import { Open_Sans } from 'next/font/google';
-import React, { useEffect, useState } from 'react';
 import { FiInstagram } from 'react-icons/fi';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
@@ -42,7 +39,7 @@ export default function Footer() {
 
   return (
     <>
-      <footer className={openSans.className}>
+      <footer>
         <div className='flex flex-col-reverse items-center justify-between space-y-8 md:space-y-0 md:grid md:grid-cols-2 py-12 border-t border-neutral-600'>
           <div className='flex flex-col items-center justify-between pt-16 md:pt-0'>
             <h2 className='text-4xl md:text-6xl font-bold text-center md:text-left pb-2'>
@@ -61,17 +58,15 @@ export default function Footer() {
               <a href='/' target='_blank'>
                 <FaLinkedin className='text-white ' />
               </a>
-              <a href='/' target='_blank'>
+              <a
+                href='https://github.com/Sayak-Bhunia/mystory/'
+                target='_blank'
+              >
                 <FaGithub className='text-white ' />
               </a>
             </div>
           </div>
-          <div className='flex flex-col items-center justify-center text-6xl font-semibold'>
-            <p>
-              {currthank === 'شكراً' && '!'} {currthank}{' '}
-              {currthank !== 'شكراً' && '!'}
-            </p>
-          </div>
+          <ChangingHello />
         </div>
 
         <div className='pb-16 sm:pb-10'>
