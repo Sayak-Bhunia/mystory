@@ -9,9 +9,9 @@
 
 @media (max-width: 768px) {
     .main {
-        height: 80vh; 
-        margin-bottom: 80vh; 
-        padding-bottom: 10vh; 
+        height: 80vh;
+        margin-bottom: 80vh;
+        padding-bottom: 10vh;
     }
 }
 
@@ -30,4 +30,29 @@
 
 .body span {
     opacity: 0.2;
+}
+
+/* Glowing Circle */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00, 0 0 20px #00ff00;
+    }
+
+    50% {
+        box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+    }
+
+    100% {
+        box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00, 0 0 20px #00ff00;
+    }
+}
+
+.glow-circle {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #00ff00;
+    border-radius: 50%;
+    margin-right: 5px;
+    animation: glow 2s infinite;
 }

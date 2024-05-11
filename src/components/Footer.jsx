@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { FiInstagram } from 'react-icons/fi';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
+import styles from './page.module.css'
 
 const openSans = Open_Sans({ subsets: ['latin'] });
 
@@ -76,6 +77,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} mystory. All rights reserved.
           </p>
           <p className='text-center text-neutral-400 text-lg font-bold'>
+            <span className={styles['glow-circle']}></span>
             <span className='text-neutral-500'>{currentTime}</span>
           </p>
         </div>
