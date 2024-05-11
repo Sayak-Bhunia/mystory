@@ -5,8 +5,11 @@ import { RxCross1 } from "react-icons/rx";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-
+import { SignOut } from "./Sign-out-button";
+import { useRouter } from "next/navigation";
+import { SignIn } from "./Sign-in-button";
 const NavBar = () => {
+  const router = useRouter();
   const { data: session } = useSession();
   const [isNavOpen, setIsNavOpen] = useState(false);
 
@@ -27,6 +30,7 @@ const NavBar = () => {
 
   return (
     <div className="border-b border-b-neutral-500">
+      {session && <p>{session.user.name}</p>}
       <div className="mx-8 lg:mx-20 flex justify-between items-center py-8 md:py-10">
         <a href="/" className="text-4xl font-bold">
           mystory
@@ -48,15 +52,7 @@ const NavBar = () => {
           <Link href="/schools-of-thought" className={navClass}>
             Confess
           </Link>
-          {session ? (
-            <Link href="/login" className={navClass}>
-              {session.user.name}
-            </Link>
-          ) : (
-            <Link href="/login" className={navClass}>
-              Login
-            </Link>
-          )}
+          {session ? <SignOut /> : <SignIn />}
         </div>
         {!isNavOpen ? (
           <AiOutlineMenu
