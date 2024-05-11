@@ -59,6 +59,7 @@ const NavBar = () => {
               </span>
             </span>
           </a>
+          {session ? <SignOut /> : <SignIn />}
         </div>
         {!isNavOpen ? (
           <AiOutlineMenu

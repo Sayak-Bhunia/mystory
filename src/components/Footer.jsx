@@ -87,17 +87,14 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* <<<<<<< HEAD */}
         <div className="pb-8">
           <p className="text-sm text-neutral-400 text-center">
             &copy; mystory. All rights reserved.
-            {/* ======= */}
           </p>
         </div>
         <div className="pb-16 sm:pb-10">
           <p className="text-sm text-neutral-400 text-center">
             &copy; {new Date().getFullYear()} mystory. All rights reserved.
-            {/* >>>>>>> 562b3bb2062247de32d6d1456426563f43323788 */}
           </p>
           <p className="text-center text-neutral-400 text-lg font-bold">
             <span className={styles["glow-circle"]}></span>
