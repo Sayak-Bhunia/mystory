@@ -22,8 +22,8 @@ const NavBar = () => {
   my-2 hover:w-[90%]`;
 
   return (
-    <div className='border-b border-b-neutral-500'>
-      <div className='mx-8 lg:mx-20 flex justify-between items-center py-8 md:py-10'>
+    <div className='border-b border-b-neutral-700 fixed top-0 left-0 right-0 bg-black backdrop-blur-lg bg-opacity-40 z-50'>
+      <div className='mx-8 lg:mx-20 flex justify-between items-center py-4 md:py-8'>
         <a href='/' className='text-4xl font-bold'>
           mystory
         </a>
