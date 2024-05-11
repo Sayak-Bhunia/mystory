@@ -7,7 +7,7 @@ import { FaUser } from 'react-icons/fa';
 export default function CallToAction() {
   useEffect(() => {
     AOS.init({
-      duration: 2000,
+      duration: 1000,
       once: false,
     });
   }, []);
@@ -15,7 +15,7 @@ export default function CallToAction() {
   return (
     <div
       data-aos='flip-up'
-      data-aos-duration='3000'
+      data-aos-duration='1000'
       className='container mx-auto my-24 px-6 sm:px-8 lg:px-10'
     >
       <div className='flex flex-col-reverse md:flex-row justify-center items-center space-x-8 py-8 px-10 lg:py-4 border rounded-lg border-purple-800 bg-purple-950/20'>
