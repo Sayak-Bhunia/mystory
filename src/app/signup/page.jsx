@@ -6,7 +6,7 @@ export default function Page() {
   // const { data: session } = useSession();
   return (
     <div className=" h-[90vh] mx-auto flex flex-col items-center justify-center  ">
-      <div className="w-[90vw] max-w-4xl  flex flex-col h-[80vh] gap-2 md:gap-4 items-center justify-center border border-white">
+      <div className="w-[90vw] max-w-4xl  flex flex-col h-[80vh] gap-2 md:gap-4 items-center justify-center border border-pink-200 hover:shadow-md hover:shadow-pink-400 transition-all duration-300">
         <div className="flex flex-col items-center justify-center">
           <h1 className="text-3xl md:text-5xl font-bold">Login to mystory</h1>
           <p className="text-xs md:text-sm  font-light">
