@@ -5,6 +5,7 @@ import { FiInstagram } from 'react-icons/fi';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import styles from './page.module.css'
+import Image from 'next/image';
 
 const openSans = Open_Sans({ subsets: ['latin'] });
 
@@ -72,7 +73,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className='pb-8'>
+        <div className='pb-16 sm:pb-10'>
           <p className='text-sm text-neutral-400 text-center'>
             &copy; {new Date().getFullYear()} mystory. All rights reserved.
           </p>
@@ -81,7 +82,15 @@ export default function Footer() {
             <span className='text-neutral-500'>{currentTime}</span>
           </p>
         </div>
+        {/* Buy me a coffee button */}
+        {/* Buy me a coffee button */}
+        {/* Buy me a coffee button */}
+        <div className="fixed bottom-5 right-5 z-10">
+          <a href="https://www.buymeacoffee.com/mohan12" target="_blank">
+            <Image src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height={160} width={160} alt="Buy Me A Coffee" className="" />
+          </a>
+        </div>
       </footer>
     </>
   );
-}
+} 
