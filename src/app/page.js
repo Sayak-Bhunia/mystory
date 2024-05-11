@@ -1,22 +1,16 @@
-'use client'
-import Content from "@/components/Content";
-import Header from "@/components/Header";
 import Footer from '@/components/Footer';
-import { useEffect } from "react";
+import HeroScrollDemo from '@/components/Hero/HeroScrollDemo';
+import TitleSpecial from '@/components/Features/TitleSpecial';
+import Features from '@/components/Features/Features';
+import CallToAction from '@/components/CallToAction';
 
 export default function Home() {
-  useEffect(()=>{
-    (async ()=>{
-      const LocomotiveScroll =(await import('locomotive-scroll')).default;
-      const locomotive = new LocomotiveScroll();
-    })
-  })
-
-
   return (
     <main>
-      <Header />
-      <Content />
+      <HeroScrollDemo />
+      <TitleSpecial />
+      <Features />
+      <CallToAction />
       <Footer />
     </main>
   );

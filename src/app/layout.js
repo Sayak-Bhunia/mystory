@@ -1,7 +1,8 @@
 import './globals.css';
-import { Inter } from 'next/font/google';
 import NavBar from '@/components/Navbar';
-const inter = Inter({ subsets: ['latin'] });
+
+import { Plus_Jakarta_Sans } from 'next/font/google';
+const inter = Plus_Jakarta_Sans({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'mystory | share your stories anonymously',
@@ -34,12 +35,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className={`${inter.className} dark:bg-[#1d1d1d] dark:text-white text-black bg-white`}>
+      <body
+        className={`${inter.className} dark:bg-[#030303] dark:text-white text-black bg-white`}
+      >
         <NavBar />
         <div>{children}</div>
       </body>
     </html>
   );
 }
-
-// 
