@@ -8,10 +8,10 @@ export default function HeroScrollDemo() {
         titleComponent={
           <>
             <div className='mb-16'>
-              <h1 className='text-4xl md:text-4xl lg:text-6xl font-bold text-black dark:text-white animate-pulse mb-6'>
+              <h1 className='text-3xl sm:text-4xl lg:text-6xl font-bold text-black dark:text-white animate-pulse mb-6'>
                 Unleash the power of Anonymity
               </h1>
-              <h1 className='font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-fuchsia-600 pb-6'>
+              <h1 className='font-extrabold text-transparent text-7xl sm:text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-fuchsia-600 pb-6'>
                 mystory
               </h1>
               <div className='mt-4'>
