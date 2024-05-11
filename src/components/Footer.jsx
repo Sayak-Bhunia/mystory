@@ -31,15 +31,14 @@ export default function Footer() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
+      const currentDateTime = new Date();
+      setCurrentTime(format(currentDateTime, 'hh:mm:ss a'));
       const currentIndex = thankyouList.indexOf(currthank);
       const nextIndex = (currentIndex + 1) % thankyouList.length;
       setCurrThank(thankyouList[nextIndex]);
-      setCurrentTime(new Date().toLocaleTimeString());
     }, 1500);
 
-    return () => {
-      clearInterval(intervalId);
-    };
+    return () => clearInterval(intervalId);
   }, [currthank]);
 
   return (
@@ -79,30 +78,14 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className='pb-16 sm:pb-10'>
-          <p className='text-sm text-neutral-400 text-center'>
+        <div className='pb-16 sm:pb-10 flex flex-col items-center justify-center'>
+          <p className='text-sm text-neutral-400 text-center py-2'>
             &copy; {new Date().getFullYear()} mystory. All rights reserved.
           </p>
-          <p className='text-center text-neutral-400 text-lg font-bold'>
+          <p className='text-center text-neutral-400 text-lg font-bold inline-flex items-center justify-center'>
             <span className={styles['glow-circle']}></span>
-            <span className='text-neutral-500'>{currentTime}</span>
+            <span className='text-neutral-500 pl-2'>{currentTime}</span>
           </p>
-        </div>
-        {/* Buy me a coffee button */}
-        <div className='fixed bottom-5 right-5 z-10'>
-          <a
-            href='https://www.buymeacoffee.com/sbhunia2909'
-            target='_blank'
-            className='block w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden active:scale-90 hover:scale-110 transition duration-150'
-          >
-            <Image
-              src='https://cdn.dribbble.com/users/3349322/screenshots/14039201/media/616e4ae6995fb288e434c3f0927541ce.png?resize=400x0'
-              layout='fill'
-              objectFit='cover'
-              alt='Buy Me A Coffee'
-              className='rounded-full'
-            />
-          </a>
         </div>
       </footer>
     </>
