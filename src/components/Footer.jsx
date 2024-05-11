@@ -1,9 +1,11 @@
+'use client'
+import { useState, useEffect } from 'react';
 import { FiInstagram } from 'react-icons/fi';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
-import styles from './page.module.css'
 import Image from 'next/image';
 import { format } from 'date-fns';
+import { Open_Sans } from 'next/font/google';
 
 const openSans = Open_Sans({ subsets: ['latin'] });
 
@@ -66,7 +68,7 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          <ChangingHello />
+          {currthank}
         </div>
 
         <div className='pb-16 sm:pb-10'>

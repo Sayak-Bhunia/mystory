@@ -5,14 +5,6 @@ import Features from '@/components/Features/Features';
 import CallToAction from '@/components/CallToAction';
 
 export default function Home() {
-  useEffect(()=>{
-    (async ()=>{
-      const LocomotiveScroll =(await import('locomotive-scroll')).default;
-      const locomotive = new LocomotiveScroll();
-    })
-  })
-
-
   return (
     <main>
       <HeroScrollDemo />
