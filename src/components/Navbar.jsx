@@ -6,10 +6,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { SignOut } from "./Sign-out-button";
-import { useRouter } from "next/navigation";
+
 import { SignIn } from "./Sign-in-button";
 const NavBar = () => {
-  const router = useRouter();
   const { data: session } = useSession();
   const [isNavOpen, setIsNavOpen] = useState(false);
 
@@ -70,21 +69,22 @@ const NavBar = () => {
       {isNavOpen && ( // Render the navigation links if isNavOpen is true
         <motion.div whileInView={{ opacity: 1 }} initial={{ opacity: 0 }}>
           <div className="flex flex-col lg:hidden justify-center items-center m-4">
-            <a href="/" className={smNavClass}>
+            <Link href="/" className={smNavClass}>
               Home
-            </a>
-            <a href="/about" className={smNavClass}>
+            </Link>
+            <Link href="/about" className={smNavClass}>
               About
-            </a>
-            <a href="/faqs" className={smNavClass}>
+            </Link>
+            <Link href="/faqs" className={smNavClass}>
               FAQs
-            </a>
-            <a href="/share" className={smNavClass}>
+            </Link>
+            <Link href="/share" className={smNavClass}>
               Share
-            </a>
-            <a href="/confess" className={smNavClass}>
+            </Link>
+            <Link href="/confess" className={smNavClass}>
               Confess
-            </a>
+            </Link>
+            {session ? <SignOut /> : <SignIn />}
           </div>
         </motion.div>
       )}
