@@ -7,13 +7,17 @@ import { FaUser } from 'react-icons/fa';
 export default function CallToAction() {
   useEffect(() => {
     AOS.init({
-      duration: 1000,
+      duration: 2000,
       once: false,
     });
   }, []);
 
   return (
-    <div className='container mx-auto my-24 px-6 sm:px-8 lg:px-10'>
+    <div
+      data-aos='flip-up'
+      data-aos-duration='3000'
+      className='container mx-auto my-24 px-6 sm:px-8 lg:px-10'
+    >
       <div className='flex flex-col-reverse md:flex-row justify-center items-center space-x-8 py-8 px-10 lg:py-4 border rounded-lg border-purple-800 bg-purple-950/20'>
         <div className='flex flex-col items-center justify-center'>
           <h1 className='text-3xl text-justify md:text-center md:text-5xl font-bold text-white'>

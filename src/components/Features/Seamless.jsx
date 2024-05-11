@@ -1,10 +1,23 @@
+'use client';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { CardStack } from '@/components/ui/card-stack';
 import { TiFlowSwitch } from 'react-icons/ti';
 
 export default function Seamless() {
+  useEffect(() => {
+    AOS.init({
+      duration: 2000,
+      once: false,
+    });
+  }, []);
   return (
-    <div className='flex flex-col lg:flex-row items-center justify-between w-full 
-    space-x-6 space-y-16 lg:space-y-0 px-8 sm:px-20 md:px-28 py-12 md:text-left text-center'>
+    <div
+      data-aos='fade-left'
+      className='flex flex-col lg:flex-row items-center justify-between w-full 
+    space-x-6 space-y-16 lg:space-y-0 px-8 sm:px-20 md:px-28 py-12 md:text-left text-center'
+    >
       <div className='flex flex-col items-center sm:items-start md:justify-center justify-between  md:w-[60%]'>
         <div className='text-3xl lg:text-5xl font-semibold inline-flex space-x-3 items-center justify-center'>
           <h1>Seamless Experience</h1>
