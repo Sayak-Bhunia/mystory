@@ -3,7 +3,7 @@ import { FaUser } from 'react-icons/fa';
 export default function CallToAction() {
   return (
     <div
-    data-aos='fade-in'
+    data-aos='flip-up'
     data-aos-once='true'
       className='container mx-auto my-24 px-6 sm:px-8 lg:px-10'
     >
@@ -41,34 +41,4 @@ export default function CallToAction() {
       </div>
     </div>
   );
-}
-
-{
-  /* <div className='flex flex-col items-center justify-center'>
-          <h1 className='text-5xl'>Contributor</h1>
-          <p className='w-[60%] text-center mt-4 font-extralight'>
-            Get Started with sharing your confessions which you were keeping
-            since so long
-          </p>
-          <div
-            data-aos='fade-in'
-            className='flex flex-col items-center justify-between sm:justify-center rounded-lg sm:mx-4'
-          >
-            <img
-              src={'/developer.svg'}
-              alt={'developer '}
-              className='h-auto w-96 object-cover'
-            />
-            <a
-              href='https://github.com/Sayak-Bhunia/mystory/'
-              target='_blank'
-              className='bg-neutral-700 hover:bg-neutral-800  text-white font-bold py-2 px-6 rounded-md text-lg '
-            >
-              <div className='flex items-center justify-between space-x-2'>
-                <h1>Visit Repository</h1>
-                <FaGithub />
-              </div>
-            </a>
-          </div>
-        </div> */
 }
