@@ -1,6 +1,6 @@
 import './globals.css';
 import NavBar from '@/components/Navbar';
-
+import Footer from '@/components/Footer/Footer';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 const inter = Plus_Jakarta_Sans({ subsets: ['latin'] });
 
@@ -40,6 +40,7 @@ export default function RootLayout({ children }) {
       >
         <NavBar />
         <div>{children}</div>
+        <Footer />
       </body>
     </html>
   );

@@ -9,7 +9,7 @@ export default function PrivacyMatters() {
         data-aos-easing='linear'
         data-aos-duration='1500'
         className='flex flex-col lg:flex-row-reverse items-center justify-between w-full 
-       space-y-16 lg:space-y-0 px-8 sm:px-20 md:px-28 py-12 md:text-left text-center'
+       space-y-16 lg:space-y-0 px-8 sm:px-20 md:px-8 py-12 md:text-left text-center'
       >
         <div className='flex flex-col items-center sm:items-start lg:justify-center justify-between lg:w-[50%] ml-4 '>
           <div className='text-3xl lg:text-5xl font-semibold inline-flex space-x-3 items-center justify-center'>
@@ -22,7 +22,7 @@ export default function PrivacyMatters() {
           </p>
         </div>
 
-        <div className='border border-black/[0.2] dark:border-white/[0.2] bg-black flex flex-col items-start p-4 relative'>
+        <div className='border border-black/[0.2] dark:border-white/[0.2] bg-purple-100 dark:bg-black flex flex-col items-start p-4 relative'>
           <Icon className='absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black' />
           <Icon className='absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black' />
           <Icon className='absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black' />
