@@ -30,9 +30,9 @@ const Confess = () => {
   };
 
   return (
-    <div className='py-32 h-fit bg-neutral-900 text-white flex flex-col-reverse lg:flex-row justify-center items-center'>
+    <div className='py-32 h-fit  dark:bg-neutral-800 flex flex-col-reverse lg:flex-row justify-center items-center'>
       <Toaster />
-      <div className='max-w-sm lg:max-w-md w-full bg-neutral-800 p-8 rounded-lg shadow-lg'>
+      <div className='max-w-sm lg:max-w-md w-full bg-neutral-100 dark:bg-neutral-800 p-8 rounded-lg shadow-lg'>
         <h2 className='text-2xl font-bold mb-6'>Confess Anonymously</h2>
         <form onSubmit={handleSubmit}>
           <div className='mb-4'>
@@ -44,13 +44,13 @@ const Confess = () => {
               id='username'
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className='w-full px-3 py-2 bg-neutral-700 rounded-lg focus:outline-none focus:ring focus:border-neutral-400'
+              className='w-full px-3 py-2 bg-neutral-200 dark:bg-neutral-700 rounded-lg focus:outline-none focus:ring focus:border-neutral-400'
               required
             />
           </div>
           <button
             type='submit'
-            className='w-full bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-lg flex items-center justify-center'
+            className='w-full text-white bg-purple-500 hover:bg-purple-600 font-bold py-2 px-4 rounded-lg flex items-center justify-center'
             disabled={isLoading}
           >
             {isLoading ? 'Loading...' : 'Fetch Confessions'}

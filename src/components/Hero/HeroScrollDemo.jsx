@@ -16,7 +16,7 @@ export default function HeroScrollDemo() {
               </h1>
               <div className='mt-4'>
                 <span
-                  className={`font-mono bg-[#313131] text-[#d9d9d9] font-semibold py-2 px-3 rounded-lg`}
+                  className={`font-mono dark:bg-[#313131] bg-[#d1d1d1] dark:text-[#d9d9d9] font-semibold py-2 px-3 rounded-lg`}
                 >
                   A way to share stories anonymously.
                 </span>

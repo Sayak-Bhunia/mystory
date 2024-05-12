@@ -39,7 +39,7 @@ const Confess = () => {
   };
 
   return (
-    <div className='py-32 h-fit bg-neutral-900 text-white flex flex-col-reverse lg:flex-row justify-center items-center'>
+    <div className='py-32 h-fit dark:bg-neutral-900  flex flex-col-reverse lg:flex-row justify-center items-center'>
       <Toaster />
       <Image
         src={'/confess.svg'}
@@ -48,7 +48,7 @@ const Confess = () => {
         width={700}
         height={700}
       />
-      <div className='max-w-sm lg:max-w-md w-full bg-neutral-800 p-8 rounded-lg shadow-lg'>
+      <div className='max-w-sm lg:max-w-md w-full bg-neutral-100 dark:bg-neutral-800 p-8 rounded-lg shadow-lg'>
         <h2 className='text-2xl font-bold mb-6'>Confess Anonymously</h2>
         <form onSubmit={handleSubmit}>
           <div className='mb-4'>
@@ -60,7 +60,7 @@ const Confess = () => {
               id='username'
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className='w-full px-3 py-2 bg-neutral-700 rounded-lg focus:outline-none focus:ring focus:border-neutral-400'
+              className='w-full px-3 py-2 bg-neutral-200 dark:bg-neutral-700 rounded-lg focus:outline-none focus:ring focus:border-neutral-400'
               required
             />
           </div>
@@ -73,7 +73,7 @@ const Confess = () => {
               value={confessContent}
               onChange={(e) => setConfessContent(e.target.value)}
               rows='4'
-              className='w-full px-3 py-2 bg-neutral-700 rounded-lg focus:outline-none focus:ring focus:border-neutral-400'
+              className='w-full px-3 py-2 bg-neutral-200 dark:bg-neutral-700 rounded-lg focus:outline-none focus:ring focus:border-neutral-400'
               required
             ></textarea>
           </div>
