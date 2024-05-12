@@ -21,16 +21,16 @@ const Sample = () => {
               A way to share stories anonymously.
             </p>
             <div className='flex mt-4 space-x-4 items-center justify-center md:items-start md:justify-start'>
-              <a href='/' target='_blank'>
+              <a href='https://twitter.com/girlscriptsoc' target='_blank'>
                 <FaXTwitter className='text-white ' />
               </a>
-              <a href='/' target='_blank'>
+              <a href='https://www.instagram.com/raw_shots29/' target='_blank'>
                 <FiInstagram className='text-white ' />
               </a>
-              <a href='/' target='_blank'>
+              <a href='https://www.linkedin.com/in/sayak-bhunia-452419252/' target='_blank'>
                 <FaLinkedin className='text-white ' />
               </a>
-              <a href='/' target='_blank'>
+              <a href='https://github.com/Sayak-Bhunia/mystory/' target='_blank'>
                 <FaGithub className='text-white ' />
               </a>
             </div>
