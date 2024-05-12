@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { RxCross1 } from 'react-icons/rx';
 import { motion } from 'framer-motion';
-import smNavClass from '@/utils/smNavClass';
-import navClass from '@/utils/navClass';
 
 const NavBar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -12,6 +10,16 @@ const NavBar = () => {
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
+
+  const smNavClass = `py-1 w-full rounded-full border 
+  border-[#616161] hover:border-[#191919] text-center
+  hover:bg-[#F1F5F9] hover:text-black transform transition-all duration-300 font-semibold 
+  my-2 hover:w-[90%]`;
+
+  const navClass = `py-1  rounded-full border 
+  border-[#616161] hover:border-[#191919]
+  hover:bg-[#F1F5F9] hover:text-black transform transition-all duration-300 font-semibold 
+  my-2  px-10 hover:px-6`;
 
   return (
     <div className='border-b border-b-neutral-700 fixed top-0 left-0 right-0 bg-black backdrop-blur-lg bg-opacity-60 z-50'>
