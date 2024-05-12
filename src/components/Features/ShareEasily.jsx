@@ -8,7 +8,7 @@ export default function ShareEasily() {
       data-aos='fade-up'
       data-aos-once='true'
       className='flex flex-col lg:flex-row items-center justify-between w-full 
-    space-x-6 space-y-16 lg:space-y-0 px-8 sm:px-20 md:px-28 py-12 md:text-left text-center'
+    space-x-2 space-y-16 lg:space-y-0 px-8 sm:px-20 md:px-28 py-12 md:text-left text-center'
     >
       <div className='flex flex-col items-center sm:items-start lg:justify-center justify-between lg:w-[50%] '>
         <div className='text-3xl lg:text-5xl font-semibold inline-flex space-x-3 items-center justify-center'>
