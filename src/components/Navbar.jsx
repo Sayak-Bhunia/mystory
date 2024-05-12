@@ -38,8 +38,8 @@ const NavBar = () => {
           <a href='/faqs' className={navClass}>
             FAQs
           </a>
-          <a href='/share' className={navClass}>
-            Share
+          <a href='/search' className={navClass}>
+            Search
           </a>
           <a
             href='/confess'
@@ -80,8 +80,8 @@ const NavBar = () => {
             <a href='/faqs' className={smNavClass}>
               FAQs
             </a>
-            <a href='/share' className={smNavClass}>
-              Share
+            <a href='/search' className={smNavClass}>
+              Search
             </a>
             <a
               href='/confess'
