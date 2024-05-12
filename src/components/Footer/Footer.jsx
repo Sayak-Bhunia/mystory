@@ -40,7 +40,7 @@ const Sample = () => {
 
         <div className='pb-8'>
           <p className='text-sm text-neutral-400 text-center'>
-            &copy; {new Date().getFullYear()} mystor | All rights reserved.
+            &copy; {new Date().getFullYear()} mystory | All rights reserved.
           </p>
           <p className='text-center text-neutral-400 text-lg font-bold space-x-2 mt-2'>
             <LocationDisplay />
