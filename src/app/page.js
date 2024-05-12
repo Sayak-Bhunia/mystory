@@ -4,15 +4,17 @@ import TitleSpecial from '@/components/Features/TitleSpecial';
 import Features from '@/components/Features/Features';
 import CallToAction from '@/components/CallToAction';
 import BuyMeACoffee from '@/components/BuyMeACoffee';
-
+import Background from '@/components/Background';
 export default function Home() {
   return (
     <main>
-      <HeroScrollDemo />
-      <TitleSpecial />
-      <Features />
+      <Background>
+        <HeroScrollDemo />
+        <TitleSpecial />
+        <Features />
+        <BuyMeACoffee />
+      </Background>
       <CallToAction />
-      <BuyMeACoffee />
       <Footer />
     </main>
   );
