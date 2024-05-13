@@ -14,18 +14,14 @@ export async function GET(req) {
     if (!username) {
       return NextResponse.json(
         { message: 'Please provide a username' },
-        { status: 404 }
+        { status: 404 },
       );
     }
     console.log(startDate);
     console.log(endDate);
 
-
-    if(startDate ===  null  && endDate === null) {
-      return NextResponse.json(
-        { message: 'mention dates' },
-        { status: 411 }
-      );
+    if (startDate === null && endDate === null) {
+      return NextResponse.json({ message: 'mention dates' }, { status: 411 });
     }
 
     const user = await User.findOne({ username });
@@ -46,7 +42,7 @@ export async function GET(req) {
     if (confessions.length === 0) {
       return NextResponse.json(
         { message: 'No confessions found' },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
@@ -55,7 +51,7 @@ export async function GET(req) {
     console.log('Error fetching confessions:', error.message);
     return NextResponse.json(
       { message: 'An error occurred while fetching confessions' },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

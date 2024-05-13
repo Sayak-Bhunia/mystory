@@ -10,10 +10,10 @@ MyStory aims to provide a platform where individuals can share their stories wit
 
 ## Features
 
--   Anonymous Story Sharing: Users can share their personal experiences and stories without disclosing their identities.
--   Next.js Blog Template: Built with Next.js, MyStory serves as a flexible and customizable blog template.
--   Markdown Support: Write your stories using Markdown for easy formatting.
--   Responsive Design: MyStory is designed to be responsive, ensuring a seamless experience across devices.
+- Anonymous Story Sharing: Users can share their personal experiences and stories without disclosing their identities.
+- Next.js Blog Template: Built with Next.js, MyStory serves as a flexible and customizable blog template.
+- Markdown Support: Write your stories using Markdown for easy formatting.
+- Responsive Design: MyStory is designed to be responsive, ensuring a seamless experience across devices.
 
 ![MyStory Flowchart](/public/gssoc.png)
 
@@ -22,28 +22,35 @@ MyStory aims to provide a platform where individuals can share their stories wit
 To get started with MyStory, follow these steps:
 
 1. **Clone the Repository**: Clone the MyStory repository to your local machine.
-    ```bash
-    git clone https://github.com/yourusername/mystory.git
-    ```
+   ```bash
+   git clone https://github.com/yourusername/mystory.git
+   ```
 2. **Navigate to the Project Directory**: Change directory to the cloned repository.
-    ```bash
-    cd mystory
-    ```
+   ```bash
+   cd mystory
+   ```
 3. **Copy Environment Variables**: Copy Environment Variables to ".env".
-    ```bash
-    cp .env.example .env
-    ```
+   ```bash
+   cp .env.example .env
+   ```
+4. Make your changes and commit them (`git commit -am 'Add some fooBar'`).
+   > Make sure to lint and format your code before commiting
+   >
+   > - `npm run lint:check` to check for lint errors
+   > - `npm run lint:fix` to fix lint errors
+   > - `npm run format:check` to format the code
+   > - `npm run format:fix` to fix the formatting
 
 ### Using Local Server
 
 4. **Install Dependencies**: Install the necessary dependencies using npm.
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 5. **Run the Development Server**: Start the Next.js development server.
-    ```bash
-    npm run dev
-    ```
+   ```bash
+   npm run dev
+   ```
 
 ### Using Docker
 
@@ -61,4 +68,4 @@ Open your browser and navigate to [http://localhost:3000](http://localhost:3000)
 
 ## Maintainers
 
--   [xenotron](https://github.com/Sayak-Bhunia)
+- [xenotron](https://github.com/Sayak-Bhunia)

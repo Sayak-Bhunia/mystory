@@ -14,7 +14,7 @@ const LocationDisplay = () => {
             const apikey = '1cUpOJgSV9g2hZU3wEAwufl2IUqfaeO0OC9qkoG-Ol4';
             try {
               const response = await axios.get(
-                `https://revgeocode.search.hereapi.com/v1/revgeocode?at=${latitude},${longitude}&apiKey=${apikey}`
+                `https://revgeocode.search.hereapi.com/v1/revgeocode?at=${latitude},${longitude}&apiKey=${apikey}`,
               );
               const addressComponents = response.data.items[0].address;
               const cityName = addressComponents.city;

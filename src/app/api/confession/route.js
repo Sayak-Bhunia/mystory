@@ -13,7 +13,7 @@ export async function POST(req) {
     if (!username || !confessionContent) {
       return NextResponse.json(
         { message: 'Please fill all fields' },
-        { status: 411 }
+        { status: 411 },
       );
     }
 
@@ -32,7 +32,7 @@ export async function POST(req) {
     await confession.save();
     await User.updateOne(
       { _id: user._id },
-      { $push: { confessions: confession._id } }
+      { $push: { confessions: confession._id } },
     );
 
     return NextResponse.json({ message: 'Confession added successfully' });
@@ -40,7 +40,7 @@ export async function POST(req) {
     console.error('Error adding confession:', error);
     return NextResponse.json(
       { message: 'An error occurred while adding the confession' },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -54,7 +54,7 @@ export async function GET(req) {
     if (!username) {
       return NextResponse.json(
         { message: 'Please provide a username' },
-        { status: 411 }
+        { status: 411 },
       );
     }
 
@@ -72,7 +72,7 @@ export async function GET(req) {
     console.log('Error fetching confessions:', error.message);
     return NextResponse.json(
       { message: 'An error occurred while fetching confessions' },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
