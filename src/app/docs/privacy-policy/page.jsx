@@ -2,7 +2,7 @@ import React from 'react';
 
 const PrivacyPolicy = () => {
   return (
-    <div className='max-w-3xl mx-auto px-4 py-8 mt-28'>
+    <div className='max-w-3xl mx-auto px-4 pt-28  leading-7'>
       <h1 className='text-3xl font-bold mb-4'>Privacy Policy</h1>
 
       <div className='mb-8'>
@@ -18,7 +18,7 @@ const PrivacyPolicy = () => {
       <div className='mb-8'>
         <h2 className='text-xl font-semibold mb-4'>Information We Collect:</h2>
         <ol className='list-decimal ml-6 dark:text-neutral-300 text-neutral-700'>
-          <li>
+          <li className='my-2'>
             <strong className='dark:text-neutral-100'>
               Personal Information:
             </strong>{' '}
@@ -26,13 +26,13 @@ const PrivacyPolicy = () => {
             such as your username. This information is used solely for the
             purpose of identifying users within the platform.
           </li>
-          <li>
+          <li className='my-2'>
             <strong className='dark:text-neutral-100'>Confession Data:</strong>{' '}
             When you submit a confession anonymously, we collect the content of
             your confession. This information is stored securely and is not
             associated with any identifiable user information.
           </li>
-          <li>
+          <li className='my-2'>
             <strong className='dark:text-neutral-100'>Usage Data:</strong> We
             may collect usage data such as your IP address, browser type, and
             device information for analytics purposes. This information helps us
@@ -46,7 +46,7 @@ const PrivacyPolicy = () => {
           How We Use Your Information:
         </h2>
         <ol className='list-decimal ml-6 dark:text-neutral-300 text-neutral-700'>
-          <li>
+          <li className='my-2'>
             <strong className='dark:text-neutral-100'>
               Anonymous Story Sharing:
             </strong>{' '}
@@ -54,14 +54,14 @@ const PrivacyPolicy = () => {
             platform. Your identity remains protected, and your personal
             information is never disclosed to other users.
           </li>
-          <li>
+          <li className='my-2'>
             <strong className='dark:text-neutral-100'>
               Improving User Experience:
             </strong>{' '}
             We use usage data to analyze user behavior and preferences. This
             helps us enhance the functionality and user experience of MyStory.
           </li>
-          <li>
+          <li className='my-2'>
             <strong className='dark:text-neutral-100'>Communication:</strong> We
             may use your contact information to communicate with you regarding
             important updates, announcements, or changes to our Privacy Policy.
@@ -72,18 +72,18 @@ const PrivacyPolicy = () => {
       <div className='mb-8'>
         <h2 className='text-xl font-semibold mb-4'>Data Security:</h2>
         <ol className='list-decimal ml-6 dark:text-neutral-300 text-neutral-700'>
-          <li>
+          <li className='my-2'>
             <strong className='dark:text-neutral-100'>Encryption:</strong> We
             use industry-standard encryption protocols to ensure the security of
             your data during transmission.
           </li>
-          <li>
+          <li className='my-2'>
             <strong className='dark:text-neutral-100'>Secure Storage:</strong>{' '}
             Your personal information and confession data are stored securely on
             our servers. We implement strict access controls to prevent
             unauthorized access to your data.
           </li>
-          <li>
+          <li className='my-2'>
             <strong className='dark:text-neutral-100'>
               Third-Party Services:
             </strong>{' '}
@@ -97,7 +97,7 @@ const PrivacyPolicy = () => {
       <div className='mb-8'>
         <h2 className='text-xl font-semibold mb-4'>Your Rights:</h2>
         <ol className='list-decimal ml-6 dark:text-neutral-300 text-neutral-700'>
-          <li>
+          <li className='my-2'>
             <strong className='dark:text-neutral-100'>
               Access and Control:
             </strong>{' '}
@@ -105,7 +105,7 @@ const PrivacyPolicy = () => {
             information at any time. You can update your profile or delete your
             account through the MyStory platform.
           </li>
-          <li>
+          <li className='my-2'>
             <strong className='dark:text-neutral-100'>Opt-Out:</strong> You have
             the option to opt-out of receiving promotional communications from
             us. You can manage your communication preferences in your account
