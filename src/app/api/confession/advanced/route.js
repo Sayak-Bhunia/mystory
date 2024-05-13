@@ -11,14 +11,19 @@ export async function GET(req) {
     const username = req.nextUrl.searchParams.get('username') ?? '';
     const startDate = req.nextUrl.searchParams.get('startDate');
     const endDate = req.nextUrl.searchParams.get('endDate');
-
-    console.log('Username:', username);
-    console.log('Start Date:', startDate);
-    console.log('End Date:', endDate);
-
     if (!username) {
       return NextResponse.json(
         { message: 'Please provide a username' },
+        { status: 404 }
+      );
+    }
+    console.log(startDate);
+    console.log(endDate);
+
+
+    if(startDate ===  null  && endDate === null) {
+      return NextResponse.json(
+        { message: 'mention dates' },
         { status: 411 }
       );
     }
@@ -27,7 +32,7 @@ export async function GET(req) {
     console.log('User:', user);
 
     if (!user) {
-      return NextResponse.json({ message: 'User not found' }, { status: 404 });
+      return NextResponse.json({ message: 'User not found' }, { status: 413 });
     }
 
     let query = { author: user._id };
@@ -37,6 +42,13 @@ export async function GET(req) {
     }
 
     const confessions = await Confession.find(query);
+
+    if (confessions.length === 0) {
+      return NextResponse.json(
+        { message: 'No confessions found' },
+        { status: 404 }
+      );
+    }
 
     return NextResponse.json({ data: confessions });
   } catch (error) {
