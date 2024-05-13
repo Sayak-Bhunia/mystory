@@ -9,7 +9,7 @@ export default function Features() {
         <Seamless />
         <PrivacyMatters />
         <ShareEasily />
-      </TracingBeam >
-    </div >
+      </TracingBeam>
+    </div>
   );
 }

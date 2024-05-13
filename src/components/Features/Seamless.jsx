@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -14,17 +14,17 @@ export default function Seamless() {
   }, []);
   return (
     <div
-      data-aos='fade-up'
-      data-aos-once='true'
-      className='flex flex-col lg:flex-row items-center justify-between w-full 
-    space-x-4 space-y-16 lg:space-y-0 px-8 sm:px-20 md:px-8 py-12 md:text-left text-center'
+      data-aos="fade-up"
+      data-aos-once="true"
+      className="flex flex-col lg:flex-row items-center justify-between w-full 
+    space-x-4 space-y-16 lg:space-y-0 px-8 sm:px-20 md:px-8 py-12 md:text-left text-center"
     >
-      <div className='flex flex-col items-center sm:items-start md:justify-center justify-between  md:w-[60%]'>
-        <div className='text-3xl lg:text-5xl font-semibold inline-flex space-x-3 items-center justify-center'>
+      <div className="flex flex-col items-center sm:items-start md:justify-center justify-between  md:w-[60%]">
+        <div className="text-3xl lg:text-5xl font-semibold inline-flex space-x-3 items-center justify-center">
           <h1>Seamless Experience</h1>
           <TiFlowSwitch />
         </div>
-        <p className='text-md md:text-lg lg:text-xl mt-12 text-justify'>
+        <p className="text-md md:text-lg lg:text-xl mt-12 text-justify">
           Intuitive and user-friendly experience, ensuring that every
           interaction with our platform is smooth and effortless.
         </p>
@@ -42,7 +42,7 @@ export const Highlight = ({ children, className }) => {
     <span
       className={cn(
         'font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-700/[0.2] dark:text-emerald-500 px-1 py-0.5',
-        className
+        className,
       )}
     >
       {children}

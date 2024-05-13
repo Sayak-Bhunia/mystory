@@ -1,13 +1,13 @@
-version: "3.8"
+version: '3.8'
 
 services:
-    chatapp:
-        container_name: mystory
-        build:
-            context: .
-            dockerfile: Dockerfile
-            target: production
-        ports:
-            - "3000:3000"
-        volumes:
-            - .:/usr/src/mystory
+  chatapp:
+    container_name: mystory
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/usr/src/mystory
