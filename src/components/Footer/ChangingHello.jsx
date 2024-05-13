@@ -33,7 +33,7 @@ export default function ChangingHello() {
   }, [currthank]);
   return (
     <div
-      className={`${openSans.className} flex flex-col items-center justify-center text-6xl font-semibold`}
+      className={`${openSans.className} md:pl-36 flex flex-col items-center justify-center text-6xl font-semibold`}
     >
       <p>
         {currthank === 'شكراً' && '!'} {currthank}{' '}

@@ -15,6 +15,8 @@ const confessionSchema = new mongoose.Schema({
   },
 });
 
-const Confession = mongoose.models.confessions ||mongoose.model('confessions', confessionSchema);
+const Confession =
+  mongoose.models.confessions ||
+  mongoose.model('confessions', confessionSchema);
 
 export default Confession;
