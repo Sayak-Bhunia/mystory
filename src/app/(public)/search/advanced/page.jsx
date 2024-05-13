@@ -14,7 +14,7 @@ const Confess = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    toast.loading('Fetching confessions...');
+    toast.loading('Fetching confessions...', { duration: 2000 });
 
     const filterParams = new URLSearchParams();
 
@@ -27,6 +27,19 @@ const Confess = () => {
     }
 
     try {
+      if (startDate === '' && endDate === '') {
+        toast.dismiss();
+        toast.error('Please mention dates', { duration: 2000 });
+        setIsLoading(false);
+        return;
+      }
+
+      if (new Date(endDate) < new Date(startDate)) {
+        toast.dismiss();
+        toast.error('End date cannot be before start date', { duration: 2000 });
+        setIsLoading(false);
+        return;
+      }
       const response = await axios.get(
         `/api/confession/advanced?username=${username}&${filterParams.toString()}`
       );
@@ -34,6 +47,11 @@ const Confess = () => {
         ...confession,
         date: formatDateTime(confession.date),
       }));
+      if (formattedConfessions.length === 0) {
+        toast.error('No confessions found 😢');
+        return;
+      }
+    
       setConfessions(formattedConfessions);
       toast.dismiss();
       toast.success('Confessions fetched successfully 🎉');
@@ -41,7 +59,6 @@ const Confess = () => {
       toast.error('An error occurred while fetching confessions 😢');
       console.error('Error fetching confessions:', error);
     }
-
     setIsLoading(false);
     setTimeout(() => {
       toast.dismiss();
@@ -113,16 +130,15 @@ const Confess = () => {
           </button>
         </form>
       </div>
-      {!isLoading && confessions.length !== 0 ? (
-        <div className='mt-6 w-80'>
-          <h3 className='text-lg font-bold mb-2'>{username}</h3>
+      {!isLoading && confessions.length !== 0 && (
+        <div className='mt-6 w-[50%]'>
           <div className=''>
             {confessions.map((confession, index) => (
               <div
                 key={index}
-                className='flex flex-col items-start justify-start my-4 p-4 rounded-lg dark:bg-neutral-900/40'
+                className='flex flex-col items-start justify-start my-4 p-6 rounded-lg dark:bg-neutral-900/40'
               >
-                <p className='text-3xl mb-2 font-semibold'>
+                <p className='text-3xl mb-8 font-semibold'>
                   {confession.content}
                 </p>
                 <div className='text-sm dark:text-neutral-200 text-neutral-700 flex items-center justify-start'>
@@ -131,11 +147,6 @@ const Confess = () => {
               </div>
             ))}
           </div>
-        </div>
-      ) : (
-        <div className='flex flex-col items-center justify-center py-12'>
-          <p className='font-semibold'>No Confessions found</p>
-          <Image src={'/error.svg'} width={400} height={400} alt='Not Found' />
         </div>
       )}
     </div>

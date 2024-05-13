@@ -49,7 +49,7 @@ const Confess = () => {
     <div className='py-32 h-fit dark:bg-neutral-800 flex flex-col justify-center items-center'>
       <Toaster />
       <div className='max-w-sm lg:max-w-md w-full bg-neutral-100 dark:bg-neutral-700/50 p-8 rounded-lg shadow-lg'>
-        <h2 className='text-2xl font-bold mb-6'>Confess Anonymously</h2>
+        <h2 className='text-2xl font-bold mb-6'>Search</h2>
 
         <form onSubmit={handleSubmit}>
           <div className='mb-4'>
