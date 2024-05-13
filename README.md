@@ -36,7 +36,7 @@ To get started with MyStory, follow these steps:
 4. Make your changes and commit them (`git commit -am 'Add some fooBar'`).
    > Make sure to lint and format your code before commiting
    >
-   > - `npm run lint:check` to check for lint errors
+   > - `npm run lint` to check for lint errors
    > - `npm run lint:fix` to fix lint errors
    > - `npm run format:check` to format the code
    > - `npm run format:fix` to fix the formatting
