@@ -4,14 +4,11 @@ This documentation contains a set of guidelines to help you during the contribut
 We are happy to welcome all the contributions from anyone willing to improve/add new scripts to this project.
 Thank you for helping out and remember, **no contribution is too small.**
 <br>
-Please note we have a [code of conduct](CODE_OF_CONDUCT.md)  please follow it in all your interactions with the project.
-
-
+Please note we have a [code of conduct](CODE_OF_CONDUCT.md) please follow it in all your interactions with the project.
 
 <br>
 
 ## **Need some help regarding the basics?🤔**
-
 
 You can refer to the following articles on basics of Git and Github and also contact the Project Mentors,
 in case you are stuck:
@@ -68,4 +65,4 @@ To get started with MyStory, follow these steps:
 
 <br>
 
-# **Thank you for contributing💗** 
+# **Thank you for contributing💗**

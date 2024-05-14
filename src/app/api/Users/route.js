@@ -5,7 +5,6 @@ import connect from '@/dbConfig/dbConfig';
 export async function POST(req) {
   try {
     connect();
-    console.log('url called for create users');
     const body = await req.json();
     const userData = body.formData;
 
@@ -27,7 +26,7 @@ export async function POST(req) {
     }
     const hashPassword = await bcrypt.hash(userData.password, 10);
     userData.password = hashPassword;
-    console.log(userData);
+    // console.log(userData);
     await User.create(userData);
     return NextResponse.json({ message: 'User Created.' }, { status: 201 });
   } catch (error) {

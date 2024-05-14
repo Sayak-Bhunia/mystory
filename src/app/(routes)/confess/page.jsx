@@ -6,7 +6,6 @@ import toast, { Toaster } from 'react-hot-toast';
 import Image from 'next/image';
 
 const Confess = () => {
-  const [username, setUsername] = useState('');
   const [confessContent, setConfessContent] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -17,19 +16,16 @@ const Confess = () => {
 
     try {
       const response = await axios.post('/api/confession', {
-        username: username,
         confessionContent: confessContent,
       });
 
-      console.log('Response:', response.data);
+      // console.log('Response:', response.data);
       toast.dismiss();
       toast.success('Confession submitted successfully 🎉');
     } catch (error) {
       toast.error('An error occurred while submitting the confession 😢');
       console.error('Error submitting confession:', error);
     }
-
-    setUsername('');
     setConfessContent('');
     setIsSubmitting(false);
     setTimeout(() => {
@@ -50,19 +46,6 @@ const Confess = () => {
       <div className="max-w-sm lg:max-w-md w-full bg-neutral-100 dark:bg-neutral-800 p-8 rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold mb-6">Confess Anonymously</h2>
         <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label htmlFor="username" className="block mb-2">
-              Username
-            </label>
-            <input
-              type="text"
-              id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              className="w-full px-3 py-2 bg-neutral-200 dark:bg-neutral-700 rounded-lg focus:outline-none focus:ring focus:border-neutral-400"
-              required
-            />
-          </div>
           <div className="mb-6">
             <label htmlFor="confessContent" className="block mb-2">
               Confession

@@ -1,8 +1,21 @@
 'use client';
-
+import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { signIn } from 'next-auth/react';
+import { z } from 'zod';
+const FormSchema = z.object({
+  email: z.string().email(),
+  username: z.string().min(2, {
+    message: 'username must contain more tan 2 characters',
+  }),
+  password: z
+    .string()
+    .min(4, {
+      message: 'password should be more than 4 characters long',
+    })
+    .max(12),
+});
 const SignInForm = () => {
   const router = useRouter();
   const [formData, setFormData] = useState({});
@@ -20,19 +33,25 @@ const SignInForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage('');
-    const res = await signIn('credentials', {
-      email: formData.email,
-      password: formData.password,
-      redirect: false,
-      callbackUrl: '/signin',
-    });
+    try {
+      const validatedData = FormSchema.parse(formData);
+      const res = await signIn('credentials', {
+        email: formData.email,
+        password: formData.password,
+        redirect: false,
+        callbackUrl: '/signin',
+      });
 
-    console.log(res);
-    if (!res.ok) {
-      setErrorMessage('Wrong credentials');
-    } else {
-      router.refresh();
-      router.push('/');
+      // console.log(res);
+      if (!res.ok) {
+        setErrorMessage('Wrong credentials');
+      } else {
+        router.refresh();
+        router.push('/');
+      }
+    } catch (error) {
+      const errorMessages = JSON.parse(error.message).map((err) => err.message);
+      toast.error(errorMessages.join(', '));
     }
   };
 

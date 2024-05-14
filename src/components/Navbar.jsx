@@ -1,15 +1,16 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { RxCross1 } from 'react-icons/rx';
 import { motion } from 'framer-motion';
 import { useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import toast, { Toaster } from 'react-hot-toast';
 const NavBar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const { data: session } = useSession();
-  console.log(session);
+  // console.log(session);
   const toggleNav = () => {
     setIsNavOpen(isNavOpen);
   };
@@ -26,12 +27,13 @@ const NavBar = () => {
 
   return (
     <div className="border-b border-b-neutral-300 dark:border-b-neutral-700 fixed top-0 left-0 right-0 bg-white dark:bg-black backdrop-blur-lg bg-opacity-60 z-50">
+      <Toaster />
       <div className="mx-8 lg:mx-6 xl:mx-16 flex justify-between items-center py-6">
         <a href="/" className="text-4xl font-bold">
           mystory
         </a>
 
-        <div className="justify-center gap-6 hidden lg:flex items-center space-x-4">
+        <div className="justify-center gap-6 hidden lg:flex items-center">
           <a href="/" className={navClass}>
             Home
           </a>
@@ -59,13 +61,6 @@ const NavBar = () => {
             className="text-white py-1 inline-flex items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
           >
             <p>Confess</p>
-
-            <span className="ml-2">
-              <span className="relative flex h-3 w-3 ml-1">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-300"></span>
-              </span>
-            </span>
           </a>
         </div>
         {!isNavOpen ? (

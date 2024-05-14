@@ -17,8 +17,8 @@ export const options = {
   providers: [
     GitHubProvider({
       async profile(profile) {
-        connect()
-        console.log('Profile GitHub: ', profile);
+        connect();
+        // console.log('Profile GitHub: ', profile);
 
         let userRole = 'GitHub User';
         if (profile?.email == 'jake@claritycoders.com') {
@@ -51,8 +51,8 @@ export const options = {
     }),
     GoogleProvider({
       async profile(profile) {
-        connect()
-        console.log('Profile Google: ', profile);
+        connect();
+        // console.log('Profile Google: ', profile);
 
         let userRole = 'Google User';
         //Check if the user with this email exists.
@@ -99,14 +99,12 @@ export const options = {
             .lean()
             .exec();
           if (foundUser) {
-            console.log('User Exists');
             const match = await bcrypt.compare(
               credentials.password,
               foundUser.password,
             );
 
             if (match) {
-              console.log('Good Pass');
               delete foundUser.password;
 
               foundUser['role'] = 'Unverified Email';
@@ -122,12 +120,12 @@ export const options = {
   ],
   callbacks: {
     async jwt({ token, user }) {
-      console.log('user ', user);
+      // console.log('user ', user);
       if (user) token.role = user.role;
       return token;
     },
     async session({ session, token }) {
-      console.log('session ', session);
+      // console.log('session ', session);
 
       if (session?.user) session.user.role = token.role;
       return session;
