@@ -1,6 +1,6 @@
-'use client';
+'use client'
 import React, { useState } from 'react';
-import { MdOutlineArrowDropDown } from 'react-icons/md';
+import { MdOutlineArrowDropDown } from "react-icons/md";
 import {
   Accordion,
   AccordionItem,
@@ -8,22 +8,18 @@ import {
   AccordionItemButton,
   AccordionItemPanel,
   AccordionItemState,
-} from 'react-accessible-accordion';
+} from "react-accessible-accordion";
 import data from '@/utils/accordion';
-import 'react-accessible-accordion/dist/fancy-example.css';
+import "react-accessible-accordion/dist/fancy-example.css";
 export default function Page() {
   return (
     <section className=" mt-28 mb-4 lg:w-[720px] md:w-[520px] w-[380px] m-auto  px-2  flex flex-col justify-between">
       <div className=" p-6 w-full flex gap-y-8 justify-center items-center  rounded-md flex-wrap  border-gray-300 border-[1px]">
         <div className="flex flex-col justify-center items-start gap-2">
           <span className=" text-[#A855F7]">Our Value</span>
-          <span className=" text-white">
-            MyStory - Next.js Blog/Story telling Template
-          </span>
+          <span className=" text-white">MyStory - Next.js Blog/Story telling Template</span>
           <span className=" text-gray-500 text-sm">
-            MyStory aims to provide a platform where individuals can share their
-            stories without the pressure of revealing their identities. It's a
-            safe space for expression and connection.
+          MyStory aims to provide a platform where individuals can share their stories without the pressure of revealing their identities. It's a safe space for expression and connection.
           </span>
           <Accordion
             className=" border-none mt-8"
@@ -31,42 +27,31 @@ export default function Page() {
             preExpanded={[0]}
           >
             {data.map((item, i) => {
-              const [className, setClassName] = useState(null);
+                const[className,setClassName]=useState(null);
               return (
-                <AccordionItem
-                  className={` border-2 border-gray-400 rounded-lg overflow-hidden mb-5 ${className}`}
-                  key={i}
-                  uuid={i}
-                >
+                <AccordionItem className={` border-2 border-gray-400 rounded-lg overflow-hidden mb-5 ${className}`} key={i} uuid={i}>
                   <AccordionItemHeading>
                     <AccordionItemButton className="flex justify-center flex-wrap items-center gap-y-3 ">
                       <AccordionItemState>
                         {({ expanded }) =>
                           expanded
-                            ? setClassName('expanded')
-                            : setClassName('collapsed')
+                            ? setClassName("expanded")
+                            : setClassName("collapsed")
                         }
                       </AccordionItemState>
-                      <div className=" flex items-center justify-around w-full p-2">
-                        <div className="flex justify-center items-center flex-wrap  p-2 bg-gray-800 rounded-lg">
-                          {item.icon}
-                        </div>
-                        <span className=" text-white text-xs md:text-base">
-                          {item.heading}
-                        </span>
-                        <div className="flex justify-center items-center flex-wrap  p-2 bg-gray-800 rounded-lg">
-                          <MdOutlineArrowDropDown
-                            className=" text-white"
-                            size={20}
-                          />
-                        </div>
+                        <div className=' flex items-center justify-around w-full p-2'>
+                          
+                      <div className="flex justify-center items-center flex-wrap  p-2 bg-gray-800 rounded-lg">{item.icon}</div>
+                      <span className=" text-white text-xs md:text-base">{item.heading}</span>
+                      <div className="flex justify-center items-center flex-wrap  p-2 bg-gray-800 rounded-lg">
+                        <MdOutlineArrowDropDown className=' text-white' size={20} />
+                      </div>
+
                       </div>
                     </AccordionItemButton>
                   </AccordionItemHeading>
                   <AccordionItemPanel>
-                    <p className=" text-gray-500 text-xs md:text-base">
-                      {item.detail}
-                    </p>
+                    <p className=" text-gray-500 text-xs md:text-base">{item.detail}</p>
                   </AccordionItemPanel>
                 </AccordionItem>
               );

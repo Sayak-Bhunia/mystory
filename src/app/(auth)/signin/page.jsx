@@ -27,7 +27,7 @@ export default function SignInPage() {
       console.log(response.data);
       toast.dismiss();
       toast.success('Success | 200');
-      router.push('/');
+      router.push('/confess');
     } catch (error) {
       toast.dismiss();
       console.log(error.message);
