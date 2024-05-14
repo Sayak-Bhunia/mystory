@@ -26,6 +26,7 @@
     "@gsap/react": "^2.1.1",
     "aos": "^2.3.4",
     "axios": "^1.6.8",
+    "bcryptjs": "^2.4.3",
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
     "framer-motion": "^11.1.9",

@@ -1,8 +1,9 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { RxCross1 } from 'react-icons/rx';
 import { motion } from 'framer-motion';
+import { getDataFromToken } from '@/helpers/getDataFromToken';
 
 const NavBar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -20,6 +21,15 @@ const NavBar = () => {
   border-[#616161] hover:border-[#191919]
   hover:bg-[#F1F5F9] hover:text-black transform transition-all duration-300 font-semibold 
   my-2  px-10 hover:px-6`;
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const id = getDataFromToken();
+    if (id.length > 0) {
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   return (
     <div className="border-b border-b-neutral-300 dark:border-b-neutral-700 fixed top-0 left-0 right-0 bg-white dark:bg-black backdrop-blur-lg bg-opacity-60 z-50">
@@ -41,19 +51,35 @@ const NavBar = () => {
           <a href="/search" className={navClass}>
             Search
           </a>
-          <a
-            href="/confess"
-            className="text-white py-1 inline-flex items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
-          >
-            <p>Confess</p>
+          {isLoggedIn ? (
+            <div>
+              <a href="/profile" className={navClass}>
+                Profile
+              </a>
+              <a href="/signout" className={navClass}>
+                Sign Out
+              </a>
+              <a
+                href="/confess"
+                className="text-white py-1 inline-flex items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
+              >
+                <p>Confess</p>
 
-            <span className="ml-2">
-              <span className="relative flex h-3 w-3 ml-1">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-300"></span>
-              </span>
-            </span>
-          </a>
+                <span className="ml-2">
+                  <span className="relative flex h-3 w-3 ml-1">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-300"></span>
+                  </span>
+                </span>
+              </a>
+            </div>
+          ) : (
+            <>
+              <a href="/signup" className={navClass}>
+                Sign Up
+              </a>
+            </>
+          )}
         </div>
         {!isNavOpen ? (
           <AiOutlineMenu
@@ -83,19 +109,35 @@ const NavBar = () => {
             <a href="/search" className={smNavClass}>
               Search
             </a>
-            <a
-              href="/confess"
-              className="py-1 inline-flex w-full items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
-            >
-              <p>Confess</p>
+            {isLoggedIn ? (
+              <div>
+                <a href="/profile" className={navClass}>
+                  Profile
+                </a>
+                <a href="/signout" className={navClass}>
+                  Sign Out
+                </a>
+                <a
+                  href="/confess"
+                  className="text-white py-1 inline-flex items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
+                >
+                  <p>Confess</p>
 
-              <span className="ml-2">
-                <span className="relative flex h-3 w-3 ml-1">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-300"></span>
-                </span>
-              </span>
-            </a>
+                  <span className="ml-2">
+                    <span className="relative flex h-3 w-3 ml-1">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-300"></span>
+                    </span>
+                  </span>
+                </a>
+              </div>
+            ) : (
+              <div className="">
+                <a href="/signup" className={navClass}>
+                  Sign Up
+                </a>
+              </div>
+            )}
           </div>
         </motion.div>
       )}
