@@ -2,7 +2,20 @@
 
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
-
+import toast, { Toaster } from 'react-hot-toast';
+import { z } from 'zod';
+const FormSchema = z.object({
+  email: z.string().email(),
+  username: z.string().min(2, {
+    message: 'username must contain more tan 2 characters',
+  }),
+  password: z
+    .string()
+    .min(4, {
+      message: 'password should be more than 4 characters long',
+    })
+    .max(12),
+});
 const UserForm = () => {
   const router = useRouter();
   const [formData, setFormData] = useState({});
@@ -20,18 +33,24 @@ const UserForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage('');
-    const res = await fetch('/api/Users', {
-      method: 'POST',
-      body: JSON.stringify({ formData }),
-      'content-type': 'application/json',
-    });
+    try {
+      const validatedData = FormSchema.parse(formData);
+      const res = await fetch('/api/Users', {
+        method: 'POST',
+        body: JSON.stringify({ formData }),
+        'content-type': 'application/json',
+      });
 
-    if (!res.ok) {
-      const response = await res.json();
-      setErrorMessage(response.message);
-    } else {
-      router.refresh();
-      router.push('/');
+      if (!res.ok) {
+        const response = await res.json();
+        setErrorMessage(response.message);
+      } else {
+        router.refresh();
+        router.push('/');
+      }
+    } catch (error) {
+      const errorMessages = JSON.parse(error.message).map((err) => err.message);
+      toast.error(errorMessages.join(', '));
     }
   };
 
