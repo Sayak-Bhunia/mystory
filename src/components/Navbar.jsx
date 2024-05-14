@@ -1,8 +1,11 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { RxCross1 } from 'react-icons/rx';
 import { motion } from 'framer-motion';
+import { getDataFromToken } from '@/helpers/getDataFromToken';
+import toast, { Toaster } from 'react-hot-toast';
+import axios from 'axios';
 
 const NavBar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -21,14 +24,38 @@ const NavBar = () => {
   hover:bg-[#F1F5F9] hover:text-black transform transition-all duration-300 font-semibold 
   my-2  px-10 hover:px-6`;
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const id = getDataFromToken();
+    if (id !== '') {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const logoutUser = async (router) => {
+    toast.loading('Logging out...');
+    try {
+      toast.loading('Logging out...');
+      await axios.get('/api/auth/signout');
+      setIsLoggedIn(false);
+      toast.success('Logged out successfully');
+      router.push('/');
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+  toast.dismiss();
+
   return (
     <div className="border-b border-b-neutral-300 dark:border-b-neutral-700 fixed top-0 left-0 right-0 bg-white dark:bg-black backdrop-blur-lg bg-opacity-60 z-50">
+      <Toaster />
       <div className="mx-8 lg:mx-6 xl:mx-16 flex justify-between items-center py-6">
         <a href="/" className="text-4xl font-bold">
           mystory
         </a>
 
-        <div className="justify-center gap-6 hidden lg:flex items-center space-x-4">
+        <div className="justify-center gap-6 hidden lg:flex items-center">
           <a href="/" className={navClass}>
             Home
           </a>
@@ -38,22 +65,39 @@ const NavBar = () => {
           <a href="/faqs" className={navClass}>
             FAQs
           </a>
-          <a href="/search" className={navClass}>
-            Search
-          </a>
-          <a
-            href="/confess"
-            className="text-white py-1 inline-flex items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
-          >
-            <p>Confess</p>
 
-            <span className="ml-2">
-              <span className="relative flex h-3 w-3 ml-1">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-300"></span>
-              </span>
-            </span>
-          </a>
+          {isLoggedIn ? (
+            <>
+              <a href="/search" className={navClass}>
+                Search
+              </a>
+              <a href="/profile" className={navClass}>
+                Profile
+              </a>
+              <p className={`${navClass} cursor-pointer`} onClick={logoutUser}>
+                SignOut
+              </p>
+              <a
+                href="/confess"
+                className="text-white py-1 inline-flex items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
+              >
+                <p>Confess</p>
+
+                <span className="ml-2">
+                  <span className="relative flex h-3 w-3 ml-1">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-300"></span>
+                  </span>
+                </span>
+              </a>
+            </>
+          ) : (
+            <>
+              <a href="/signup" className={navClass}>
+                Sign Up
+              </a>
+            </>
+          )}
         </div>
         {!isNavOpen ? (
           <AiOutlineMenu
@@ -80,22 +124,38 @@ const NavBar = () => {
             <a href="/faqs" className={smNavClass}>
               FAQs
             </a>
-            <a href="/search" className={smNavClass}>
-              Search
-            </a>
-            <a
-              href="/confess"
-              className="py-1 inline-flex w-full items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
-            >
-              <p>Confess</p>
+            {isLoggedIn ? (
+              <div>
+                <a href="/search" className={navClass}>
+                  Search
+                </a>
+                <a href="/profile" className={navClass}>
+                  Profile
+                </a>
+                <a href="/signout" className={navClass} onClick={logoutUser}>
+                  Sign Out
+                </a>
+                <a
+                  href="/confess"
+                  className="text-white py-1 inline-flex items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
+                >
+                  <p>Confess</p>
 
-              <span className="ml-2">
-                <span className="relative flex h-3 w-3 ml-1">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-300"></span>
-                </span>
-              </span>
-            </a>
+                  <span className="ml-2">
+                    <span className="relative flex h-3 w-3 ml-1">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-300"></span>
+                    </span>
+                  </span>
+                </a>
+              </div>
+            ) : (
+              <div className="">
+                <a href="/signup" className={navClass}>
+                  Sign Up
+                </a>
+              </div>
+            )}
           </div>
         </motion.div>
       )}
