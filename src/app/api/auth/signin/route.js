@@ -8,9 +8,11 @@ connect();
 
 export async function POST(request) {
   try {
-    const reqBody = await request.json();
-    const { username, password } = reqBody;
+    const { username, password } = await request.json();
+
     //check if user exists
+    console.log(username);
+    console.log(password);
     const user = await User.findOne({ username });
     if (!user) {
       return NextResponse.json(
@@ -18,10 +20,12 @@ export async function POST(request) {
         { status: 400 },
       );
     }
+    console.log(user);
     console.log('user exists');
 
     const validPassword = await bcryptjs.compare(password, user.password);
 
+    console.log(validPassword);
     if (!validPassword) {
       console.log('invalid password');
       return NextResponse.json({ error: 'Invalid password' }, { status: 400 });
@@ -33,11 +37,14 @@ export async function POST(request) {
       username: user.username,
       email: user.email,
     };
-    //create token
+   
     const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET, {
       expiresIn: '1h',
     });
 
+
+    console.log(token);
+    console.log("done");
     const response = NextResponse.json({
       message: 'Login successful',
       success: true,

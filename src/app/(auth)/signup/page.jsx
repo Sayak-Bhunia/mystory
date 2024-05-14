@@ -29,6 +29,7 @@ export default function SignPage() {
       router.push('/confess');
     } catch (error) {
       toast.dismiss();
+      console.log(error.response.data);
       toast.error('Failed | 400');
       console.log('SignUp failed');
     }
@@ -38,7 +39,7 @@ export default function SignPage() {
   };
 
   useEffect(() => {
-    if (user.email !== '' && user.password !== '' && user.username !== '') {
+    if (user.password !== '' && user.username !== '') {
       setButtonDisabled(false);
     } else {
       setButtonDisabled(true);
@@ -85,8 +86,8 @@ export default function SignPage() {
         />
       </div>
 
-      <a href="/auth/signin" className="text-purple-600 mt-4 mb-2">
-        Already a member? Login Here
+      <a href="/signin" className="text-purple-600 mt-4 mb-2">
+        Already a member? SignIn Here
       </a>
 
       {isButtonDisabled ? (

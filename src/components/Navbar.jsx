@@ -31,6 +31,19 @@ const NavBar = () => {
     }
   }, []);
 
+  const logoutUser = async (router, toast) => {
+    try {
+      await axios.get('/api/auth/signout');
+      toast.success('Logout successful', {
+        duration: 2000,
+      });
+      router.push('/');
+    } catch (error) {
+      console.log(error.message);
+      toast.error(error.message);
+    }
+  };
+
   return (
     <div className="border-b border-b-neutral-300 dark:border-b-neutral-700 fixed top-0 left-0 right-0 bg-white dark:bg-black backdrop-blur-lg bg-opacity-60 z-50">
       <div className="mx-8 lg:mx-6 xl:mx-16 flex justify-between items-center py-6">
@@ -57,7 +70,7 @@ const NavBar = () => {
               <a href="/profile" className={navClass}>
                 Profile
               </a>
-              <a href="/signout" className={navClass}>
+              <a href="/signout" className={navClass} onClick={logoutUser}>
                 Sign Out
               </a>
               <a
@@ -115,7 +128,7 @@ const NavBar = () => {
                 <a href="/profile" className={navClass}>
                   Profile
                 </a>
-                <a href="/signout" className={navClass}>
+                <a href="/signout" className={navClass} onClick={logoutUser}>
                   Sign Out
                 </a>
                 <a

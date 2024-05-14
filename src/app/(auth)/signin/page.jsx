@@ -30,7 +30,7 @@ export default function SignInPage() {
     } catch (error) {
       toast.dismiss();
       toast.error('Failed | 400');
-      console.log('SignUp failed');
+      console.log('SignIn failed');
     }
     setTimeout(() => {
       toast.dismiss();
@@ -38,7 +38,7 @@ export default function SignInPage() {
   };
 
   useEffect(() => {
-    if (user.email !== '' && user.password !== '' && user.username !== '') {
+    if (user.password !== '' && user.username !== '') {
       setButtonDisabled(false);
     } else {
       setButtonDisabled(true);
@@ -49,7 +49,7 @@ export default function SignInPage() {
     <div className="flex flex-col items-center justify-center min-h-screen ">
       <Toaster />
       <h1 className="text-4xl my-4 font-semibold">
-        {isLoading ? 'Loading...' : 'SignUp'}
+        {isLoading ? 'Loading...' : 'SignIn'}
       </h1>
       <div className="flex flex-col items-start justify-start">
         <label
@@ -85,8 +85,8 @@ export default function SignInPage() {
         />
       </div>
 
-      <a href="/auth/signin" className="text-purple-600 mt-4 mb-2">
-        Already a member? Login Here
+      <a href="/signup" className="text-purple-600 mt-4 mb-2">
+        Not a member? SignUp Here
       </a>
 
       {isButtonDisabled ? (
