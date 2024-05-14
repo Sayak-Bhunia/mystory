@@ -26,7 +26,7 @@ const NavBar = () => {
 
   useEffect(() => {
     const id = getDataFromToken();
-    if (id.length > 0) {
+    if (id !== '') {
       setIsLoggedIn(true);
     }
   }, []);
@@ -51,7 +51,7 @@ const NavBar = () => {
           mystory
         </a>
 
-        <div className="justify-center gap-6 hidden lg:flex items-center space-x-4">
+        <div className="justify-center gap-6 hidden lg:flex items-center">
           <a href="/" className={navClass}>
             Home
           </a>
@@ -63,7 +63,7 @@ const NavBar = () => {
           </a>
 
           {isLoggedIn ? (
-            <div>
+            <>
               <a href="/search" className={navClass}>
                 Search
               </a>
@@ -71,7 +71,7 @@ const NavBar = () => {
                 Profile
               </a>
               <a href="/signout" className={navClass} onClick={logoutUser}>
-                Sign Out
+                SignOut
               </a>
               <a
                 href="/confess"
@@ -86,7 +86,7 @@ const NavBar = () => {
                   </span>
                 </span>
               </a>
-            </div>
+            </>
           ) : (
             <>
               <a href="/signup" className={navClass}>

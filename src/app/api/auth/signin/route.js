@@ -1,6 +1,6 @@
 import connect from '@/dbConfig/dbConfig';
 import User from '@/models/userModel';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import bcryptjs from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
@@ -8,11 +8,9 @@ connect();
 
 export async function POST(request) {
   try {
-    const { username, password } = await request.json();
+    const reqBody = await request.json();
+    const { username, password } = reqBody;
 
-    //check if user exists
-    console.log(username);
-    console.log(password);
     const user = await User.findOne({ username });
     if (!user) {
       return NextResponse.json(
@@ -20,12 +18,10 @@ export async function POST(request) {
         { status: 400 },
       );
     }
-    console.log(user);
     console.log('user exists');
 
     const validPassword = await bcryptjs.compare(password, user.password);
 
-    console.log(validPassword);
     if (!validPassword) {
       console.log('invalid password');
       return NextResponse.json({ error: 'Invalid password' }, { status: 400 });
@@ -35,16 +31,12 @@ export async function POST(request) {
     const tokenData = {
       id: user._id,
       username: user.username,
-      email: user.email,
     };
-   
+    //create token
     const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET, {
-      expiresIn: '1h',
+      expiresIn: '1d',
     });
 
-
-    console.log(token);
-    console.log("done");
     const response = NextResponse.json({
       message: 'Login successful',
       success: true,
@@ -56,6 +48,7 @@ export async function POST(request) {
 
     return response;
   } catch (error) {
+    console.log(error.message);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

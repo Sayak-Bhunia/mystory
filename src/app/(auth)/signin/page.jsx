@@ -1,6 +1,5 @@
 'use client';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 export default function SignInPage() {
@@ -17,10 +16,12 @@ export default function SignInPage() {
     try {
       setLoading(true);
       toast.loading('Server running...');
-      const response = await axios({
-        method: 'post',
-        url: '/api/auth/signin',
-        data: user,
+      const response = await fetch('/api/auth/signin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user),
       });
 
       console.log(response.data);
@@ -29,6 +30,7 @@ export default function SignInPage() {
       router.push('/confess');
     } catch (error) {
       toast.dismiss();
+      console.log(error.message);
       toast.error('Failed | 400');
       console.log('SignIn failed');
     }

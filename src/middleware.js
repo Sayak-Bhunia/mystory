@@ -9,8 +9,7 @@ export function middleware(request) {
     path === '/signup' ||
     path === '/about' ||
     path === '/docs' ||
-    path === '/faqs' ||
-    path === '/';
+    path === '/faqs';
 
   const token = request.cookies.get('token')?.value || '';
 
