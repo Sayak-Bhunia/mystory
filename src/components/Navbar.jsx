@@ -4,6 +4,8 @@ import { AiOutlineMenu } from 'react-icons/ai';
 import { RxCross1 } from 'react-icons/rx';
 import { motion } from 'framer-motion';
 import { getDataFromToken } from '@/helpers/getDataFromToken';
+import toast, { Toaster } from 'react-hot-toast';
+import axios from 'axios';
 
 const NavBar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -31,21 +33,23 @@ const NavBar = () => {
     }
   }, []);
 
-  const logoutUser = async (router, toast) => {
+  const logoutUser = async (router) => {
+    toast.loading('Logging out...');
     try {
+      toast.loading('Logging out...');
       await axios.get('/api/auth/signout');
-      toast.success('Logout successful', {
-        duration: 2000,
-      });
+      setIsLoggedIn(false);
+      toast.success('Logged out successfully');
       router.push('/');
     } catch (error) {
       console.log(error.message);
-      toast.error(error.message);
     }
   };
+  toast.dismiss();
 
   return (
     <div className="border-b border-b-neutral-300 dark:border-b-neutral-700 fixed top-0 left-0 right-0 bg-white dark:bg-black backdrop-blur-lg bg-opacity-60 z-50">
+      <Toaster />
       <div className="mx-8 lg:mx-6 xl:mx-16 flex justify-between items-center py-6">
         <a href="/" className="text-4xl font-bold">
           mystory
@@ -70,9 +74,9 @@ const NavBar = () => {
               <a href="/profile" className={navClass}>
                 Profile
               </a>
-              <a href="/signout" className={navClass} onClick={logoutUser}>
+              <p className={`${navClass} cursor-pointer`} onClick={logoutUser}>
                 SignOut
-              </a>
+              </p>
               <a
                 href="/confess"
                 className="text-white py-1 inline-flex items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
