@@ -74,3 +74,91 @@ export async function GET(req) {
     );
   }
 }
+
+connect();
+
+export async function PUT(req) {
+  try {
+    const userId = await getDataFromToken(req);
+    const { confessionId, confessionContent } = await req.json();
+
+    if (!confessionId || !confessionContent) {
+      return NextResponse.json(
+        { message: 'Please provide a confession ID and content' },
+        { status: 400 },
+      );
+    }
+
+    const confession = await Confession.findById(confessionId);
+
+    if (!confession) {
+      return NextResponse.json(
+        { message: 'Confession not found' },
+        { status: 404 },
+      );
+    }
+
+    if (confession.author.toString() !== userId) {
+      return NextResponse.json(
+        { message: 'Unauthorized to update this confession' },
+        { status: 403 },
+      );
+    }
+
+    confession.content = confessionContent;
+    await confession.save();
+
+    return NextResponse.json({ message: 'Confession updated successfully' });
+  } catch (error) {
+    console.error('Error updating confession:', error.message);
+    return NextResponse.json(
+      { message: 'An error occurred while updating the confession' },
+      { status: 500 },
+    );
+  }
+}
+
+export async function DELETE(req) {
+  console.log('DELETE request made to /api/confession');
+  try {
+    const userId = await getDataFromToken(req);
+    const { confessionId } = await req.json();
+
+    if (!confessionId) {
+      return NextResponse.json(
+        { message: 'Please provide a confession ID' },
+        { status: 400 },
+      );
+    }
+
+    const confession = await Confession.findById(confessionId);
+
+    if (!confession) {
+      return NextResponse.json(
+        { message: 'Confession not found' },
+        { status: 404 },
+      );
+    }
+
+    if (confession.author.toString() !== userId) {
+      return NextResponse.json(
+        { message: 'Unauthorized to delete this confession' },
+        { status: 403 },
+      );
+    }
+
+    await Confession.findByIdAndDelete(confessionId);
+    await User.updateOne(
+      { _id: userId },
+      { $pull: { confessions: confessionId } },
+    );
+
+    return NextResponse.json({ message: 'Confession deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting confession:', error.message);
+    return NextResponse.json(
+      { message: 'An error occurred while deleting the confession' },
+      { status: 500 },
+    );
+  }
+}
