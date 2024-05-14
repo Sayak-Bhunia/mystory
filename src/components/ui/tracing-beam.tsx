@@ -9,14 +9,20 @@ import {
 } from 'framer-motion';
 import { cn } from '@/utils/cn';
 
-export const TracingBeam = ({ children, className }) => {
-  const ref = useRef(null);
+export const TracingBeam = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
+  const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start start', 'end start'],
   });
 
-  const contentRef = useRef(null);
+  const contentRef = useRef<HTMLDivElement>(null);
   const [svgHeight, setSvgHeight] = useState(0);
 
   useEffect(() => {
