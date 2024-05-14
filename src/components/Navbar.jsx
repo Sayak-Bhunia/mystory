@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { getDataFromToken } from '@/helpers/getDataFromToken';
 import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios';
+import { NextRequest } from 'next/server';
 
 const NavBar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -25,12 +26,37 @@ const NavBar = () => {
   my-2  px-10 hover:px-6`;
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  
   useEffect(() => {
-    const id = getDataFromToken();
-    if (id !== '') {
-      setIsLoggedIn(true);
-    }
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`/api/auth/session`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (!response.ok) {
+          console.error('Server error:', response);
+          console.error('Failed to fetch data from the server');
+          return;
+        }
+
+        const data = await response.json();
+        console.log(data);
+
+        if (data.message) {
+          console.log(data.message);
+
+          setIsLoggedIn(true);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+
+    fetchData();
   }, []);
 
   const logoutUser = async (router) => {
