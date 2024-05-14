@@ -48,11 +48,12 @@ const NavBar = () => {
           <a href="/faqs" className={navClass}>
             FAQs
           </a>
-          <a href="/search" className={navClass}>
-            Search
-          </a>
+
           {isLoggedIn ? (
             <div>
+              <a href="/search" className={navClass}>
+                Search
+              </a>
               <a href="/profile" className={navClass}>
                 Profile
               </a>
@@ -106,11 +107,11 @@ const NavBar = () => {
             <a href="/faqs" className={smNavClass}>
               FAQs
             </a>
-            <a href="/search" className={smNavClass}>
-              Search
-            </a>
             {isLoggedIn ? (
               <div>
+                <a href="/search" className={navClass}>
+                  Search
+                </a>
                 <a href="/profile" className={navClass}>
                   Profile
                 </a>
