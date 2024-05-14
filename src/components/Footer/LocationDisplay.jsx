@@ -20,7 +20,6 @@ const LocationDisplay = () => {
               const cityName = addressComponents.city;
               const countryName = addressComponents.countryName;
               setCity(cityName);
-              setCountry(countryName);
             } catch (error) {
               console.error('Error fetching location:', error);
             }

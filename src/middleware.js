@@ -32,6 +32,5 @@ export const config = {
     '/docs',
     '/faqs',
     '/search',
-    '/',
   ],
 };
