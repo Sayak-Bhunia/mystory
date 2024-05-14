@@ -3,18 +3,21 @@ import React, { useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { RxCross1 } from 'react-icons/rx';
 import { motion } from 'framer-motion';
-
+import { useSession } from 'next-auth/react';
+import { redirect } from 'next/navigation';
+import Link from 'next/link';
 const NavBar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
-
+  const { data: session } = useSession();
+  console.log(session);
   const toggleNav = () => {
-    setIsNavOpen(!isNavOpen);
+    setIsNavOpen(isNavOpen);
   };
 
-  const smNavClass = `py-1 w-full rounded-full border 
+  const smNavClass = `py-1 px-2 w-full rounded-full border 
   border-[#616161] hover:border-[#191919] text-center
   hover:bg-[#F1F5F9] hover:text-black transform transition-all duration-300 font-semibold 
-  my-2 hover:w-[90%]`;
+  my-2 hover:w-[90%] `;
 
   const navClass = `py-1  rounded-full border 
   border-[#616161] hover:border-[#191919]
@@ -41,6 +44,16 @@ const NavBar = () => {
           <a href="/search" className={navClass}>
             Search
           </a>
+          {session ? (
+            <Link className={navClass} href="/api/auth/signout?callback=/">
+              Logout
+            </Link>
+          ) : (
+            <a href="/signin" className={smNavClass}>
+              Login/Signup
+            </a>
+          )}
+
           <a
             href="/confess"
             className="text-white py-1 inline-flex items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
@@ -82,6 +95,9 @@ const NavBar = () => {
             </a>
             <a href="/search" className={smNavClass}>
               Search
+            </a>
+            <a href="/signin" className={smNavClass}>
+              Login/Signup
             </a>
             <a
               href="/confess"
