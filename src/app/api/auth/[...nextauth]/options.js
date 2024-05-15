@@ -123,7 +123,7 @@ export const options = {
   ],
   callbacks: {
     async jwt({ token, user }) {
-      console.log('user ', user, 'TOKEN ', token);
+      // console.log('user ', user, 'TOKEN ', token);
       if (user) {
         token.role = user.role;
         token.id = user._id;
@@ -131,7 +131,7 @@ export const options = {
       return token;
     },
     async session({ session, token }) {
-      console.log('session ', session);
+      // console.log('session ', session);
 
       if (session?.user) {
         session.user.role = token.role;

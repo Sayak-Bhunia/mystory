@@ -144,7 +144,7 @@ const SignInForm = () => {
               href="/signup"
               className="text-indigo-600 hover:text-indigo-800 hover:underline dark:text-purple-400 dark:hover:text-purple-300"
             >
-              Don't have an account? Sign up
+              Don&apos;t have an account? Sign up
             </a>
           </div>
         </div>
