@@ -2,14 +2,14 @@ import { NextResponse, NextRequest } from 'next/server';
 import connect from '@/dbConfig/dbConfig';
 import User from '@/models/userModel';
 import Confession from '@/models/confessionModel';
-import { getDataFromToken } from '@/helpers/getDataFromToken';
+import { getUserId } from '../../../../helpers/session';
 
 connect();
 
 export async function POST(req) {
   console.log('POST request made to /api/confession');
   try {
-    const userId = await getDataFromToken(req);
+    const userId = await getUserId();
     const username = await User.findById(userId);
     const { confessionContent } = await req.json();
 
