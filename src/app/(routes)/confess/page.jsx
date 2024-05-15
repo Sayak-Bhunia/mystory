@@ -19,7 +19,7 @@ const Confess = () => {
         confessionContent: confessContent,
       });
 
-      console.log('Response:', response.data);
+      // console.log('Response:', response.data);
       toast.dismiss();
       toast.success('Confession submitted successfully 🎉');
     } catch (error) {

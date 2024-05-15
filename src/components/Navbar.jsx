@@ -3,49 +3,27 @@ import React, { useEffect, useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { RxCross1 } from 'react-icons/rx';
 import { motion } from 'framer-motion';
-import { getDataFromToken } from '@/helpers/getDataFromToken';
+import { useSession } from 'next-auth/react';
+import { redirect } from 'next/navigation';
+import Link from 'next/link';
 import toast, { Toaster } from 'react-hot-toast';
-import axios from 'axios';
-
 const NavBar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
-
+  const { data: session } = useSession();
+  // console.log(session);
   const toggleNav = () => {
-    setIsNavOpen(!isNavOpen);
+    setIsNavOpen(isNavOpen);
   };
 
-  const smNavClass = `py-1 w-full rounded-full border 
+  const smNavClass = `py-1 px-2 w-full rounded-full border 
   border-[#616161] hover:border-[#191919] text-center
   hover:bg-[#F1F5F9] hover:text-black transform transition-all duration-300 font-semibold 
-  my-2 hover:w-[90%]`;
+  my-2 hover:w-[90%] `;
 
   const navClass = `py-1  rounded-full border 
   border-[#616161] hover:border-[#191919]
   hover:bg-[#F1F5F9] hover:text-black transform transition-all duration-300 font-semibold 
   my-2  px-10 hover:px-6`;
-
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const id = getDataFromToken();
-    if (id !== '') {
-      setIsLoggedIn(true);
-    }
-  }, []);
-
-  const logoutUser = async (router) => {
-    toast.loading('Logging out...');
-    try {
-      toast.loading('Logging out...');
-      await axios.get('/api/auth/signout');
-      setIsLoggedIn(false);
-      toast.success('Logged out successfully');
-      router.push('/');
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-  toast.dismiss();
 
   return (
     <div className="border-b border-b-neutral-300 dark:border-b-neutral-700 fixed top-0 left-0 right-0 bg-white dark:bg-black backdrop-blur-lg bg-opacity-60 z-50">
@@ -65,39 +43,25 @@ const NavBar = () => {
           <a href="/faqs" className={navClass}>
             FAQs
           </a>
-
-          {isLoggedIn ? (
-            <>
-              <a href="/search" className={navClass}>
-                Search
-              </a>
-              <a href="/profile" className={navClass}>
-                Profile
-              </a>
-              <p className={`${navClass} cursor-pointer`} onClick={logoutUser}>
-                SignOut
-              </p>
-              <a
-                href="/confess"
-                className="text-white py-1 inline-flex items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
-              >
-                <p>Confess</p>
-
-                <span className="ml-2">
-                  <span className="relative flex h-3 w-3 ml-1">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-300"></span>
-                  </span>
-                </span>
-              </a>
-            </>
+          <a href="/search" className={navClass}>
+            Search
+          </a>
+          {session ? (
+            <Link className={navClass} href="/api/auth/signout?callback=/">
+              Logout
+            </Link>
           ) : (
-            <>
-              <a href="/signup" className={navClass}>
-                Sign Up
-              </a>
-            </>
+            <a href="/signin" className={smNavClass}>
+              Login/Signup
+            </a>
           )}
+
+          <a
+            href="/confess"
+            className="text-white py-1 inline-flex items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
+          >
+            <p>Confess</p>
+          </a>
         </div>
         {!isNavOpen ? (
           <AiOutlineMenu
@@ -124,38 +88,25 @@ const NavBar = () => {
             <a href="/faqs" className={smNavClass}>
               FAQs
             </a>
-            {isLoggedIn ? (
-              <div>
-                <a href="/search" className={navClass}>
-                  Search
-                </a>
-                <a href="/profile" className={navClass}>
-                  Profile
-                </a>
-                <a href="/signout" className={navClass} onClick={logoutUser}>
-                  Sign Out
-                </a>
-                <a
-                  href="/confess"
-                  className="text-white py-1 inline-flex items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
-                >
-                  <p>Confess</p>
+            <a href="/search" className={smNavClass}>
+              Search
+            </a>
+            <a href="/signin" className={smNavClass}>
+              Login/Signup
+            </a>
+            <a
+              href="/confess"
+              className="py-1 inline-flex w-full items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
+            >
+              <p>Confess</p>
 
-                  <span className="ml-2">
-                    <span className="relative flex h-3 w-3 ml-1">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-300"></span>
-                    </span>
-                  </span>
-                </a>
-              </div>
-            ) : (
-              <div className="">
-                <a href="/signup" className={navClass}>
-                  Sign Up
-                </a>
-              </div>
-            )}
+              <span className="ml-2">
+                <span className="relative flex h-3 w-3 ml-1">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-300"></span>
+                </span>
+              </span>
+            </a>
           </div>
         </motion.div>
       )}
