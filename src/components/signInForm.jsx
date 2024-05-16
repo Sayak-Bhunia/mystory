@@ -6,8 +6,8 @@ import { signIn } from 'next-auth/react';
 import { z } from 'zod';
 const FormSchema = z.object({
   email: z.string().email(),
-  username: z.string().min(2, {
-    message: 'username must contain more tan 2 characters',
+  password: z.string().min(2, {
+    message: 'username must contain more than 2 characters',
   }),
   password: z
     .string()
@@ -52,6 +52,7 @@ const SignInForm = () => {
     } catch (error) {
       const errorMessages = JSON.parse(error.message).map((err) => err.message);
       toast.error(errorMessages.join(', '));
+      console.log(error);
     }
   };
 
