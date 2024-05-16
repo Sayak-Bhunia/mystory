@@ -7,12 +7,13 @@ import { useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import toast, { Toaster } from 'react-hot-toast';
+
 const NavBar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const { data: session } = useSession();
-  // console.log(session);
+
   const toggleNav = () => {
-    setIsNavOpen(isNavOpen);
+    setIsNavOpen(!isNavOpen); // Toggle the value of isNavOpen
   };
 
   const smNavClass = `py-1 px-2 w-full rounded-full border 
