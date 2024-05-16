@@ -12,7 +12,7 @@ const NavBar = () => {
   const { data: session } = useSession();
   // console.log(session);
   const toggleNav = () => {
-    setIsNavOpen(isNavOpen);
+    setIsNavOpen(!isNavOpen);
   };
 
   const smNavClass = `py-1 px-2 w-full rounded-full border 
@@ -20,10 +20,15 @@ const NavBar = () => {
   hover:bg-[#F1F5F9] hover:text-black transform transition-all duration-300 font-semibold 
   my-2 hover:w-[90%] `;
 
-  const navClass = `py-1  rounded-full border 
+  const navClassWrapper = `py-1  rounded-full border 
   border-[#616161] hover:border-[#191919]
   hover:bg-[#F1F5F9] hover:text-black transform transition-all duration-300 font-semibold 
-  my-2  px-10 hover:px-6`;
+  my-2  px-10 flex items-center justify-center w-[136px] group`;
+
+  const navClass = `py-1  rounded-full 
+   group-hover:border border-[#191919]
+  group-hover:bg-[#F1F5F9] group-hover:text-black transform transition-all duration-300 font-semibold 
+  px-10 group-hover:px-6`;
 
   return (
     <div className="border-b border-b-neutral-300 dark:border-b-neutral-700 fixed top-0 left-0 right-0 bg-white dark:bg-black backdrop-blur-lg bg-opacity-60 z-50">
@@ -34,33 +39,47 @@ const NavBar = () => {
         </a>
 
         <div className="justify-center gap-6 hidden lg:flex items-center">
-          <a href="/" className={navClass}>
-            Home
+          <a className={navClassWrapper} href="/">
+            <p className={navClass}>Home</p>
           </a>
-          <a href="/about" className={navClass}>
-            About
+          <a className={navClassWrapper} href="/about">
+            <p className={navClass}>About</p>
           </a>
-          <a href="/faqs" className={navClass}>
-            FAQs
+          <a className={navClassWrapper} href="/faqs">
+            <p className={navClass}>FAQs</p>
           </a>
-          <a href="/search" className={navClass}>
-            Search
+          <a className={navClassWrapper} href="/search">
+            <p className={navClass}>Search</p>
           </a>
           {session ? (
-            <Link className={navClass} href="/api/auth/signout?callback=/">
-              Logout
+            <Link
+              href="/api/auth/signout?callback=/"
+              className={navClassWrapper}
+            >
+              <p className={navClass}>Logout</p>
             </Link>
           ) : (
-            <a href="/signin" className={smNavClass}>
-              Login/Signup
+            <a className={`${navClassWrapper} w-[170px]`} href="/signin">
+              <p className={`${navClass} group-hover:px-4`}>Login/Signup</p>
             </a>
           )}
 
           <a
             href="/confess"
-            className="text-white py-1 inline-flex items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
+            className="text-white  bg-purple-700 
+py-1  rounded-full border 
+  border-[#3a3838] hover:border-[#3a3838]
+  hover:bg-purple-300 hover:text-black transform transition-all duration-300 font-semibold 
+  my-2  px-10 flex items-center justify-center w-[156px] group"
           >
-            <p>Confess</p>
+            <p
+              className="py-1 text-white rounded-full 
+   group-hover:border border-slate-800
+  group-hover:bg-purple-300 group-hover:text-slate-800  transform transition-all duration-300 font-semibold 
+  px-10 group-hover:px-6"
+            >
+              Confess
+            </p>
           </a>
         </div>
         {!isNavOpen ? (
