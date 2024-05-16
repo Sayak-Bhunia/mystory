@@ -4,6 +4,7 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import User from '@/models/userModel';
 import bcrypt from 'bcrypt';
 import connect from '@/dbConfig/dbConfig';
+
 const generatePassword = async () => {
   const saltRounds = 10;
   const salt = await bcrypt.genSalt(saltRounds);
@@ -63,15 +64,17 @@ export const options = {
           //Create a new user and save it to database
           const hpassword = await generatePassword();
 
-          await User.create({
+          const user = await User.create({
             email: profile.email,
             username: profile.name,
             password: hpassword,
           });
+          var userid = user._id.toString();
         }
         return {
           ...profile,
           id: profile.sub,
+          userId: userid,
           role: userRole,
         };
       },
@@ -120,14 +123,20 @@ export const options = {
   ],
   callbacks: {
     async jwt({ token, user }) {
-      // console.log('user ', user);
-      if (user) token.role = user.role;
+      // console.log('user ', user, 'TOKEN ', token);
+      if (user) {
+        token.role = user.role;
+        token.id = user._id;
+      }
       return token;
     },
     async session({ session, token }) {
       // console.log('session ', session);
 
-      if (session?.user) session.user.role = token.role;
+      if (session?.user) {
+        session.user.role = token.role;
+        session.user.id = token.id;
+      }
       return session;
     },
   },
