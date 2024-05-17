@@ -3,6 +3,8 @@
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
+import { FaGithub } from 'react-icons/fa';
+import { FcGoogle } from 'react-icons/fc';
 import { z } from 'zod';
 const FormSchema = z.object({
   email: z.string().email(),
@@ -56,24 +58,28 @@ const UserForm = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center min-h-screen">
-        <div className="w-full max-w-md px-8 py-12 bg-white rounded-lg shadow-lg dark:bg-gray-800 dark:text-white">
-          <h1 className="mb-6 text-3xl font-bold text-center text-gray-800 dark:text-white">
-            Sign In
-          </h1>
-
-          <div className="flex justify-center mb-6">
-            <button className="px-4 py-2 mr-4 text-white bg-red-600 rounded-lg hover:bg-red-700 dark:bg-red-700 dark:hover:bg-red-600">
-              Sign In with Google
+      <div className="flex flex-col items-center justify-center min-h-screen w-96">
+        <div className="w-full max-w-md px-8 py-12 bg-white rounded-lg shadow-lg dark:bg-[#303030] dark:text-white">
+          <div className="flex justify-around items-center mb-6">
+            <button
+              className=" p-5 mr-4 text-white rounded-lg "
+              onClick={async () => await signIn('google', { callbackUrl: '/' })}
+            >
+              <FcGoogle className=" h-10 w-10" />
             </button>
-            <button className="px-4 py-2 text-white bg-gray-800 rounded-lg hover:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-600">
-              Sign In with GitHub
+            <button
+              className=" p-5 text-white  rounded-lg"
+              onClick={async () => await signIn('github', { callbackUrl: '/' })}
+            >
+              <FaGithub className=" h-10 w-10" />
             </button>
           </div>
-
-          <div className="flex justify-center mb-6">
+          <hr className=' mb-3'/>
+          <div className="flex flex-col text-center justify-center mb-6">
+           
+            <p className=" mb-2">OR</p>
             <span className="text-gray-600 dark:text-gray-400">
-              or sign in with credentials
+              Sign in with credentials
             </span>
           </div>
 
@@ -83,61 +89,49 @@ const UserForm = () => {
             className="flex flex-col gap-4"
           >
             <div>
-              <label
-                htmlFor="email"
-                className="mb-1 text-gray-600 dark:text-gray-400"
-              >
-                Username
-              </label>
+             
               <input
                 id="username"
                 name="username"
+                placeholder='Username'
                 type="text"
                 onChange={handleChange}
                 required={true}
                 value={formData.username}
-                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:focus:ring-purple-600"
+                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-[#505050] dark:text-white dark:border-gray-600 dark:focus:ring-purple-600"
               />
             </div>
             <div>
-              <label
-                htmlFor="email"
-                className="mb-1 text-gray-600 dark:text-gray-400"
-              >
-                Email
-              </label>
+            
               <input
+              placeholder='email'
                 id="email"
                 name="email"
                 type="text"
                 onChange={handleChange}
                 required={true}
                 value={formData.email}
-                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:focus:ring-purple-600"
+                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-[#505050] dark:text-white dark:border-gray-600 dark:focus:ring-purple-600"
               />
             </div>
 
             <div>
-              <label
-                htmlFor="password"
-                className="mb-1 text-gray-600 dark:text-gray-400"
-              >
-                Password
-              </label>
+            
               <input
+              placeholder='Password'
                 id="password"
                 name="password"
                 type="password"
                 onChange={handleChange}
                 required={true}
                 value={formData.password}
-                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:focus:ring-purple-600"
+                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-[#505050] dark:text-white dark:border-gray-600 dark:focus:ring-purple-600"
               />
             </div>
 
             <button
               type="submit"
-              className="px-4 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-purple-700 dark:hover:bg-purple-600 dark:focus:ring-purple-600"
+              className="px-4 py-2 w-fit m-auto transition text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-purple-700 dark:hover:bg-purple-600 dark:focus:ring-purple-600"
             >
               Sign Up
             </button>
@@ -150,7 +144,7 @@ const UserForm = () => {
           )}
 
           <div className="mt-6 text-center">
-            If you already have an Account please{' '}
+            already have an Account ?{' '}
             <a
               href="/signin"
               className="text-indigo-600 hover:text-indigo-800 hover:underline dark:text-purple-400 dark:hover:text-purple-300"
