@@ -1,5 +1,5 @@
 'use client';
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub , FaEye , FaEyeSlash } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
@@ -22,7 +22,8 @@ const SignInForm = () => {
   const router = useRouter();
   const [formData, setFormData] = useState({});
   const [errorMessage, setErrorMessage] = useState('');
-
+  const [showEye,setShowEye] = useState(true)
+  const [showPass,setShowPass]=useState(false)
   const handleChange = (e) => {
     const value = e.target.value;
     const name = e.target.name;
@@ -57,6 +58,13 @@ const SignInForm = () => {
       console.log(error);
     }
   };
+
+
+
+  const eyeToggle=()=>{
+        showPass?setShowPass(false):setShowPass(true)
+        showEye?setShowEye(false):setShowEye(true)
+  }
 
   return (
     <>
@@ -107,12 +115,16 @@ const SignInForm = () => {
                 placeholder="Password"
                 id="password"
                 name="password"
-                type="password"
+                type={showPass?"text":"password"}
                 onChange={handleChange}
                 required={true}
                 value={formData.password}
                 className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-[#505050] dark:text-white dark:border-gray-600 dark:focus:ring-purple-600"
               />
+            {
+                !showEye?<FaEye className='relative left-[90%] top-[-27px]' onClick={eyeToggle} />
+                :<FaEyeSlash className='relative left-[90%] top-[-27px]' onClick={eyeToggle} />
+            }  
             </div>
 
             <button
