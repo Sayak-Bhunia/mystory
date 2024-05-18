@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub ,FaEye , FaEyeSlash } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { z } from 'zod';
 const FormSchema = z.object({
@@ -22,6 +22,8 @@ const UserForm = () => {
   const router = useRouter();
   const [formData, setFormData] = useState({});
   const [errorMessage, setErrorMessage] = useState('');
+  const [showEye,setShowEye] = useState(true)
+  const [showPass,setShowPass]=useState(false)
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -55,6 +57,11 @@ const UserForm = () => {
       toast.error(errorMessages.join(', '));
     }
   };
+
+  const eyeToggle=()=>{
+    showPass?setShowPass(false):setShowPass(true)
+    showEye?setShowEye(false):setShowEye(true)
+  }
 
   return (
     <>
@@ -121,12 +128,16 @@ const UserForm = () => {
               placeholder='Password'
                 id="password"
                 name="password"
-                type="password"
+                type={showPass?"text":"password"}
                 onChange={handleChange}
                 required={true}
                 value={formData.password}
                 className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-[#505050] dark:text-white dark:border-gray-600 dark:focus:ring-purple-600"
               />
+              {
+                !showEye?<FaEye className='relative left-[90%] top-[-27px]' onClick={eyeToggle} />
+                :<FaEyeSlash className='relative left-[90%] top-[-27px]' onClick={eyeToggle} />
+            }  
             </div>
 
             <button
