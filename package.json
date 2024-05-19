@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
+    "@studio-freight/lenis": "^1.0.42",
     "aos": "^2.3.4",
     "axios": "^1.6.8",
     "bcrypt": "^5.1.1",
