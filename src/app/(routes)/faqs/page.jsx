@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { MdOutlineArrowDropDown } from 'react-icons/md';
+import { MdOutlineArrowDropDown } from 'react-icons/md'
 import {
   Accordion,
   AccordionItem,
@@ -47,7 +47,7 @@ export default function Page() {
                             : setClassName('collapsed')
                         }
                       </AccordionItemState>
-                      <div className=" flex items-center justify-around w-full p-2">
+                      <div className=" flex items-center justify-between w-full pt-2 pb-2 pl-8 pr-8">
                         <div className="flex justify-center items-center flex-wrap  p-2 bg-gray-800 rounded-lg">
                           {item.icon}
                         </div>
