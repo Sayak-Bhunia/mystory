@@ -9,10 +9,13 @@ import {
   AccordionItemPanel,
   AccordionItemState,
 } from 'react-accessible-accordion';
+import styles from './page.css'
+
 import data from '@/utils/accordion';
 import 'react-accessible-accordion/dist/fancy-example.css';
 export default function Page() {
   const [className, setClassName] = useState(null);
+  let [index,setIndex]=useState(null)
   return (
     <section className=" mt-28 mb-4 lg:w-[720px] md:w-[520px] w-[380px] m-auto  px-2  flex flex-col justify-between">
       <div className=" p-6 w-full flex gap-y-8 justify-center items-center  rounded-md flex-wrap  border-gray-300 border-[1px]">
@@ -34,7 +37,7 @@ export default function Page() {
             {data.map((item, i) => {
               return (
                 <AccordionItem
-                  className={` border-2 border-gray-400 rounded-lg overflow-hidden mb-5 ${className}`}
+                  className={` border-2 border-gray-400 rounded-lg overflow-hidden mb-5 ${className} ${index==i?"open":"close"}`}
                   key={i}
                   uuid={i}
                 >
@@ -58,6 +61,9 @@ export default function Page() {
                           <MdOutlineArrowDropDown
                             className=" text-white"
                             size={20}
+                            onClick={()=>{
+                                setIndex(i)
+                            }}
                           />
                         </div>
                       </div>
