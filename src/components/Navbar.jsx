@@ -30,39 +30,39 @@ const NavBar = () => {
     <div className="border-b border-b-neutral-300 dark:border-b-neutral-700 fixed top-0 left-0 right-0 bg-white dark:bg-black backdrop-blur-lg bg-opacity-60 z-50">
       <Toaster />
       <div className="mx-8 lg:mx-6 xl:mx-16 flex justify-between items-center py-6">
-        <a href="/" className="text-4xl font-bold">
+        <Link href="/" className="text-4xl font-bold">
           mystory
-        </a>
+        </Link>
 
         <div className="justify-center gap-6 hidden lg:flex items-center">
-          <a href="/" className={navClass}>
+          <Link href="/" className={navClass}>
             Home
-          </a>
-          <a href="/about" className={navClass}>
+          </Link>
+          <Link href="/about" className={navClass}>
             About
-          </a>
-          <a href="/faqs" className={navClass}>
+          </Link>
+          <Link href="/faqs" className={navClass}>
             FAQs
-          </a>
-          <a href="/search" className={navClass}>
+          </Link>
+          <Link href="/search" className={navClass}>
             Search
-          </a>
+          </Link>
           {session ? (
             <Link className={navClass} href="/api/auth/signout?callback=/">
               Logout
             </Link>
           ) : (
-            <a href="/signin" className={smNavClass}>
+            <Link href="/signin" className={smNavClass}>
               Login/Signup
-            </a>
+            </Link>
           )}
 
-          <a
+          <Link
             href="/confess"
             className="text-white py-1 inline-flex items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
           >
             <p>Confess</p>
-          </a>
+          </Link>
         </div>
         {!isNavOpen ? (
           <AiOutlineMenu
@@ -80,22 +80,22 @@ const NavBar = () => {
       {isNavOpen && ( // Render the navigation links if isNavOpen is true
         <motion.div whileInView={{ opacity: 1 }} initial={{ opacity: 0 }}>
           <div className="flex flex-col lg:hidden justify-center items-center m-4">
-            <a href="/" className={smNavClass}>
+            <Link href="/" className={smNavClass}>
               Home
-            </a>
-            <a href="/about" className={smNavClass}>
+            </Link>
+            <Link href="/about" className={smNavClass}>
               About
-            </a>
-            <a href="/faqs" className={smNavClass}>
+            </Link>
+            <Link href="/faqs" className={smNavClass}>
               FAQs
-            </a>
-            <a href="/search" className={smNavClass}>
+            </Link>
+            <Link href="/search" className={smNavClass}>
               Search
-            </a>
-            <a href="/signin" className={smNavClass}>
+            </Link>
+            <Link href="/signin" className={smNavClass}>
               Login/Signup
-            </a>
-            <a
+            </Link>
+            <Link
               href="/confess"
               className="py-1 inline-flex w-full items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
             >
@@ -107,7 +107,7 @@ const NavBar = () => {
                   <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-300"></span>
                 </span>
               </span>
-            </a>
+            </Link>
           </div>
         </motion.div>
       )}
