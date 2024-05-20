@@ -5,6 +5,7 @@ import Image from 'next/image';
 export default function ShareEasily() {
   return (
     <div
+    id='text'
       data-aos="fade-up"
       data-aos-once="true"
       className="flex flex-col lg:flex-row items-center justify-between w-full 
@@ -12,10 +13,10 @@ export default function ShareEasily() {
     >
       <div className="flex flex-col items-center sm:items-start lg:justify-center justify-between lg:w-[50%] ">
         <div className="text-3xl lg:text-5xl font-semibold inline-flex space-x-3 items-center justify-center">
-          <h1>Share Easily</h1>
+          <h1 id='text'>Share Easily</h1>
           <BsFillShareFill />
         </div>
-        <p className="text-md md:text-lg lg:text-xl mt-12 text-justify ">
+        <p id='text' className="text-md md:text-lg lg:text-xl mt-12 text-justify ">
           Have fun! exploring other&apos;s secrets and sharing yours
           anonymously. Share the confessions with your friends and family on
           various social media platforms.
@@ -27,11 +28,11 @@ export default function ShareEasily() {
           href="https://twitter.com/mannupaaji"
         >
           <div className="flex basis-full p-2 flex-col tracking-tight text-slate-100/50  w-[20rem] h-[20rem] ">
-            <h3 className="pb-2 m-0 font-bold  text-base text-slate-100">
+            <h3 id='special' className="pb-2 m-0 font-bold  text-base text-slate-100">
               Hashed_id
             </h3>
             <div className="text-base !m-0 !p-0 font-normal">
-              <span className="text-slate-500 ">My dog step on a bee~! 🐝</span>
+              <span id='special' className="text-slate-500 ">My dog step on a bee~! 🐝</span>
             </div>
             <Image
               src="/share.svg"

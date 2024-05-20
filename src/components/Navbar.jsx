@@ -7,8 +7,9 @@ import { useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import toast, { Toaster } from 'react-hot-toast';
-
+import './mode.css'
 const NavBar = () => {
+  const [mode,setMode]=useState(0)
   const [isNavOpen, setIsNavOpen] = useState(false);
   const { data: session } = useSession();
 
@@ -25,15 +26,23 @@ const NavBar = () => {
   border-[#616161] hover:border-[#191919]
   hover:bg-[#F1F5F9] hover:text-black transform transition-all duration-300 font-semibold 
   my-2  px-10 hover:px-6`;
-
+function handleDarkMode(){
+  if(mode===0){
+  document.body.classList.toggle('dark')
+  setMode(mode+1)
+  }
+  else{
+    setMode(0)
+  }
+}
   return (
-    <div className="border-b border-b-neutral-300 dark:border-b-neutral-700 fixed top-0 left-0 right-0 bg-white dark:bg-black backdrop-blur-lg bg-opacity-60 z-50">
+    <div id='nav' className="border-b border-b-neutral-300 dark:border-b-neutral-700 fixed top-0 left-0 right-0 bg-white dark:bg-black backdrop-blur-lg bg-opacity-60 z-50">
       <Toaster />
-      <div className="mx-8 lg:mx-6 xl:mx-16 flex justify-between items-center py-6">
+      <div  className="mx-4 lg:mx-6 xl:mx-16 flex justify-between items-center py-6">
         <Link href="/" className="text-4xl font-bold">
           mystory
         </Link>
-
+        <div className='flex justify-between items-center gap-4'>
         <div className="justify-center gap-6 hidden lg:flex items-center">
           <Link href="/" className={navClass}>
             Home
@@ -64,6 +73,12 @@ const NavBar = () => {
             <p>Confess</p>
           </Link>
         </div>
+        <div className="mode_change" onClick={()=>handleDarkMode()}>
+  <label className="switch">
+      <input type="checkbox" />
+    <span className="slider"></span>
+  </label>
+   </div>
         {!isNavOpen ? (
           <AiOutlineMenu
             onClick={toggleNav}
@@ -78,7 +93,7 @@ const NavBar = () => {
       </div>
 
       {isNavOpen && ( // Render the navigation links if isNavOpen is true
-        <motion.div whileInView={{ opacity: 1 }} initial={{ opacity: 0 }}>
+        <motion.div id='navigation_bar' whileInView={{ opacity: 1 }} initial={{ opacity: 0 }}>
           <div className="flex flex-col lg:hidden justify-center items-center m-4">
             <Link href="/" className={smNavClass}>
               Home
@@ -111,6 +126,7 @@ const NavBar = () => {
           </div>
         </motion.div>
       )}
+        </div>
     </div>
   );
 };

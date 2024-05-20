@@ -24,3 +24,7 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #c053e6dd;
 }
+.mode_change input[type="checkbox"] {
+  visibility: hidden;
+  display: none;
+}
