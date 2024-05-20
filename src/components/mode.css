@@ -60,20 +60,14 @@
 #8983f7, inset -10px -4px 0 0 
 #a3dafb;
 }
-.dark #nav{backdrop-filter: blur(15px); background: transparent;} .dark #heading{color: white;} 
-.dark #background,.dark #container_back{filter: invert(1)}
-.dark #container_back{background-color: black;color: white;border: solid white;border-width: 1px;}
+input{color: black;}
+.dark #nav{background-color: transparent;backdrop-filter: blur(15px);color: white;}
+.dark{color: white;background-color: black;}
+.dark #background{color:black;filter: invert(1);}
+.dark #heading,.dark #background form button,.dark #form,.dark #form svg,.dark #form div:first-child button:first-child svg{filter: invert(1);}
+.dark #container_back{filter: invert(1);background-color: black;border-color: white;}
+.dark #container_back span,.dark #container_back h2,.dark #container_back p,.dark #container_back a{color: white;}
+.dark #container_back a{border-color: white;}
+.dark .mb-2{color: white;}
 .dark #filter{background-color: transparent;}
-.dark #nav{background-color: transparent;backdrop-filter: blur(12px);}
-.dark #footer_img_container,.dark #a,.dark .mt-4 span, .dark,.dark #Box{ color: white; background-color: black; } 
-.dark span,.dark h3,.dark #special,.dark h2{color: white;}
-.dark #text,.dark #color{color: black;}
-#navigation_bar{
-  position: absolute;
-  width: 100%;
-  top: 6.1rem;
-  left: 0;
-  right: 0;
-  background-color: white;
-}
-.dark #navigation_bar{background-color: black;}
+.dark #Box{background-color: black;}

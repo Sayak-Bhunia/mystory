@@ -66,7 +66,7 @@ const SignInForm = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center min-h-screen w-96">
+      <div id='form' className="flex flex-col items-center justify-center min-h-screen w-96">
         <div className="w-full max-w-md px-8 py-12 bg-white rounded-lg shadow-lg dark:bg-[#303030] dark:text-white">
           <div className="flex justify-around items-center mb-6">
             <button
@@ -76,7 +76,7 @@ const SignInForm = () => {
               <FcGoogle className=" h-10 w-10" />
             </button>
             <button
-              className=" p-5 text-white  rounded-lg"
+              className=" p-5  rounded-lg"
               onClick={async () => await signIn('github', { callbackUrl: '/' })}
             >
               <FaGithub className=" h-10 w-10" />
@@ -84,7 +84,7 @@ const SignInForm = () => {
           </div>
           <hr className=" mb-3" />
           <div className="flex flex-col text-center justify-center mb-6">
-            <p className=" mb-2">OR</p>
+            <p className=" mb-2" style={{color:'black'}}>OR</p>
             <span className="text-gray-600 dark:text-gray-400">
               Sign in with credentials
             </span>
