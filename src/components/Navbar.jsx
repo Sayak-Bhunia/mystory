@@ -47,9 +47,9 @@ function handleDarkMode(){
           <Link href="/" className={navClass}>
             Home
           </Link>
-          <Link href="/about" className={navClass}>
+          {/* <Link href="/about" className={navClass}>
             About
-          </Link>
+          </Link> */}
           <Link href="/faqs" className={navClass}>
             FAQs
           </Link>
@@ -71,6 +71,13 @@ function handleDarkMode(){
             className="text-white py-1 inline-flex items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
           >
             <p>Confess</p>
+          </Link>
+
+          <Link
+            href="/read"
+            className="text-white py-2 inline-flex items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
+          >
+            <p>Read</p>
           </Link>
         </div>
         <div className="mode_change" onClick={()=>handleDarkMode()}>
@@ -123,6 +130,12 @@ function handleDarkMode(){
                 </span>
               </span>
             </Link>
+            <Link
+            href="/read"
+            className="text-white py-2 inline-flex items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
+          >
+            <p>Read</p>
+          </Link>
           </div>
         </motion.div>
       )}

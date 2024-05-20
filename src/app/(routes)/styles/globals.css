@@ -1,0 +1,93 @@
+.meme-page-container {
+    display: flex;
+}
+
+.meme-image {
+    width: 500px;
+    height: 500px;
+}
+.lets-read-container {
+    flex: 1;
+    margin-left: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.poetsen-one-regular {
+    font-weight: 400;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 16px;
+    text-align: center;
+}
+.image1{
+    margin-right: 100px;
+}
+.section {
+    
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 2s ease-in-out;
+    margin-top: 100px;
+
+
+}
+
+.section-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 400;
+    font-family: 'Poetsen One', sans-serif;
+    font-display: swap;
+    /* font-family:  Plus Jakarta Sans, sans-serif; */
+    
+}
+
+
+.button-81 {
+    background-color: #fff;
+    border: 0 solid #e2e8f0;
+    border-radius: 1.5rem;
+    box-sizing: border-box;
+    color: #0d172a;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1;
+    padding: 1rem 1.6rem;
+    text-align: center;
+    text-decoration: none #9523a9 solid;
+    text-decoration-thickness: auto;
+    transition: all .1s cubic-bezier(.4, 0, .2, 1);
+    box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-top: 5px;
+}
+
+.button-81:hover {
+    background-color: #1e293b;
+    color: #fff;
+}
+
+@media (min-width: 768px) {
+    .button-81 {
+        font-size: 1.125rem;
+        padding: 1rem 2rem;
+    }
+}
+
+.session1{
+    margin-top: 120px;
+}
+
+.alinment{
+    text-align: justify;
+}
