@@ -5,6 +5,7 @@ export default function PrivacyMatters() {
   return (
     <>
       <div
+        id='text'
         data-aos="fade-up"
         data-aos-easing="linear"
         data-aos-duration="1500"
@@ -16,24 +17,25 @@ export default function PrivacyMatters() {
             <h1>Privacy Matters</h1>
             <FaLock />
           </div>
-          <p className="text-md md:text-lg lg:text-xl mt-12 text-justify">
+          <p id='text' className="text-md md:text-lg lg:text-xl mt-12 text-justify">
             Safeguarding your privacy is our utmost priority. We employ robust
             industry-standard security protocols to protect your data
           </p>
         </div>
 
-        <div className="border border-black/[0.2] dark:border-white/[0.2] bg-purple-100 dark:bg-black flex flex-col items-start p-4 relative">
-          <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
-          <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
-          <Icon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
-          <Icon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
+        <div id='container_back' className="border border-black/[0.2] dark:border-white/[0.2] bg-purple-100 dark:bg-black flex flex-col items-start p-4 relative">
+          <Icon id="background" className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
+          <Icon id="background" className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
+          <Icon id="background" className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
+          <Icon id="background" className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
 
           <EvervaultCard text="Identity" />
 
-          <h2 className="dark:text-white text-black mt-4 text-sm font-light">
+          <h2 id='special' className="dark:text-white text-black mt-4 text-sm font-light">
             Your entire Identity is protected and encrypted (Hover)
           </h2>
           <a
+            id='a'
             href="/privacy-policy"
             className="text-sm border font-light dark:border-white/[0.2] border-black/[0.2] rounded-full mt-4 text-black dark:text-white px-2 py-0.5"
           >
