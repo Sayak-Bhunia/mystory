@@ -60,7 +60,11 @@
 #8983f7, inset -10px -4px 0 0 
 #a3dafb;
 }
+#nav{margin-right: 1rem;}
 input{color: black;}
+#navigation_bar{position: absolute;top: 6rem;background-color: white;width: 100%;right: 0;left: 0;display: flex;justify-content: center;align-items: center;flex-direction: column;}
+#navigation_bar a,#navigation_bar div{width: 90%;}
+.dark #navigation_bar{background-color: black;}
 .dark #nav{background-color: transparent;backdrop-filter: blur(15px);color: white;}
 .dark{color: white;background-color: black;}
 .dark #background{color:black;filter: invert(1);}
