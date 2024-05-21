@@ -1,5 +1,5 @@
-import { options } from '@/app/api/auth/[...nextauth]/options';
 import User from '@/models/userModel';
+import { options } from '@/app/api/auth/[...nextauth]/options';
 import { getServerSession } from 'next-auth';
 export async function getUserId() {
   const session = await getServerSession(options);

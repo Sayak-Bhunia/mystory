@@ -20,9 +20,8 @@ export const options = {
       async profile(profile) {
         connect();
         // console.log('Profile GitHub: ', profile);
-
-        let userRole = 'GitHub User';
-        if (profile?.email == 'jake@claritycoders.com') {
+        let userRole = 'user';
+        if (profile?.email == 'mohdjamikhann@gmail.com') {
           userRole = 'admin';
         }
         //Check if the user with this email exists.
@@ -36,11 +35,9 @@ export const options = {
             email: profile.email,
             username: profile.name,
             password: hpassword,
+            role: userRole,
           });
         }
-        //If not exist then create a User with that email id.
-
-        //If exists do nothing
 
         return {
           ...profile,
@@ -54,8 +51,10 @@ export const options = {
       async profile(profile) {
         connect();
         // console.log('Profile Google: ', profile);
-
-        let userRole = 'Google User';
+        let userRole = 'user';
+        if (profile?.email == 'mohdjamikhann@gmail.com') {
+          userRole = 'admin';
+        }
         //Check if the user with this email exists.
         const userFound = await User.findOne({ email: profile?.email })
           .lean()
@@ -68,7 +67,9 @@ export const options = {
             email: profile.email,
             username: profile.name,
             password: hpassword,
+            role: userRole,
           });
+          console.log('user from google', user);
           var userid = user._id.toString();
         }
         return {
@@ -109,8 +110,6 @@ export const options = {
 
             if (match) {
               delete foundUser.password;
-
-              foundUser['role'] = 'Unverified Email';
               return foundUser;
             }
           }
