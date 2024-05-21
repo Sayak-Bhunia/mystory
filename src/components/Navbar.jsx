@@ -47,6 +47,9 @@ const NavBar = () => {
           <Link href="/search" className={navClass}>
             Search
           </Link>
+          <Link href="/settings" className={navClass}>
+            Settings
+          </Link>
           {session ? (
             <Link className={navClass} href="/api/auth/signout?callback=/">
               Logout
@@ -91,6 +94,9 @@ const NavBar = () => {
             </Link>
             <Link href="/search" className={smNavClass}>
               Search
+            </Link>
+            <Link href="/settings" className={navClass}>
+              Settings
             </Link>
             <Link href="/signin" className={smNavClass}>
               Login/Signup
