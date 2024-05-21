@@ -14,7 +14,6 @@ export default function Seamless() {
   }, []);
   return (
     <div
-      id='text'
       data-aos="fade-up"
       data-aos-once="true"
       className="flex flex-col lg:flex-row items-center justify-between w-full 
@@ -22,10 +21,10 @@ export default function Seamless() {
     >
       <div className="flex flex-col items-center sm:items-start md:justify-center justify-between  md:w-[60%]">
         <div className="text-3xl lg:text-5xl font-semibold inline-flex space-x-3 items-center justify-center">
-          <h1 id='text'>Seamless Experience</h1>
+          <h1>Seamless Experience</h1>
           <TiFlowSwitch />
         </div>
-        <p id='text' className="text-md md:text-lg lg:text-xl mt-12 text-justify">
+        <p className="text-md md:text-lg lg:text-xl mt-12 text-justify">
           Intuitive and user-friendly experience, ensuring that every
           interaction with our platform is smooth and effortless.
         </p>
