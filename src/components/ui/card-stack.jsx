@@ -40,14 +40,14 @@ export const CardStack = ({ items, offset, scaleFactor }) => {
               zIndex: cards.length - index, //  decrease z-index for the cards that are behind
             }}
           >
-            <div  className="font-normal text-neutral-700 dark:text-neutral-200">
+            <div className="font-normal text-neutral-700 dark:text-neutral-200">
               {card.content}
             </div>
             <div>
-              <p id='color' className="text-neutral-500 font-medium dark:text-white">
+              <p className="text-neutral-500 font-medium dark:text-white">
                 {card.name}
               </p>
-              <p id='color' className="text-neutral-400 font-normal dark:text-neutral-200">
+              <p className="text-neutral-400 font-normal dark:text-neutral-200">
                 {card.designation}
               </p>
             </div>
