@@ -3,7 +3,6 @@
 .mode_change ::before {
   box-sizing: border-box;
 }
-.mode_change{margin-top: 0.6rem;}
 /* The switch - the box around the slider */
 .mode_change .switch {
   --width-of-switch: 3.5em;
@@ -60,14 +59,16 @@
 #8983f7, inset -10px -4px 0 0 
 #a3dafb;
 }
-#nav{margin-right: 1rem;}
+#nav{margin-right: 1rem;width: 100%;}
+#nav div{margin-right: 1rem;}
 input{color: black;}
-#navigation_bar{position: absolute;top: 6rem;background-color: white;width: 100%;right: 0;left: 0;display: flex;justify-content: center;align-items: center;flex-direction: column;}
+#navigation_bar{position: absolute;top: 5.55rem;background-color: white;width: 100%;right: 0;left: 0;display: flex;justify-content: center;align-items: center;flex-direction: column;}
 #navigation_bar a,#navigation_bar div{width: 90%;}
 .dark #navigation_bar{background-color: black;}
-.dark #nav{background-color: transparent;backdrop-filter: blur(15px);color: white;}
+.dark #nav{background-color: black;backdrop-filter: blur(15px);color: white;}
 .dark{color: white;background-color: black;}
-.dark #background{color:black;filter: invert(1);}
+.dark #background,.dark #container_background,.dark #container_back svg{color:black;filter: invert(1);}
+.dark #container_background{padding: 0 1.5rem 0 0.5rem;}
 .dark #heading,.dark #background form button,.dark #form,.dark #form svg,.dark #form div:first-child button:first-child svg{filter: invert(1);}
 .dark #container_back{filter: invert(1);background-color: black;border-color: white;}
 .dark #container_back span,.dark #container_back h2,.dark #container_back p,.dark #container_back a{color: white;}

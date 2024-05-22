@@ -35,7 +35,7 @@ export const ContainerScroll = ({ titleComponent, children }) => {
       className="h-full pt-12 pb-12 flex items-center justify-center relative md:px-20"
       ref={containerRef}
     >
-      <div id='background'
+      <div
         className="py-10  w-full relative"
         style={{
           perspective: '1000px',
@@ -66,6 +66,7 @@ export const Header = ({ translate, titleComponent }) => {
 export const Card = ({ rotate, scale, children }) => {
   return (
     <motion.div
+    id='background' 
       style={{
         rotateX: rotate,
         scale,

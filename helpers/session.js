@@ -7,3 +7,8 @@ export async function getUserId() {
   const id = user._id;
   return id.toString();
 }
+export async function getCurrentUser() {
+  const session = await getServerSession(options);
+  const user = await User.findOne({ email: session.user.email }).lean().exec();
+  return user;
+}

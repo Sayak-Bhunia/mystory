@@ -46,7 +46,7 @@ export const EvervaultCard = ({ text, className }) => {
             <span className="dark:text-white text-black z-20">{text}</span>
           </div>
         </div>
-      </div> 
+      </div>
     </div>
   );
 };
