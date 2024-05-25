@@ -50,10 +50,23 @@ const NavBar = () => {
           <Link href="/settings" className={navClass}>
             Settings
           </Link>
+
           {session ? (
-            <Link className={navClass} href="/api/auth/signout?callback=/">
-              Logout
-            </Link>
+            <>
+              {session.user.role === 'admin' ? (
+                <Link className={navClass} href="/admin">
+                  Admin
+                </Link>
+              ) : (
+                <></>
+              )}
+              <Link href="/profile" className={navClass}>
+                Profile
+              </Link>
+              <Link className={navClass} href="/api/auth/signout?callback=/">
+                Logout
+              </Link>
+            </>
           ) : (
             <Link href="/signin" className={smNavClass}>
               Login/Signup
@@ -98,9 +111,28 @@ const NavBar = () => {
             <Link href="/settings" className={navClass}>
               Settings
             </Link>
-            <Link href="/signin" className={smNavClass}>
-              Login/Signup
-            </Link>
+            {session ? (
+              <>
+                {session.user.role === 'admin' ? (
+                  <Link className={navClass} href="/admin">
+                    Admin
+                  </Link>
+                ) : (
+                  <></>
+                )}
+                <Link href="/profile" className={navClass}>
+                  Profile
+                </Link>
+                <Link className={navClass} href="/api/auth/signout?callback=/">
+                  Logout
+                </Link>
+              </>
+            ) : (
+              <Link href="/signin" className={smNavClass}>
+                Login/Signup
+              </Link>
+            )}
+
             <Link
               href="/confess"
               className="py-1 inline-flex w-full items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"

@@ -36,12 +36,16 @@ export const options = {
             username: profile.name,
             password: hpassword,
             role: userRole,
+            image: profile.avatar_url,
+            location: profile.location,
           });
         }
 
         return {
           ...profile,
           role: userRole,
+          image: profile.avatar_url,
+          location: profile.location,
         };
       },
       clientId: process.env.GITHUB_ID,
@@ -68,6 +72,7 @@ export const options = {
             username: profile.name,
             password: hpassword,
             role: userRole,
+            image: profile.picture,
           });
           console.log('user from google', user);
           var userid = user._id.toString();
@@ -77,6 +82,8 @@ export const options = {
           id: profile.sub,
           userId: userid,
           role: userRole,
+          image: profile.picture,
+          location: profile.location,
         };
       },
       clientId: process.env.GOOGLE_ID,
@@ -126,6 +133,7 @@ export const options = {
       if (user) {
         token.role = user.role;
         token.id = user._id;
+        token.image = user.image;
       }
       return token;
     },
@@ -135,6 +143,7 @@ export const options = {
       if (session?.user) {
         session.user.role = token.role;
         session.user.id = token.id;
+        session.user.image = token.image;
       }
       return session;
     },
