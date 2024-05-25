@@ -5,8 +5,9 @@ import Confession from '@/models/confessionModel';
 import { getUserId } from '../../../../helpers/session';
 
 connect();
-
 export async function POST(req) {
+  connect();
+
   console.log('POST request made to /api/confession');
   try {
     const userId = await getUserId();
@@ -22,6 +23,7 @@ export async function POST(req) {
 
     const confession = new Confession({
       content: confessionContent,
+      username: username,
       author: userId,
     });
 
