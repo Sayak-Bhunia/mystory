@@ -28,6 +28,12 @@ const NavBar = () => {
 
   return (
     <div className="border-b border-b-neutral-300 dark:border-b-neutral-700 fixed top-0 left-0 right-0 bg-white dark:bg-black backdrop-blur-lg bg-opacity-60 z-50">
+   
+        <link
+          href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+          rel="stylesheet"
+        />
+    
       <Toaster />
       <div className="mx-8 lg:mx-6 xl:mx-16 flex justify-between items-center py-6">
         <Link href="/" className="text-4xl font-bold">
@@ -36,19 +42,24 @@ const NavBar = () => {
 
         <div className="justify-center gap-6 hidden lg:flex items-center">
           <Link href="/" className={navClass}>
-            Home
+            <i className="ri-home-fill mr-2"></i>
+            <span>Home</span>
           </Link>
           <Link href="/about" className={navClass}>
-            About
+            <i className="ri-medal-fill mr-2"></i> 
+            <span>About</span>
           </Link>
           <Link href="/faqs" className={navClass}>
-            FAQs
+            <i class="ri-chat-smile-fill mr-2"></i>
+            <span>FAQs</span>
           </Link>
           <Link href="/search" className={navClass}>
-            Search
+           <i class="ri-search-line mr-2"></i>
+            <span>Search</span>
           </Link>
           <Link href="/settings" className={navClass}>
-            Settings
+            <i class="ri-settings-3-fill mr-2"></i>
+            <span>Settings</span>
           </Link>
 
           {session ? (
