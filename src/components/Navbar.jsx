@@ -24,7 +24,7 @@ const NavBar = () => {
   const navClass = `py-1  rounded-full border 
   border-[#616161] hover:border-[#191919]
   hover:bg-[#F1F5F9] hover:text-black transform transition-all duration-300 font-semibold 
-  my-2  px-10 hover:px-6`;
+  my-2  px-6 hover:px-5`;
 
   return (
     <div className="border-b border-b-neutral-300 dark:border-b-neutral-700 fixed top-0 left-0 right-0 bg-white dark:bg-black backdrop-blur-lg bg-opacity-60 z-50">
@@ -68,9 +68,12 @@ const NavBar = () => {
               </Link>
             </>
           ) : (
-            <Link href="/signin" className={smNavClass}>
+            // <Link href="/signin" className={smNavClass}>
+            //   Login/Signup
+            // </Link>
+            <Link href="/signin" className={navClass}>
               Login/Signup
-            </Link>
+              </Link>
           )}
 
           <Link
