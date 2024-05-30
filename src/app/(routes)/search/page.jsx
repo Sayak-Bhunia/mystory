@@ -81,27 +81,27 @@ const Confess = () => {
             </span>
           </a>
         </div>
-      </div>
-      {confessions.length !== 0 && (
-        <div className="mt-6 w-80">
-          <h3 className="text-lg font-bold mb-2">Confessions by {username}:</h3>
-          <div className="">
-            {confessions.map((confession, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-start justify-start my-4 p-4 rounded-lg dark:bg-neutral-900/40"
-              >
-                <p className="text-3xl mb-4 font-semibold">
-                  {confession.content}
-                </p>
-                <div className="text-[12px] dark:text-neutral-200 text-neutral-700 flex items-center justify-start">
-                  <p>{confession.date}</p>
+        {confessions.length !== 0 && (
+          <div className="mt-6 w-80">
+            <h3 className="text-lg font-bold mb-2">Confessions</h3>
+            <div className="">
+              {confessions.map((confession, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col items-start justify-start my-4 p-4 rounded-lg dark:bg-neutral-900/40"
+                >
+                  <p className="text-3xl mb-4 font-semibold">
+                    {confession.content}
+                  </p>
+                  <div className="text-[12px] dark:text-neutral-200 text-neutral-700 flex items-center justify-start">
+                    <p>{confession.date}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

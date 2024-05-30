@@ -1,8 +1,30 @@
-            - name: Auto assign PR
-  # You may pin to the exact commit or the version.
-  # uses: li-sumup/actions-assigner@964e42cd4fe645e3ea169ce3887db85e8bb128c3
-  uses: li-sumup/actions-assigner@v1.0.2
-  with:
-    # GitHub token
-    token: # optional, default is ${{ github.token }}
-          
+name: Assign Issue to Self
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  issues: write  # Ensure the workflow has write permissions for issues
+
+jobs:
+  assign:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Assign issue to commenter if they comment "self"
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const issueNumber = context.issue.number;
+          const commentBody = context.payload.comment.body.trim().toLowerCase();
+          const commenter = context.payload.comment.user.login;
+
+          if (commentBody === 'self') {
+            await github.rest.issues.addAssignees({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              assignees: [commenter]
+            });
+          }

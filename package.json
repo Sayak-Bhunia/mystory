@@ -24,6 +24,8 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
+    "@radix-ui/react-avatar": "^1.0.4",
+    "@studio-freight/lenis": "^1.0.42",
     "aos": "^2.3.4",
     "axios": "^1.6.8",
     "bcrypt": "^5.1.1",
@@ -45,11 +47,14 @@
     "react-icons": "^5.2.1",
     "react-live-clock": "^6.1.20",
     "sass": "^1.77.0",
-    "shadcn-ui": "^0.8.0",
+    "shadcn-ui": "^0.2.3",
     "tailwind-merge": "^2.3.0",
+    "vanilla-tilt": "^1.8.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/node": "20.12.12",
+    "@types/react": "18.3.2",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.2.3",
     "eslint-plugin-next": "^0.0.0",
