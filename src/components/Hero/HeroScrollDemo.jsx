@@ -48,7 +48,7 @@ export default function HeroScrollDemo() {
         }
       >
         <Image
-          src={`/mystory.png`}
+          src={`/Productlandingpage/main.png`}
           alt="hero"
           height={720}
           width={1400}
