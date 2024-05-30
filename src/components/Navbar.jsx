@@ -7,6 +7,7 @@ import { useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import toast, { Toaster } from 'react-hot-toast';
+import Image from 'next/image';
 
 const NavBar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -37,7 +38,9 @@ const NavBar = () => {
       <Toaster />
       <div className="mx-8 lg:mx-6 xl:mx-16 flex justify-between items-center py-6">
         <Link href="/" className="text-4xl font-bold">
-          mystory
+         <div className=' relative h-24 w-24 mr-6'>
+          <Image src="/mystory-new-logo/mystory-logo.svg" fill />
+         </div>
         </Link>
 
         <div className="justify-center gap-6 hidden lg:flex items-center">
