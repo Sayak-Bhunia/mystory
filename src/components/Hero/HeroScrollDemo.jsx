@@ -9,7 +9,23 @@ export default function HeroScrollDemo() {
         titleComponent={
           <>
             <div className="mb-14 md:mb-24 mt-16 sm:mt-24 md:mt-24">
-              <div className=' flex items-center justify-center'>
+             
+              <h1 className="text-2xl sm:text-4xl lg:text-6xl font-bold text-black dark:text-white animate-pulse mb-6 mx-2">
+                Unleash the power of Anonymity
+              </h1>
+              <h1 className="font-extrabold text-transparent text-7xl sm:text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-fuchsia-600 pb-6">
+                mystory
+              </h1>
+              <div className="mt-4">
+                <span
+                  className={`font-mono dark:bg-[#313131] bg-[#d1d1d1] dark:text-[#d9d9d9] font-semibold py-2 px-3 rounded-lg`}
+                >
+                  A way to share stories anonymously.
+                </span>
+                
+
+              </div>
+              <div className=' flex items-center justify-center mt-5'>
               <Link href={'https://github.com/Sayak-Bhunia/mystory'} target="_blank">
                 <button class="flex gap-3 cursor-pointer text-white font-semibold bg-gradient-to-r from-gray-800 to-black px-7 py-3 rounded-full border border-gray-600 hover:scale-105 duration-200 hover:text-gray-500 hover:border-gray-800 hover:from-black hover:to-gray-900">
                   <svg
@@ -26,20 +42,6 @@ export default function HeroScrollDemo() {
                   Star us on Github
                 </button>
                 </Link>
-              </div>
-
-              <h1 className="text-2xl sm:text-4xl lg:text-6xl font-bold text-black dark:text-white animate-pulse mb-6 mx-2">
-                Unleash the power of Anonymity
-              </h1>
-              <h1 className="font-extrabold text-transparent text-7xl sm:text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-fuchsia-600 pb-6">
-                mystory
-              </h1>
-              <div className="mt-4">
-                <span
-                  className={`font-mono dark:bg-[#313131] bg-[#d1d1d1] dark:text-[#d9d9d9] font-semibold py-2 px-3 rounded-lg`}
-                >
-                  A way to share stories anonymously.
-                </span>
               </div>
             </div>
           </>
