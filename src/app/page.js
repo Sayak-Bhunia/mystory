@@ -10,6 +10,7 @@ import Background from '@/components/Background';
 import Lenis from '@studio-freight/lenis';
 import { useEffect } from 'react';
 import { InfiniteMovingCardsDemo } from '../components/Testimonials';
+import { ThreeDCardDemo } from '../components/about/page';
 export default function Home() {
   useEffect(() => {
     const lenis = new Lenis();
@@ -26,6 +27,7 @@ export default function Home() {
         <TitleSpecial />
         <Features />
         <BuyMeACoffee />
+        <ThreeDCardDemo />
         <InfiniteMovingCardsDemo />
       </Background>
       <CallToAction />
