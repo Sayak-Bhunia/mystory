@@ -17,7 +17,7 @@ const NavBar = () => {
     setIsNavOpen(!isNavOpen); // Toggle the value of isNavOpen
   };
 
-  const smNavClass = `py-1 px-2 w-full rounded-full border 
+  const smNavClass = `py-1 px-2 w-full rounded-full border w-50
   border-[#616161] hover:border-[#191919] text-center
   hover:bg-[#F1F5F9] hover:text-black transform transition-all duration-300 font-semibold 
   my-2 hover:w-[90%] `;
@@ -29,18 +29,18 @@ const NavBar = () => {
 
   return (
     <div className="border-b border-b-neutral-300 dark:border-b-neutral-700 fixed top-0 left-0 right-0 bg-white dark:bg-black backdrop-blur-lg bg-opacity-60 z-50">
-   
-        <link
-          href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
-          rel="stylesheet"
-        />
-    
+
+      <link
+        href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+        rel="stylesheet"
+      />
+
       <Toaster />
-      <div className="mx-8 lg:mx-6 xl:mx-16 flex justify-between items-center py-6">
+      <div className="mx-8 lg:mx-6 xl:mx-16 flex justify-between items-center py-5">
         <Link href="/" className="text-4xl font-bold">
-         <div className=' relative h-24 w-24 mr-6'>
-          <Image src="/mystory-new-logo/mystory-logo.svg" fill />
-         </div>
+          <div className=' relative h-10 w-24 mr-6'>
+            <Image src="/mystory-new-logo/mystory-logo.svg" fill />
+          </div>
         </Link>
 
         <div className="justify-center gap-6 hidden lg:flex items-center">
@@ -49,7 +49,7 @@ const NavBar = () => {
             <span>Home</span>
           </Link>
           <Link href="/about" className={navClass}>
-            <i className="ri-medal-fill mr-2"></i> 
+            <i className="ri-medal-fill mr-2"></i>
             <span>About</span>
           </Link>
           <Link href="/faqs" className={navClass}>
@@ -57,7 +57,7 @@ const NavBar = () => {
             <span>FAQs</span>
           </Link>
           <Link href="/search" className={navClass}>
-           <i class="ri-search-line mr-2"></i>
+            <i class="ri-search-line mr-2"></i>
             <span>Search</span>
           </Link>
           <Link href="/settings" className={navClass}>
@@ -87,7 +87,7 @@ const NavBar = () => {
             // </Link>
             <Link href="/signin" className={navClass}>
               Login/Signup
-              </Link>
+            </Link>
           )}
 
           <Link
@@ -125,7 +125,7 @@ const NavBar = () => {
             <Link href="/search" className={smNavClass}>
               Search
             </Link>
-            <Link href="/settings" className={navClass}>
+            <Link href="/settings" className={smNavClass}>
               Settings
             </Link>
             {session ? (
