@@ -18,7 +18,7 @@ export default function Page() {
   let [index, setIndex] = useState(null);
   return (
     <section className=" mt-28 mb-4 lg:w-[720px] md:w-[520px] w-[380px] m-auto  px-2  flex flex-col justify-between">
-      <div className=" p-6 w-full flex gap-y-8 justify-center items-center  rounded-md flex-wrap  border-gray-300 border-[1px]">
+      <div className=" p-6 w-full flex gap-y-8 justify-center items-center  rounded-md flex-wrap mt-[46px]  border-gray-300 border-[1px]">
         <div className="flex flex-col justify-center items-start gap-2">
           <span className=" text-[#A855F7]">Our Value</span>
           <span className=" text-white">
