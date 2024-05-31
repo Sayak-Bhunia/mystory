@@ -54,7 +54,7 @@ const Settings = () => {
   return (
     <>
       <div className="flex flex-col items-center justify-center min-h-screen w-96">
-        <div className="w-full max-w-md px-8 py-12 bg-white rounded-lg shadow-lg dark:bg-[#303030] dark:text-white">
+        <div className="w-full max-w-md px-8 py-12 mt-20 mx-5 bg-white rounded-lg shadow-lg dark:bg-[#303030] dark:text-white">
           <h2 className="text-2xl font-bold mb-6">Settings</h2>
           <hr className=" mb-3" />
           <div className="flex flex-col text-center justify-center mb-6">

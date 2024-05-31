@@ -79,7 +79,7 @@ const Confess = () => {
   };
 
   return (
-    <div className="py-32 h-fit dark:bg-neutral-800 flex flex-col justify-center items-center">
+    <div className="py-44 px-6 h-fit dark flex flex-col justify-center items-center">
       <Toaster />
       <div className="max-w-sm lg:max-w-md w-full bg-neutral-100 dark:bg-neutral-700/50 p-8 rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold mb-6">Confess Anonymously</h2>
