@@ -61,7 +61,7 @@ useEffect(() => {
           animation: float 2s ease-in-out infinite;
         }
       `}</style>
-      <div data-tilt>
+      <div data-tilt="true">
         <Image
         src={'/confess.svg'}
         alt="Girl in thoughts"
