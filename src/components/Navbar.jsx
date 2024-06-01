@@ -34,7 +34,7 @@ const NavBar = () => {
       />
 
       <Toaster />
-      <div className="mx-8 lg:mx-6 xl:mx-16 flex justify-between items-center py-6">
+      <div className="mx-8 lg:mx-6 xl:mx-16 flex justify-between items-center">
         <Link href="/" className="text-4xl font-bold">
           <div className=" relative h-24 w-24 mr-6">
             <Image src="/mystory-new-logo/mystory-logo.svg" fill />
