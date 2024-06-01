@@ -10,7 +10,7 @@ import Background from '@/components/Background';
 import Lenis from '@studio-freight/lenis';
 import { useEffect } from 'react';
 import { InfiniteMovingCardsDemo } from '../components/Testimonials';
-import { ThreeDCardDemo } from '../components/about/page';
+
 import { CardHoverEffectDemo } from '../components/importance';
 export default function Home() {
   useEffect(() => {
@@ -29,7 +29,7 @@ export default function Home() {
         <Features />
         <BuyMeACoffee />
         <CardHoverEffectDemo />
-        <ThreeDCardDemo />
+        
         <InfiniteMovingCardsDemo />
       </Background>
       <CallToAction />
