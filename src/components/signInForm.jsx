@@ -67,7 +67,7 @@ const SignInForm = () => {
   return (
     <>
       <div className="flex flex-col items-center justify-center my-52 w-80 md:w-96">
-        <div className="w-full max-w-md px-8 py-12 bg-white rounded-lg shadow-lg dark:bg-[#303030] dark:text-white">
+        <div className="w-full max-w-md px-8 py-12 bg-white rounded-lg shadow-lg dark:bg-[#000000] border-gray-500 border-[1px] dark:text-white">
           <div className="flex justify-center items-center mb-3">
             <button
               className=" p-5 text-white rounded-lg "
@@ -103,7 +103,7 @@ const SignInForm = () => {
                 onChange={handleChange}
                 required={true}
                 value={formData.email}
-                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-[#505050] dark:text-white dark:border-gray-600 dark:focus:ring-purple-600"
+                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-[#000000] dark:text-white dark:border-gray-600 dark:focus:ring-purple-600"
               />
             </div>
 
@@ -116,7 +116,7 @@ const SignInForm = () => {
                 onChange={handleChange}
                 required={true}
                 value={formData.password}
-                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-[#505050] dark:text-white dark:border-gray-600 dark:focus:ring-purple-600"
+                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-[#000000] dark:text-white dark:border-gray-600 dark:focus:ring-purple-600"
               />
               {!showEye ? (
                 <FaEye
