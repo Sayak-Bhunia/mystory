@@ -18,7 +18,7 @@ export const options = {
   providers: [
     GitHubProvider({
       async profile(profile) {
-        connect();
+        await connect();
         // console.log('Profile GitHub: ', profile);
         let userRole = 'user';
         if (profile?.email == 'mohdjamikhann@gmail.com') {
@@ -53,7 +53,7 @@ export const options = {
     }),
     GoogleProvider({
       async profile(profile) {
-        connect();
+        await connect();
         // console.log('Profile Google: ', profile);
         let userRole = 'user';
         if (profile?.email == 'mohdjamikhann@gmail.com') {
@@ -104,7 +104,7 @@ export const options = {
         },
       },
       async authorize(credentials) {
-        connect();
+        await connect();
         try {
           const foundUser = await User.findOne({ email: credentials.email })
             .lean()
