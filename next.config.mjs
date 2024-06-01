@@ -6,6 +6,12 @@ const nextConfig = {
       'cdn.dribbble.com',
       'lh3.googleusercontent.com',
     ],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*',
+      }
+    ]
   },
 };
 
