@@ -48,7 +48,7 @@ const projects = [
   {
     title: 'Lost Opportunities',
     description:
-      'There was a job opportunity abroad that I turned down because I was too scared to leave my comfort zone. I often think about how different my life would be if I had taken that leap.',
+      'There was the job opportunity abroad that I turned down because I was too scared to leave my comfort zone. I often think about how different my life would be if I had taken that leap.',
     link: '/confession/lost-opportunities',
   },
 ];
