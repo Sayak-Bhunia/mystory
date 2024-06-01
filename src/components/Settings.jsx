@@ -54,7 +54,7 @@ const Settings = () => {
   return (
     <>
       <div className="flex flex-col items-center justify-center min-h-screen w-96">
-        <div className="w-full max-w-md px-8 py-12 mt-20 mx-5 bg-white rounded-lg shadow-lg dark:bg-[#303030] dark:text-white">
+        <div className="w-full max-w-md px-8 py-12 mt-20 mx-5 bg-white rounded-lg shadow-lg dark:bg-[#000000] border-[1px] border-gray-500 dark:text-white">
           <h2 className="text-2xl font-bold mb-6">Settings</h2>
           <hr className=" mb-3" />
           <div className="flex flex-col text-center justify-center mb-6">
@@ -76,7 +76,7 @@ const Settings = () => {
                 onChange={handleChange}
                 required={true}
                 value={formData.username}
-                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-[#505050] dark:text-white dark:border-gray-600 dark:focus:ring-purple-600"
+                className="w-full px-3 py-2 bg-[#000000] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-[#000000] dark:text-white dark:border-gray-600 dark:focus:ring-purple-600"
               />
             </div>
 
