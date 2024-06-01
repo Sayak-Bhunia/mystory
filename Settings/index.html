@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Account Settings</title>
+<style>
+body {
+  font-family: sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus {
+  outline: none;
+  border-color: #a855f7;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-bottom: 15px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #a855f7;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #a855f7;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+button {
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+#save-btn {
+  background-color: #a855f7;
+}
+
+#save-btn:hover {
+  background-color: #9333ea;
+}
+
+#delete-btn {
+  background-color: #f44336;
+}
+
+#delete-btn:hover {
+  background-color: #e53935;
+}
+
+.feedback {
+  margin-top: 15px;
+  color: #4CAF50;
+  display: none;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Account Settings</h2>
+  <form id="settings-form">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" value="johndoe@gmail.com">
+
+    <label for="phone">Phone number:</label>
+    <input type="tel" id="phone" name="phone" value="+642123456789">
+
+    <label for="two-step">Two-step verification:</label>
+    <label class="switch">
+      <input type="checkbox" id="two-step" name="two-step">
+      <span class="slider round"></span>
+    </label>
+
+    <button type="button" id="save-btn" onclick="saveChanges()">Save Changes</button>
+    <button type="button" id="delete-btn" onclick="deleteAccount()">Delete Account</button>
+    <p class="feedback" id="feedback">Changes saved successfully!</p>
+  </form>
+</div>
+<script>
+function saveChanges() {
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+  const twoStep = document.getElementById('two-step').checked;
+
+  // Here you can add the logic to save the changes, e.g., an API call to update the user settings
+
+  // Show feedback to the user
+  const feedback = document.getElementById('feedback');
+  feedback.style.display = 'block';
+  feedback.textContent = 'Changes saved successfully!';
+
+  // Hide feedback after 3 seconds
+  setTimeout(() => {
+    feedback.style.display = 'none';
+  }, 3000);
+
+  // Log the changes to the console (for testing purposes)
+  console.log('Email:', email);
+  console.log('Phone:', phone);
+  console.log('Two-step verification:', twoStep);
+}
+
+function deleteAccount() {
+  const confirmation = confirm('Are you sure you want to delete your account? This action cannot be undone.');
+  if (confirmation) {
+    // Here you can add the logic to delete the account, e.g., an API call to delete the user account
+
+    // Show feedback to the user
+    const feedback = document.getElementById('feedback');
+    feedback.style.display = 'block';
+    feedback.textContent = 'Account deleted successfully!';
+
+    // Hide feedback after 3 seconds
+    setTimeout(() => {
+      feedback.style.display = 'none';
+    }, 3000);
+
+    // Log the deletion to the console (for testing purposes)
+    console.log('Account deleted');
+  }
+}
+</script>
+</body>
+</html>
