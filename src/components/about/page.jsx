@@ -13,7 +13,7 @@ import { Button } from '../../components/ui/button';
 
 export function ThreeDCardDemo() {
   return (
-    <div className="container grid px-1 md:grid-cols-2 md:px-6">
+    <div className="container grid px-1  md:px-6">
       <h1 className="text-4xl text-center text-purple-600">Developer</h1>
 
       <CardContainer>
@@ -22,7 +22,7 @@ export function ThreeDCardDemo() {
             translateZ="50"
             className="text-xl font-bold text-purple-500 dark:text-purple-700"
           >
-            Sayak Bhunia
+
           </CardItem>
           <CardItem
             as="p"
