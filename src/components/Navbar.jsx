@@ -50,6 +50,10 @@ const NavBar = () => {
             <i className="ri-medal-fill mr-2"></i>
             <span>About</span>
           </Link>
+          <Link href="/contributors" className={navClass}>
+            <i className="ri-medal-fill mr-2"></i>
+            <span>Contributors</span>
+          </Link>
           <Link href="/faqs" className={navClass}>
             <i class="ri-chat-smile-fill mr-2"></i>
             <span>FAQs</span>
@@ -116,6 +120,9 @@ const NavBar = () => {
             </Link>
             <Link href="/about" className={smNavClass}>
               About
+            </Link>
+            <Link href="/contributors" className={smNavClass}>
+              Contributors
             </Link>
             <Link href="/faqs" className={smNavClass}>
               FAQs
