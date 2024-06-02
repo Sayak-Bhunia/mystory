@@ -18,7 +18,7 @@ const projects = [
     title: 'Anonymous Love',
     description:
       'I have been secretly in love with my best friend for years.Every time they talk about their crushes, my heart breaks a little more.',
-    link: '/confession/anonymous-love',
+    link: '/pages/confess/anonymous-love.jsx',
   },
   {
     title: 'The Secret Regret',
