@@ -16,10 +16,10 @@ const NavBar = () => {
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen); // Toggle the value of isNavOpen
   };
-  const smNavClass = `py-1 px-2 w-full rounded-full border 
-  border-[#616161] hover:border-[#191919] text-center
-  hover:bg-[#F1F5F9] hover:text-black transform transition-all duration-300 font-semibold 
-  my-2 hover:w-[90%] `;
+  const smNavClass = `py-1 px-2 w-full rounded-lg transition
+    text-center
+  hover:bg-[#F1F5F9] hover:text-black  font-semibold 
+  my-2 `;
 
   const navClass = `py-1  rounded-full border 
   border-[#616161] hover:border-[#191919]
@@ -115,22 +115,22 @@ const NavBar = () => {
       {isNavOpen && ( // Render the navigation links if isNavOpen is true
         <motion.div whileInView={{ opacity: 1 }} initial={{ opacity: 0 }}>
           <div className="flex flex-col lg:hidden justify-center items-center m-4">
-            <Link href="/" className={smNavClass}>
+            <Link href="/" className={smNavClass} onClick={toggleNav}>
               Home
             </Link>
-            <Link href="/about" className={smNavClass}>
+            <Link href="/about" className={smNavClass} onClick={toggleNav}>
               About
             </Link>
-            <Link href="/contributors" className={smNavClass}>
+            <Link href="/contributors" className={smNavClass} onClick={toggleNav}>
               Contributors
             </Link>
-            <Link href="/faqs" className={smNavClass}>
+            <Link href="/faqs" className={smNavClass} onClick={toggleNav}>
               FAQs
             </Link>
-            <Link href="/search" className={smNavClass}>
+            <Link href="/search" className={smNavClass} onClick={toggleNav}>
               Search
             </Link>
-            <Link href="/settings" className={navClass}>
+            <Link href="/settings" className={smNavClass} onClick={toggleNav}>
               Settings
             </Link>
             {session ? (
@@ -142,22 +142,23 @@ const NavBar = () => {
                 ) : (
                   <></>
                 )}
-                <Link href="/profile" className={navClass}>
+                <Link href="/profile" className={navClass} onClick={toggleNav}>
                   Profile
                 </Link>
-                <Link className={navClass} href="/api/auth/signout?callback=/">
+                <Link className={navClass} href="/api/auth/signout?callback=/" onClick={toggleNav}>
                   Logout
                 </Link>
               </>
             ) : (
-              <Link href="/signin" className={smNavClass}>
+              <Link href="/signin" className={smNavClass} onClick={toggleNav}>
                 Login/Signup
               </Link>
             )}
 
             <Link
+            onClick={toggleNav}
               href="/confess"
-              className="py-1 inline-flex w-full items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
+              className="py-1 inline-flex w-full items-center justify-center rounded-lg bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
             >
               <p>Confess</p>
 
