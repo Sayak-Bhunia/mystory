@@ -66,15 +66,15 @@ docker-compose -f docker-compose.dev.yaml up --build
 
 Open your browser and navigate to [http://localhost:3000](http://localhost:3000) to view your project.
 
-## Contributors
+ ## Contributors
 
-To add your profile in contributors page please follow below steps.
+To add your profile to the contributors page, please follow these steps:
 
-1. Go to `src/app/(routes)/contributors/ContributorsData.ts`.
+1. Navigate to src/app/(routes)/contributors/ContributorsData.ts.
 
-2. Add Only Your Information: You are permitted to add your own information to the ContributorsData.ts file. This ensures that contributions are correctly attributed to the respective individuals.
+2. Add Only Your Information: You are allowed to add your own details to the ContributorsData.ts file to ensure accurate attribution of your contributions.
 
-3. Respect Existing Information: Altering or modifying the details of other contributors is not allowed. Any unauthorized changes may lead to your pull request being rejected or not merged.
+3. Respect Existing Information: Do not alter or modify the details of other contributors. Unauthorized changes may result in your pull request being rejected or not merged.
 
 ## Maintainers
 
