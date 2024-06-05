@@ -1,5 +1,6 @@
 'use client';
 import { Open_Sans } from 'next/font/google';
+import { IoMdMail } from "react-icons/io";
 import { FiInstagram } from 'react-icons/fi';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
@@ -32,6 +33,12 @@ const Sample = () => {
                 target="_blank"
               >
                 <FaLinkedin className="dark:text-white text-2xl " />
+              </a>
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=sbhunia2903@gmail.com"
+                target="_blank"
+              >
+                <IoMdMail className="dark:text-white text-2xl " />
               </a>
               <a
                 href="https://github.com/Sayak-Bhunia/mystory/"
