@@ -6,11 +6,9 @@ import Features from '@/components/Features/Features';
 import CallToAction from '@/components/CallToAction';
 import BuyMeACoffee from '@/components/BuyMeACoffee';
 import Background from '@/components/Background';
-
 import Lenis from '@studio-freight/lenis';
 import { useEffect } from 'react';
 import { InfiniteMovingCardsDemo } from '../components/Testimonials';
-
 import { CardHoverEffectDemo } from '../components/importance';
 export default function Home() {
   useEffect(() => {
@@ -29,7 +27,6 @@ export default function Home() {
         <Features />
         <BuyMeACoffee />
         <CardHoverEffectDemo />
-        
         <InfiniteMovingCardsDemo />
       </Background>
       <CallToAction />

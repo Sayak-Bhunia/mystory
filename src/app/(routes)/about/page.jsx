@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { ThreeDCardDemo } from '../../../components/about/page';
+import RecentProjects from '../../../components/rp';
 
 export default async function Page() {
   // const session = await getServerSession(options);
@@ -11,6 +11,7 @@ export default async function Page() {
   return (
     <div className="mt-28">
       <ThreeDCardDemo />
+      <RecentProjects />
     </div>
   );
 }
