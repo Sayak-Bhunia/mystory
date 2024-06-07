@@ -22,16 +22,16 @@ const Sample = () => {
             </p>
             <div className='flex mt-4 space-x-4 items-center justify-center md:items-start md:justify-start'>
               <a href='https://twitter.com/girlscriptsoc' target='_blank'>
-                <FaXTwitter className='dark:text-white text-2xl' />
+                <FaXTwitter className='dark:text-white text-2xl hover:scale-125 hover:fill-cyan-700' />
               </a>
               <a href='https://www.instagram.com/raw_shots29/' target='_blank'>
-                <FiInstagram className='dark:text-white text-2xl ' />
+                <FiInstagram className='dark:text-white text-2xl  hover:scale-125 hover:fill-cyan-700' />
               </a>
               <a href='https://www.linkedin.com/in/sayak-bhunia-452419252/' target='_blank'>
-                <FaLinkedin className='dark:text-white text-2xl ' />
+                <FaLinkedin className='dark:text-white text-2xl hover:scale-125 hover:fill-cyan-700' />
               </a>
               <a href='https://github.com/Sayak-Bhunia/mystory/' target='_blank'>
-                <FaGithub className='dark:text-white text-2xl ' />
+                <FaGithub className='dark:text-white text-2xl  hover:scale-125 hover:fill-cyan-700' />
               </a>
             </div>
           </div>
