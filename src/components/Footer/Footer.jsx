@@ -22,30 +22,40 @@ const Sample = () => {
             <p className="text-gray-400 text-center">
               A way to share stories anonymously.
             </p>
-            <div className="flex mt-4 space-x-4 items-baseline justify-center md:items-start md:justify-start">
+            <div className="flex mt-3 space-x-3 items-baseline justify-center md:items-start md:justify-start">
               <a href="https://twitter.com/" target="_blank">
-                <FaXTwitter className="dark:text-white text-2xl" />
+                <div className="group px-2.5 py-2.5 border border-[#616161] rounded hover:border-opacity-10 transition-opacity duration-1000">
+                  <FaXTwitter className="dark:text-white text-2xl group-hover:scale-125 transition-[transform] duration-300" />
+                </div>
               </a>
               <a href="https://www.instagram.com/raw_shots29/" target="_blank">
-                <FiInstagram className="dark:text-white text-2xl " />
+                <div className="group px-2.5 py-2.5 border border-[#616161] rounded hover:border-opacity-20">
+                  <FiInstagram className="dark:text-white text-2xl group-hover:scale-125 transition-[transform] duration-300" />
+                </div>
               </a>
               <a
                 href="https://www.linkedin.com/in/sayak-bhunia-452419252/"
                 target="_blank"
               >
-                <FaLinkedin className="dark:text-white text-2xl " />
+                <div className="group px-2.5 py-2.5 border border-[#616161] rounded hover:border-opacity-20">
+                  <FaLinkedin className="dark:text-white text-2xl group-hover:scale-125 transition-[transform] duration-300" />
+                </div>
               </a>
               <a
                 href="https://mail.google.com/mail/?view=cm&fs=1&to=sbhunia2903@gmail.com"
                 target="_blank"
               >
-                <IoMdMail className="dark:text-white text-2xl " />
+                <div className="group px-2.5 py-2.5 border border-[#616161] rounded hover:border-opacity-20">
+                  <IoMdMail className="dark:text-white text-2xl group-hover:scale-125 transition-[transform] duration-300" />
+                </div>
               </a>
               <a
                 href="https://github.com/Sayak-Bhunia/mystory/"
                 target="_blank"
               >
-                <FaGithub className="dark:text-white text-2xl " />
+                <div className="group px-2.5 py-2.5 border border-[#616161] rounded hover:border-opacity-20">
+                  <FaGithub className="dark:text-white text-2xl group-hover:scale-125 transition-[transform] duration-300" />
+                </div>
               </a>
             </div>
             <a
