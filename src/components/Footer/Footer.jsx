@@ -16,8 +16,9 @@ const Sample = () => {
         <div className="flex flex-col-reverse items-center justify-between space-y-8 md:space-y-0 md:grid md:grid-cols-2 py-12 border-t border-t-neutral-300 dark:border-neutral-700">
           <div className="flex flex-col items-center md:items-start justify-start pt-16 md:pl-24 md:pt-0">
             <h2 className="text-4xl md:text-6xl font-bold text-center md:text-left pb-2">
-              mystory
+              <img src="/mystory-new-logo/mystory-logo.svg" alt="MyStory Logo" />
             </h2>
+
             <p className="text-gray-400 text-center">
               A way to share stories anonymously.
             </p>
@@ -65,7 +66,7 @@ const Sample = () => {
 
         <div className="pb-8">
           <p className="text-sm dark:text-neutral-400 text-center">
-            &copy; {new Date().getFullYear()} mystory | All rights reserved.
+          &copy; {new Date().getFullYear()} mystory | All rights reserved.
           </p>
           <p className="text-center dark:text-neutral-400 text-lg font-bold space-x-2 mt-2">
             <LocationDisplay />
