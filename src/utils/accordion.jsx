@@ -11,13 +11,13 @@ const data = [
     icon: <MdAnalytics />,
     heading: 'How to Contribute as a Developer?',
     detail:
-      'MyStory is an opensource lead and welcome developer across the world. you can find more in its github repository and under readme file for more details',
+      'MyStory is an opensource lead and welcome developer across the world. You can find more in its github repository and under readme file for more details',
   },
   {
     icon: <MdCancel />,
     heading: 'Is it safe for all to use MyStory?',
     detail:
-      "yes, mystory doesn't allow vulgar words, hate speech and if any individual found breaking the community guideline, it might lead to account suspension.",
+      "Yes, MyStory doesn't allow vulgar words, hate speech and if any individual found breaking the community guidelines, it might lead to account suspension.",
   },
 ];
 export default data;
