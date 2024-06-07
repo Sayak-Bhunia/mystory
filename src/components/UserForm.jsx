@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-import { FaGithub ,FaEye , FaEyeSlash } from 'react-icons/fa';
+import { FaGithub, FaEye, FaEyeSlash } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { z } from 'zod';
 const FormSchema = z.object({
@@ -22,8 +22,8 @@ const UserForm = () => {
   const router = useRouter();
   const [formData, setFormData] = useState({});
   const [errorMessage, setErrorMessage] = useState('');
-  const [showEye,setShowEye] = useState(true)
-  const [showPass,setShowPass]=useState(false)
+  const [showEye, setShowEye] = useState(true);
+  const [showPass, setShowPass] = useState(false);
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -58,18 +58,18 @@ const UserForm = () => {
     }
   };
 
-  const eyeToggle=()=>{
-    showPass?setShowPass(false):setShowPass(true)
-    showEye?setShowEye(false):setShowEye(true)
-  }
+  const eyeToggle = () => {
+    showPass ? setShowPass(false) : setShowPass(true);
+    showEye ? setShowEye(false) : setShowEye(true);
+  };
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center min-h-screen w-96">
-        <div className="w-full max-w-md px-8 py-12 bg-white rounded-lg shadow-lg dark:bg-[#303030] dark:text-white">
-          <div className="flex justify-around items-center mb-6">
+      <div className="flex flex-col items-center justify-center my-52 w-80 md:w-96">
+        <div className="w-full max-w-md px-8 py-12 bg-white rounded-lg shadow-lg dark:bg-[#000000] border-[1px] border-gray-400 dark:text-white">
+          <div className="flex justify-center items-center mb-6">
             <button
-              className=" p-5 mr-4 text-white rounded-lg "
+              className=" p-5 text-white rounded-lg "
               onClick={async () => await signIn('google', { callbackUrl: '/' })}
             >
               <FcGoogle className=" h-10 w-10" />
@@ -81,11 +81,10 @@ const UserForm = () => {
               <FaGithub className=" h-10 w-10" />
             </button>
           </div>
-          <hr className=' mb-3'/>
-          <div className="flex flex-col text-center justify-center mb-6">
-           
+          <hr className=" mb-3" />
+          <div className="flex flex-col text-center justify-center mb-7">
             <p className=" mb-2">OR</p>
-            <span className="text-gray-600 dark:text-gray-400">
+            <span className="text-gray-600 text-xl dark:text-gray-400">
               Sign in with credentials
             </span>
           </div>
@@ -96,48 +95,52 @@ const UserForm = () => {
             className="flex flex-col gap-4"
           >
             <div>
-             
               <input
                 id="username"
                 name="username"
-                placeholder='Username'
+                placeholder="Username"
                 type="text"
                 onChange={handleChange}
                 required={true}
                 value={formData.username}
-                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-[#505050] dark:text-white dark:border-gray-600 dark:focus:ring-purple-600"
+                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-[#000000] dark:text-white dark:border-gray-600 dark:focus:ring-purple-600"
               />
             </div>
             <div>
-            
               <input
-              placeholder='email'
+                placeholder="email"
                 id="email"
                 name="email"
                 type="text"
                 onChange={handleChange}
                 required={true}
                 value={formData.email}
-                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-[#505050] dark:text-white dark:border-gray-600 dark:focus:ring-purple-600"
+                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-[#000000] dark:text-white dark:border-gray-600 dark:focus:ring-purple-600"
               />
             </div>
 
             <div>
-            
               <input
-              placeholder='Password'
+                placeholder="Password"
                 id="password"
                 name="password"
-                type={showPass?"text":"password"}
+                type={showPass ? 'text' : 'password'}
                 onChange={handleChange}
                 required={true}
                 value={formData.password}
-                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-[#505050] dark:text-white dark:border-gray-600 dark:focus:ring-purple-600"
+                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-[#000000] dark:text-white dark:border-gray-600 dark:focus:ring-purple-600"
               />
-              {
-                !showEye?<FaEye className='relative left-[90%] top-[-27px]' onClick={eyeToggle} />
-                :<FaEyeSlash className='relative left-[90%] top-[-27px]' onClick={eyeToggle} />
-            }  
+              {!showEye ? (
+                <FaEye
+                  className="relative left-[90%] top-[-27px]"
+                  onClick={eyeToggle}
+                />
+              ) : (
+                <FaEyeSlash
+                  className="relative left-[90%] top-[-27px]"
+                  onClick={eyeToggle}
+                />
+              )}
             </div>
 
             <button

@@ -1,13 +1,23 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { RiSendPlaneFill } from 'react-icons/ri';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 import Image from 'next/image';
+import VanillaTilt from "vanilla-tilt";
 
 const Confess = () => {
   const [confessContent, setConfessContent] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+useEffect(() => {
+    VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+      max: 25,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.5,
+    });
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,7 +29,6 @@ const Confess = () => {
         confessionContent: confessContent,
       });
 
-      // console.log('Response:', response.data);
       toast.dismiss();
       toast.success('Confession submitted successfully 🎉');
     } catch (error) {
@@ -34,15 +43,33 @@ const Confess = () => {
   };
 
   return (
-    <div className="py-32 h-fit dark:bg-neutral-900  flex flex-col-reverse lg:flex-row justify-center items-center">
-      <Toaster />
-      <Image
+    <div className="py-32 h-fit dark:bg-neutral-900 flex flex-col-reverse lg:flex-row justify-center items-center">
+   
+      <style >{`
+        @keyframes float {
+          0% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-20px);
+          }
+          100% {
+            transform: translateY(0);
+          }
+        }
+        .float {
+          animation: float 2s ease-in-out infinite;
+        }
+      `}</style>
+      <div data-tilt="true">
+        <Image
         src={'/confess.svg'}
         alt="Girl in thoughts"
-        className="object-cover"
+        className="object-cover float "
         width={700}
         height={700}
       />
+      </div>
       <div className="max-w-sm lg:max-w-md w-full bg-neutral-100 dark:bg-neutral-800 p-8 rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold mb-6">Confess Anonymously</h2>
         <form onSubmit={handleSubmit}>

@@ -1,5 +1,5 @@
 'use client';
-import { FaGithub , FaEye , FaEyeSlash } from 'react-icons/fa';
+import { FaGithub, FaEye, FaEyeSlash } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
@@ -22,8 +22,8 @@ const SignInForm = () => {
   const router = useRouter();
   const [formData, setFormData] = useState({});
   const [errorMessage, setErrorMessage] = useState('');
-  const [showEye,setShowEye] = useState(true)
-  const [showPass,setShowPass]=useState(false)
+  const [showEye, setShowEye] = useState(true);
+  const [showPass, setShowPass] = useState(false);
   const handleChange = (e) => {
     const value = e.target.value;
     const name = e.target.name;
@@ -59,20 +59,18 @@ const SignInForm = () => {
     }
   };
 
-
-
-  const eyeToggle=()=>{
-        showPass?setShowPass(false):setShowPass(true)
-        showEye?setShowEye(false):setShowEye(true)
-  }
+  const eyeToggle = () => {
+    showPass ? setShowPass(false) : setShowPass(true);
+    showEye ? setShowEye(false) : setShowEye(true);
+  };
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center min-h-screen w-96">
-        <div className="w-full max-w-md px-8 py-12 bg-white rounded-lg shadow-lg dark:bg-[#303030] dark:text-white">
-          <div className="flex justify-around items-center mb-6">
+      <div className="flex flex-col items-center justify-center my-52 w-80 md:w-96">
+        <div className="w-full max-w-md px-8 py-12 bg-white rounded-lg shadow-lg dark:bg-[#000000] border-gray-500 border-[1px] dark:text-white">
+          <div className="flex justify-center items-center mb-3">
             <button
-              className=" p-5 mr-4 text-white rounded-lg "
+              className=" p-5 text-white rounded-lg "
               onClick={async () => await signIn('google', { callbackUrl: '/' })}
             >
               <FcGoogle className=" h-10 w-10" />
@@ -84,11 +82,10 @@ const SignInForm = () => {
               <FaGithub className=" h-10 w-10" />
             </button>
           </div>
-          <hr className=' mb-3'/>
-          <div className="flex flex-col text-center justify-center mb-6">
-           
+          <hr className=" mb-3" />
+          <div className="flex flex-col text-center justify-center mb-7">
             <p className=" mb-2">OR</p>
-            <span className="text-gray-600 dark:text-gray-400">
+            <span className="text-gray-600 text-xl dark:text-gray-400">
               Sign in with credentials
             </span>
           </div>
@@ -106,7 +103,7 @@ const SignInForm = () => {
                 onChange={handleChange}
                 required={true}
                 value={formData.email}
-                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-[#505050] dark:text-white dark:border-gray-600 dark:focus:ring-purple-600"
+                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-[#000000] dark:text-white dark:border-gray-600 dark:focus:ring-purple-600"
               />
             </div>
 
@@ -115,16 +112,23 @@ const SignInForm = () => {
                 placeholder="Password"
                 id="password"
                 name="password"
-                type={showPass?"text":"password"}
+                type={showPass ? 'text' : 'password'}
                 onChange={handleChange}
                 required={true}
                 value={formData.password}
-                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-[#505050] dark:text-white dark:border-gray-600 dark:focus:ring-purple-600"
+                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-[#000000] dark:text-white dark:border-gray-600 dark:focus:ring-purple-600"
               />
-            {
-                !showEye?<FaEye className='relative left-[90%] top-[-27px]' onClick={eyeToggle} />
-                :<FaEyeSlash className='relative left-[90%] top-[-27px]' onClick={eyeToggle} />
-            }  
+              {!showEye ? (
+                <FaEye
+                  className="relative left-[90%] top-[-27px]"
+                  onClick={eyeToggle}
+                />
+              ) : (
+                <FaEyeSlash
+                  className="relative left-[90%] top-[-27px]"
+                  onClick={eyeToggle}
+                />
+              )}
             </div>
 
             <button

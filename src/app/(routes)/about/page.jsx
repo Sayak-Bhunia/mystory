@@ -2,6 +2,7 @@ import { options } from '@/app/api/auth/[...nextauth]/options';
 import { getServerSession } from 'next-auth';
 
 import React from 'react';
+import { ThreeDCardDemo } from '../../../components/about/page';
 
 export default async function Page() {
   // const session = await getServerSession(options);

@@ -18,11 +18,10 @@ export const options = {
   providers: [
     GitHubProvider({
       async profile(profile) {
-        connect();
+        await connect();
         // console.log('Profile GitHub: ', profile);
-
-        let userRole = 'GitHub User';
-        if (profile?.email == 'jake@claritycoders.com') {
+        let userRole = 'user';
+        if (profile?.email == 'mohdjamikhann@gmail.com') {
           userRole = 'admin';
         }
         //Check if the user with this email exists.
@@ -36,15 +35,17 @@ export const options = {
             email: profile.email,
             username: profile.name,
             password: hpassword,
+            role: userRole,
+            image: profile.avatar_url,
+            location: profile.location,
           });
         }
-        //If not exist then create a User with that email id.
-
-        //If exists do nothing
 
         return {
           ...profile,
           role: userRole,
+          image: profile.avatar_url,
+          location: profile.location,
         };
       },
       clientId: process.env.GITHUB_ID,
@@ -52,10 +53,12 @@ export const options = {
     }),
     GoogleProvider({
       async profile(profile) {
-        connect();
+        await connect();
         // console.log('Profile Google: ', profile);
-
-        let userRole = 'Google User';
+        let userRole = 'user';
+        if (profile?.email == 'mohdjamikhann@gmail.com') {
+          userRole = 'admin';
+        }
         //Check if the user with this email exists.
         const userFound = await User.findOne({ email: profile?.email })
           .lean()
@@ -68,7 +71,10 @@ export const options = {
             email: profile.email,
             username: profile.name,
             password: hpassword,
+            role: userRole,
+            image: profile.picture,
           });
+          console.log('user from google', user);
           var userid = user._id.toString();
         }
         return {
@@ -76,6 +82,8 @@ export const options = {
           id: profile.sub,
           userId: userid,
           role: userRole,
+          image: profile.picture,
+          location: profile.location,
         };
       },
       clientId: process.env.GOOGLE_ID,
@@ -96,7 +104,7 @@ export const options = {
         },
       },
       async authorize(credentials) {
-        connect();
+        await connect();
         try {
           const foundUser = await User.findOne({ email: credentials.email })
             .lean()
@@ -109,8 +117,6 @@ export const options = {
 
             if (match) {
               delete foundUser.password;
-
-              foundUser['role'] = 'Unverified Email';
               return foundUser;
             }
           }
@@ -127,6 +133,7 @@ export const options = {
       if (user) {
         token.role = user.role;
         token.id = user._id;
+        token.image = user.image;
       }
       return token;
     },
@@ -136,6 +143,7 @@ export const options = {
       if (session?.user) {
         session.user.role = token.role;
         session.user.id = token.id;
+        session.user.image = token.image;
       }
       return session;
     },
