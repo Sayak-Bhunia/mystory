@@ -1,5 +1,6 @@
 'use client';
 import { Open_Sans } from 'next/font/google';
+import { IoMdMail } from "react-icons/io";
 import { FiInstagram } from 'react-icons/fi';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
@@ -35,7 +36,6 @@ const Sample = () => {
                 <FaGithub className='dark:text-white text-2xl  hover:scale-125 hover:fill-cyan-700' />
               </a>
             </div>
-          </div>
           <ChangingHello />
         </div>
 
