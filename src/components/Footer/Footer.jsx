@@ -22,7 +22,7 @@ const Sample = () => {
               A way to share stories anonymously.
             </p>
             <div className="flex mt-4 space-x-4 items-baseline justify-center md:items-start md:justify-start">
-              <a href="https://twitter.com/girlscriptsoc" target="_blank">
+              <a href="https://twitter.com/" target="_blank">
                 <FaXTwitter className="dark:text-white text-2xl" />
               </a>
               <a href="https://www.instagram.com/raw_shots29/" target="_blank">
