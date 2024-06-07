@@ -9,12 +9,15 @@ const confessionSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+
   author: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
   },
 });
 
-const Confession = mongoose.models.confessions ||mongoose.model('confessions', confessionSchema);
+const Confession =
+  mongoose.models.confessions ||
+  mongoose.model('confessions', confessionSchema);
 
 export default Confession;

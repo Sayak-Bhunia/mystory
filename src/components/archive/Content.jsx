@@ -51,7 +51,7 @@ export default function Cont() {
           }}
         >
           {letter}
-        </span>
+        </span>,
       );
     });
     return letters;

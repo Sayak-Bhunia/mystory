@@ -1,0 +1,23 @@
+.close {
+  animation: close-animation 1s forwards;
+}
+.open {
+  animation: open-animation 1s forwards;
+}
+@keyframes open-animation {
+  from {
+    height: 55px;
+  }
+  to {
+    height: 140px;
+  }
+}
+
+@keyframes close-animation {
+  from {
+    height: 140px;
+  }
+  to {
+    height: 55px;
+  }
+}

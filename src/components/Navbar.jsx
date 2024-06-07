@@ -1,101 +1,174 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { RxCross1 } from 'react-icons/rx';
 import { motion } from 'framer-motion';
+import { useSession } from 'next-auth/react';
+import { redirect } from 'next/navigation';
+import Link from 'next/link';
+import toast, { Toaster } from 'react-hot-toast';
+import Image from 'next/image';
 
 const NavBar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const { data: session } = useSession();
 
   const toggleNav = () => {
-    setIsNavOpen(!isNavOpen);
+    setIsNavOpen(!isNavOpen); // Toggle the value of isNavOpen
   };
-
-  const smNavClass = `py-1 w-full rounded-full border 
-  border-[#616161] hover:border-[#191919] text-center
-  hover:bg-[#F1F5F9] hover:text-black transform transition-all duration-300 font-semibold 
-  my-2 hover:w-[90%]`;
+  const smNavClass = `py-1 px-2 w-full rounded-lg transition
+    text-center
+  hover:bg-[#F1F5F9] hover:text-black  font-semibold 
+  my-2 `;
 
   const navClass = `py-1  rounded-full border 
   border-[#616161] hover:border-[#191919]
   hover:bg-[#F1F5F9] hover:text-black transform transition-all duration-300 font-semibold 
-  my-2  px-10 hover:px-6`;
+  my-2  px-6 hover:px-5`;
 
   return (
-    <div className='border-b border-b-neutral-300 dark:border-b-neutral-700 fixed top-0 left-0 right-0 bg-white dark:bg-black backdrop-blur-lg bg-opacity-60 z-50'>
-      <div className='mx-8 lg:mx-6 xl:mx-16 flex justify-between items-center py-6'>
-        <a href='/' className='text-4xl font-bold'>
-          mystory
-        </a>
+    <div className="border-b border-b-neutral-300 dark:border-b-neutral-700 fixed top-0 left-0 right-0 bg-white dark:bg-black backdrop-blur-lg bg-opacity-60 z-50">
+      <link
+        href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+        rel="stylesheet"
+      />
 
-        <div className='justify-center gap-6 hidden lg:flex items-center space-x-4'>
-          <a href='/' className={navClass}>
-            Home
-          </a>
-          <a href='/about' className={navClass}>
-            About
-          </a>
-          <a href='/faqs' className={navClass}>
-            FAQs
-          </a>
-          <a href='/search' className={navClass}>
-            Search
-          </a>
-          <a
-            href='/confess'
-            className='text-white py-1 inline-flex items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6'
+      <Toaster />
+      <div className="mx-8 lg:mx-6 xl:mx-16 flex justify-between items-center">
+        <Link href="/" className="text-4xl font-bold">
+          <div className=" relative h-24 w-24 mr-6">
+            <Image src="/mystory-new-logo/mystory-logo.svg" fill />
+          </div>
+        </Link>
+
+        <div className="justify-center gap-6 hidden lg:flex items-center">
+          <Link href="/" className={navClass}>
+            <i className="ri-home-fill mr-2"></i>
+            <span>Home</span>
+          </Link>
+          <Link href="/about/" className={navClass}>
+            <i className="ri-medal-fill mr-2"></i>
+            <span>About</span>
+          </Link>
+          <Link href="/contributors" className={navClass}>
+            <i className="ri-medal-fill mr-2"></i>
+            <span>Contributors</span>
+          </Link>
+          <Link href="/faqs" className={navClass}>
+            <i class="ri-chat-smile-fill mr-2"></i>
+            <span>FAQs</span>
+          </Link>
+          <Link href="/search" className={navClass}>
+            <i class="ri-search-line mr-2"></i>
+            <span>Search</span>
+          </Link>
+          <Link href="/settings" className={navClass}>
+            <i class="ri-settings-3-fill mr-2"></i>
+            <span>Settings</span>
+          </Link>
+
+          {session ? (
+            <>
+              {session.user.role === 'admin' ? (
+                <Link className={navClass} href="/admin">
+                  Admin
+                </Link>
+              ) : (
+                <></>
+              )}
+              <Link href="/profile" className={navClass}>
+                Profile
+              </Link>
+              <Link className={navClass} href="/api/auth/signout?callback=/">
+                Logout
+              </Link>
+            </>
+          ) : (
+            // <Link href="/signin" className={smNavClass}>
+            //   Login/Signup
+            // </Link>
+            <Link href="/signin" className={navClass}>
+              Login/Signup
+            </Link>
+          )}
+
+          <Link
+            href="/confess"
+            className="text-white py-1 inline-flex items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
           >
             <p>Confess</p>
-
-            <span className='ml-2'>
-              <span className='relative flex h-3 w-3 ml-1'>
-                <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75'></span>
-                <span className='relative inline-flex rounded-full h-3 w-3 bg-purple-300'></span>
-              </span>
-            </span>
-          </a>
+          </Link>
         </div>
         {!isNavOpen ? (
           <AiOutlineMenu
             onClick={toggleNav}
-            className='flex lg:hidden w-6 h-6 cursor-pointer'
+            className="flex lg:hidden w-6 h-6 cursor-pointer"
           />
         ) : (
           <RxCross1
             onClick={toggleNav}
-            className='flex lg:hidden w-6 h-6 cursor-pointer'
+            className="flex lg:hidden w-6 h-6 cursor-pointer"
           />
         )}
       </div>
 
       {isNavOpen && ( // Render the navigation links if isNavOpen is true
         <motion.div whileInView={{ opacity: 1 }} initial={{ opacity: 0 }}>
-          <div className='flex flex-col lg:hidden justify-center items-center m-4'>
-            <a href='/' className={smNavClass}>
+          <div className="flex flex-col lg:hidden justify-center items-center m-4">
+            <Link href="/" className={smNavClass} onClick={toggleNav}>
               Home
-            </a>
-            <a href='/about' className={smNavClass}>
+            </Link>
+            <Link href="/about" className={smNavClass} onClick={toggleNav}>
               About
-            </a>
-            <a href='/faqs' className={smNavClass}>
+            </Link>
+            <Link href="/contributors" className={smNavClass} onClick={toggleNav}>
+              Contributors
+            </Link>
+            <Link href="/faqs" className={smNavClass} onClick={toggleNav}>
               FAQs
-            </a>
-            <a href='/search' className={smNavClass}>
+            </Link>
+            <Link href="/search" className={smNavClass} onClick={toggleNav}>
               Search
-            </a>
-            <a
-              href='/confess'
-              className='py-1 inline-flex w-full items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6'
+            </Link>
+            <Link href="/settings" className={smNavClass} onClick={toggleNav}>
+              Settings
+            </Link>
+            {session ? (
+              <>
+                {session.user.role === 'admin' ? (
+                  <Link className={navClass} href="/admin">
+                    Admin
+                  </Link>
+                ) : (
+                  <></>
+                )}
+                <Link href="/profile" className={navClass} onClick={toggleNav}>
+                  Profile
+                </Link>
+                <Link className={navClass} href="/api/auth/signout?callback=/" onClick={toggleNav}>
+                  Logout
+                </Link>
+              </>
+            ) : (
+              <Link href="/signin" className={smNavClass} onClick={toggleNav}>
+                Login/Signup
+              </Link>
+            )}
+
+            <Link
+            onClick={toggleNav}
+              href="/confess"
+              className="py-1 inline-flex w-full items-center justify-center rounded-lg bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
             >
               <p>Confess</p>
 
-              <span className='ml-2'>
-                <span className='relative flex h-3 w-3 ml-1'>
-                  <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75'></span>
-                  <span className='relative inline-flex rounded-full h-3 w-3 bg-purple-300'></span>
+              <span className="ml-2">
+                <span className="relative flex h-3 w-3 ml-1">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-300"></span>
                 </span>
               </span>
-            </a>
+            </Link>
           </div>
         </motion.div>
       )}

@@ -2,6 +2,8 @@ import './globals.css';
 import NavBar from '@/components/Navbar';
 import Footer from '@/components/Footer/Footer';
 import { Plus_Jakarta_Sans } from 'next/font/google';
+import Provider from '@/components/Provider';
+
 const inter = Plus_Jakarta_Sans({ subsets: ['latin'] });
 
 export const metadata = {
@@ -34,12 +36,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='en'>
+    <html lang="en">
       <body
         className={`${inter.className} dark:bg-[#030303] dark:text-white text-black bg-white`}
       >
-        <NavBar />
-        <div>{children}</div>
+        <Provider>
+          <NavBar />
+
+          <div>{children}</div>
+        </Provider>
         <Footer />
       </body>
     </html>
