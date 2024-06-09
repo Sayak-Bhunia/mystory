@@ -2,6 +2,7 @@
 import React from 'react';
 import './page.css';
 import data from '@/utils/accordion';
+import BackToTop from '../../../components/BackToTop';
 
 export default function Page() {
   return (
@@ -33,6 +34,7 @@ export default function Page() {
             ))}
           </div>
         </div>
+      <BackToTop />
       </div>
     </section>
   );

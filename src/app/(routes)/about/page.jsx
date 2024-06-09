@@ -1,8 +1,8 @@
+import React from 'react';
 import { options } from '@/app/api/auth/[...nextauth]/options';
 import { getServerSession } from 'next-auth';
-
-import React from 'react';
 import { ThreeDCardDemo } from '../../../components/about/page';
+import BackToTop from '@/components/BackToTop';
 
 export default async function Page() {
   // const session = await getServerSession(options);
@@ -48,6 +48,7 @@ export default async function Page() {
           <div className="w-6 h-6 bg-purple-300 rounded-full dark:bg-purple-600"></div>
         </div>
       </div>
+      <BackToTop />
     </div>
   );
 }

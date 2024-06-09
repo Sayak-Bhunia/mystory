@@ -1,4 +1,5 @@
 import React from 'react';
+import BackToTop from '@/components/BackToTop';
 
 const PrivacyPolicy = () => {
   return (
@@ -139,6 +140,7 @@ const PrivacyPolicy = () => {
           .
         </p>
       </div>
+      <BackToTop />
     </div>
   );
 };
