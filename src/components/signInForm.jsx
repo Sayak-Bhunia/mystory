@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { z } from 'zod';
+import BackToTop from './BackToTop';
 const FormSchema = z.object({
   email: z.string().email(),
   password: z.string().min(2, {
@@ -155,6 +156,7 @@ const SignInForm = () => {
           </div>
         </div>
       </div>
+      <BackToTop />
     </>
   );
 };

@@ -5,6 +5,7 @@ import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 import Image from 'next/image';
 import VanillaTilt from "vanilla-tilt";
+import BackToTop from '@/components/BackToTop';
 
 const Confess = () => {
   const [confessContent, setConfessContent] = useState('');
@@ -96,6 +97,7 @@ useEffect(() => {
           </button>
         </form>
       </div>
+      <BackToTop />
     </div>
   );
 };

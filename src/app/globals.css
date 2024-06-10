@@ -24,3 +24,46 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #c053e6dd;
 }
+
+/* BackToTop Button */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background-color: #a855f7;
+  color: #333;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.1s ease;;
+  border-radius: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px; 
+}
+
+.back-to-top.show {
+  opacity: 1;
+}
+
+.back-to-top:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.back-to-top:focus {
+  outline: none;
+}
+
+.back-to-top:active {
+  transform: translateY(2px);
+}
+
+.back-to-top i {
+  font-size: 20px; 
+}

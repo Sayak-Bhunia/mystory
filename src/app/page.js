@@ -5,6 +5,7 @@ import TitleSpecial from '@/components/Features/TitleSpecial';
 import Features from '@/components/Features/Features';
 import CallToAction from '@/components/CallToAction';
 import BuyMeACoffee from '@/components/BuyMeACoffee';
+import BackToTop from '@/components/BackToTop'
 import Background from '@/components/Background';
 
 import Lenis from '@studio-freight/lenis';
@@ -28,6 +29,7 @@ export default function Home() {
         <TitleSpecial />
         <Features />
         <BuyMeACoffee />
+        <BackToTop />
         <CardHoverEffectDemo />
         
         <InfiniteMovingCardsDemo />

@@ -1,3 +1,6 @@
+import React from 'react';
+import BackToTop from '@/components/BackToTop';
+
 const TermsAndConditions = () => {
   return (
     <div className="pt-32 leading-7">
@@ -44,6 +47,7 @@ const TermsAndConditions = () => {
           </p>
         </div>
       </div>
+      <BackToTop />
     </div>
   );
 };

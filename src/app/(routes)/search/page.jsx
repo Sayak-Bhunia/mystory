@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
+import BackToTop from '@/components/BackToTop';
 
 const Confess = () => {
   const [username, setUsername] = useState('');
@@ -103,6 +104,7 @@ const Confess = () => {
           </div>
         )}
       </div>
+      <BackToTop />
     </div>
   );
 };
