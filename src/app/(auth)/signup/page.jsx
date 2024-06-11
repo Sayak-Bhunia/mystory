@@ -1,5 +1,5 @@
 import UserForm from '@/components/UserForm';
-import CustomCursor from '@/components/ui/CustomCursor';
+import CustomCursor from '@/components/ui/custom-cursor';
 
 export default function Page() {
   return (

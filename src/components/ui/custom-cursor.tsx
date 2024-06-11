@@ -1,58 +1,67 @@
 'use client';
+import React, { useEffect, useState } from 'react';
+import gsap from 'gsap';
+import './custom-cursor.css';
 
-import React, { useState, useEffect } from "react";
-import "./custom-cursor.css"; // Import the CSS file for styling. 
+const CustomCursor: React.FC = () => {
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
-// This functional component represents a custom cursor with a flare effect.
-function FlareCursor() {
-  // State to track the current cursor position (x, y coordinates).
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-
-  // State to track whether the cursor is over a clickable element.
-  const [isPointer, setIsPointer] = useState(false);
-
-  // Event handler for the mousemove event.
-  const handleMouseMove = (e) => {
-    // Update the cursor position based on the mouse coordinates.
-    setPosition({ x: e.clientX, y: e.clientY });
-
-    // Get the target element that the cursor is currently over.
-    const target = e.target;
-
-    // Check if the cursor is over a clickable element by inspecting the cursor style.
-    setIsPointer(
-      window.getComputedStyle(target).getPropertyValue("cursor") === "pointer"
-    );
-  };
-
-  // Set up an effect to add and remove the mousemove event listener.
   useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
+    const bigBall = document.querySelector('.cursor__ball--big');
+    const smallBall = document.querySelector('.cursor__ball--small');
+
+    const onMouseMove = (e: MouseEvent) => {
+      setCursorPosition({ x: e.pageX, y: e.pageY });
+      gsap.to(bigBall, { duration: 0.4, x: e.pageX - 15, y: e.pageY - 15 });
+      gsap.to(smallBall, { duration: 0.1, x: e.pageX - 5, y: e.pageY - 7 });
     };
-  }, []); // The empty dependency array ensures that this effect runs only once on mount.
 
-  // Calculate the size of the flare based on whether the cursor is over a clickable element.
-  const flareSize = isPointer ? 0 : 30;
+    const onMouseHover = () => {
+      gsap.to(bigBall, { duration: 0.3, scale: 4 });
+    };
 
-  // Adjust the cursor position to create a visual effect when over a clickable element.
-  const cursorStyle = isPointer ? { left: "-100px", top: "-100px" } : {};
+    const onMouseHoverOut = () => {
+      gsap.to(bigBall, { duration: 0.3, scale: 1 });
+    };
 
-  // Render the custom cursor element with dynamic styles based on cursor state.
+    document.body.addEventListener('mousemove', onMouseMove);
+    document.querySelectorAll('.hoverable').forEach((hoverable: Element) => {
+      hoverable.addEventListener('mouseenter', onMouseHover);
+      hoverable.addEventListener('mouseleave', onMouseHoverOut);
+    });
+
+    // Add event listener for scroll
+    const onScroll = () => {
+      // Update cursor position when scrolling
+      setCursorPosition({ x: cursorPosition.x, y: cursorPosition.y + window.scrollY });
+    };
+    window.addEventListener('scroll', onScroll);
+
+    return () => {
+      document.body.removeEventListener('mousemove', onMouseMove);
+      document.querySelectorAll('.hoverable').forEach((hoverable: Element) => {
+        hoverable.removeEventListener('mouseenter', onMouseHover);
+        hoverable.removeEventListener('mouseleave', onMouseHoverOut);
+      });
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, [cursorPosition]); // Add cursorPosition as a dependency
+
   return (
-    <div
-      className={`flare ${isPointer ? "pointer" : ""}`}
-      style={{
-        ...cursorStyle,
-        left: `${position.x}px`,
-        top: `${position.y}px`,
-        width: `${flareSize}px`,
-        height: `${flareSize}px`,
-      }}
-    ></div>
-  );
-}
+    <div className="cursor" style={{ top: cursorPosition.y, left: cursorPosition.x }}>
+      <div className="cursor__ball cursor__ball--big">
+        <svg height="30" width="30">
+          <circle cx="15" cy="15" r="12" strokeWidth="0"></circle>
+        </svg>
+      </div>
 
-// Export the FlareCursor component to be used in other parts of the application.
-export default FlareCursor;
+      <div className="cursor__ball cursor__ball--small">
+        <svg height="10" width="10">
+          <circle cx="5" cy="5" r="4" strokeWidth="0"></circle>
+        </svg>
+      </div>
+    </div>
+  );
+};
+
+export default CustomCursor;
