@@ -5,6 +5,7 @@ import TitleSpecial from '@/components/Features/TitleSpecial';
 import Features from '@/components/Features/Features';
 import CallToAction from '@/components/CallToAction';
 import BuyMeACoffee from '@/components/BuyMeACoffee';
+import BackToTop from '@/components/BackToTop'
 import Background from '@/components/Background';
 
 import CustomCursor from '@/components/ui/custom-cursor';
@@ -32,7 +33,8 @@ export default function Home() {
           <TitleSpecial />
           <Features />
           <BuyMeACoffee />
-          <CardHoverEffectDemo />
+          <BackToTop />
+        <CardHoverEffectDemo />
           
           <InfiniteMovingCardsDemo />
         </Background>

@@ -6,6 +6,7 @@ import { Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Image from "next/image";
 import { ContributorsData } from "./ContributorsData";
+import BackToTop from '@/components/BackToTop';
 
 import CustomCursor from '@/components/ui/custom-cursor';
 
@@ -115,6 +116,7 @@ const page = () => {
                             </a>
                         ))}
                     </div>
+                    <BackToTop />
                 </div>
 
             </section>

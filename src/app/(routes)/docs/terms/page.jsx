@@ -1,5 +1,8 @@
 import CustomCursor from '@/components/ui/custom-cursor';
 
+import React from 'react';
+import BackToTop from '@/components/BackToTop';
+
 const TermsAndConditions = () => {
   return (
     <>
@@ -48,7 +51,8 @@ const TermsAndConditions = () => {
             </p>
           </div>
         </div>
-      </div>
+        <BackToTop />
+    </div>
     </>
   );
 };

@@ -6,6 +6,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { FaGithub, FaEye, FaEyeSlash } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { z } from 'zod';
+import BackToTop from './BackToTop';
 const FormSchema = z.object({
   email: z.string().email(),
   username: z.string().min(2, {
@@ -170,6 +171,7 @@ const UserForm = () => {
       </div>
 
       <p className="text-red-500">{errorMessage}</p>
+      <BackToTop />
     </>
   );
 };

@@ -4,10 +4,12 @@ import './page.css';
 import data from '@/utils/accordion';
 import CustomCursor from '@/components/ui/custom-cursor';
 // ...
+import BackToTop from '../../../components/BackToTop';
 
 export default function Page() {
   return (
     <>
+      <CustomCursor />
       <section className="mt-28 py-8 mb-20 lg:w-[720px] md:w-[520px] w-[380px] m-auto px-2 flex flex-col justify-between">
         <div className="p-6 w-full flex gap-y-8 justify-center items-center rounded-md flex-wrap mt-[46px] border-gray-300 border-[1px]">
           <div className="flex flex-col justify-center items-start gap-2">
@@ -36,7 +38,8 @@ export default function Page() {
               ))}
             </div>
           </div>
-        </div>
+        <BackToTop />
+      </div>
       </section>
     </>
   );

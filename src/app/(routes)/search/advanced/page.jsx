@@ -4,6 +4,7 @@ import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 import Image from 'next/image';
 import CustomCursor from '@/components/ui/custom-cursor';
+import BackToTop from '@/components/BackToTop';
 
 const Confess = () => {
   const [username, setUsername] = useState('');
@@ -152,7 +153,8 @@ const Confess = () => {
             </div>
           </div>
         )}
-      </div>
+        <BackToTop />
+    </div>
     </>
   );
 };

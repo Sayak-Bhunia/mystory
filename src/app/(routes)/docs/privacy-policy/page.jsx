@@ -1,5 +1,6 @@
 import React from 'react';
 import CustomCursor from '@/components/ui/custom-cursor';
+import BackToTop from '@/components/BackToTop';
 
 const PrivacyPolicy = () => {
   return (
@@ -142,7 +143,8 @@ const PrivacyPolicy = () => {
             .
           </p>
         </div>
-      </div>
+        <BackToTop />
+    </div>
     </>
   );
 };

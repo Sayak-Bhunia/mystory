@@ -3,6 +3,8 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { z } from 'zod';
+import BackToTop from './BackToTop';
+
 const FormSchema = z.object({
   username: z.string(),
 });
@@ -94,6 +96,7 @@ const Settings = () => {
           )}
         </div>
       </div>
+      <BackToTop />
     </>
   );
 };
