@@ -5,6 +5,7 @@ import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 import Image from 'next/image';
 import VanillaTilt from "vanilla-tilt";
+import CustomCursor from '@/components/ui/custom-cursor';
 
 const Confess = () => {
   const [confessContent, setConfessContent] = useState('');
@@ -43,6 +44,9 @@ useEffect(() => {
   };
 
   return (
+    <>
+      <CustomCursor />
+  
     <div className="py-32 h-fit dark:bg-neutral-900 flex flex-col-reverse lg:flex-row justify-center items-center">
    
       <style >{`
@@ -97,7 +101,7 @@ useEffect(() => {
         </form>
       </div>
     </div>
-  );
+  </>);
 };
 
 export default Confess;

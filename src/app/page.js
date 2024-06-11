@@ -7,6 +7,8 @@ import CallToAction from '@/components/CallToAction';
 import BuyMeACoffee from '@/components/BuyMeACoffee';
 import Background from '@/components/Background';
 
+import CustomCursor from '@/components/ui/custom-cursor';
+
 import Lenis from '@studio-freight/lenis';
 import { useEffect } from 'react';
 import { InfiniteMovingCardsDemo } from '../components/Testimonials';
@@ -22,17 +24,20 @@ export default function Home() {
     requestAnimationFrame(raf);
   }, []);
   return (
-    <main>
-      <Background>
-        <HeroScrollDemo />
-        <TitleSpecial />
-        <Features />
-        <BuyMeACoffee />
-        <CardHoverEffectDemo />
-        
-        <InfiniteMovingCardsDemo />
-      </Background>
-      <CallToAction />
-    </main>
+    <>
+      <CustomCursor />
+      <main>
+        <Background>
+          <HeroScrollDemo />
+          <TitleSpecial />
+          <Features />
+          <BuyMeACoffee />
+          <CardHoverEffectDemo />
+          
+          <InfiniteMovingCardsDemo />
+        </Background>
+        <CallToAction />
+      </main>
+    </>
   );
 }
