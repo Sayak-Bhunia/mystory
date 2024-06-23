@@ -120,12 +120,12 @@ const SignInForm = () => {
                 className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:bg-[#000000] dark:text-white dark:border-gray-600 dark:focus:ring-purple-600"
               />
               {!showEye ? (
-                <FaEye
+                <FaEyeSlash
                   className="relative left-[90%] top-[-27px]"
                   onClick={eyeToggle}
                 />
               ) : (
-                <FaEyeSlash
+                <FaEye
                   className="relative left-[90%] top-[-27px]"
                   onClick={eyeToggle}
                 />
