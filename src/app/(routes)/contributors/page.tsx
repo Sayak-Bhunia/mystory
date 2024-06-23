@@ -8,7 +8,7 @@ import Image from "next/image";
 import { ContributorsData } from "./ContributorsData";
 import BackToTop from '@/components/BackToTop';
 
-
+import CustomCursor from '@/components/ui/custom-cursor';
 
 
 
@@ -16,7 +16,7 @@ const page = () => {
     return (
         <>
             {/* <Header /> */}
-
+            <CustomCursor />
             <section className="my-40 py-12 relative overflow-x-hidden mx-4 md:mx-20">
                 <div className="px-4 md:px-6  mb-10">
                     <div className="my-8 text-center">
@@ -26,20 +26,20 @@ const page = () => {
                         <CardContainer>
                             <CardBody className="relative group/card hover:shadow-2xl hover:shadow-emerald-500/[0.1] bg-zinc-800 backdrop-blur bg-opacity-20 border-black/[0.3] w-auto sm:w-[30rem] h-auto rounded-lg p-6 ">
                                 <CardItem
-                                    translateZ="50"
+                                    translateZ={50}
                                     className="text-xl font-bold text-purple-500 dark:text-purple-700"
                                 >
                                     Sayak Bhunia
                                 </CardItem>
                                 <CardItem
                                     as="p"
-                                    translateZ="60"
+                                    translateZ={60}
                                     className="text-sm text-left max-w-sm mt-2 text-purple-50 dark:text-purple-400"
                                 >
                                     Web Dev 🌐 | Open Source ⭐ | CP 📈 | Cloud ☁️ | Web3💲 | Hackathons
                                     💻 | Community 🍀
                                 </CardItem>
-                                <CardItem translateZ="100" rotateX={-5} className="w-full mt-6">
+                                <CardItem translateZ={100} rotateX={-5} className="w-full mt-6">
                                     <Image
                                         src="/image/sayakbunia.webp"
                                         height="700"

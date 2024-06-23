@@ -2,6 +2,7 @@ import { Avatar, AvatarImage, AvatarFallback } from '@/components/avatar.tsx';
 import { getCurrentUser } from '../../../../helpers/session';
 import { getServerSession } from 'next-auth';
 import { options } from '@/app/api/auth/[...nextauth]/options';
+import CustomCursor from '@/components/ui/custom-cursor';
 
 export default async function Page() {
   const user = await getCurrentUser();
@@ -15,54 +16,57 @@ export default async function Page() {
     .join('');
 
   return (
-    <div className="flex flex-col items-center h-screen justify-center gap-6 px-4 py-8 md:px-6 lg:px-8">
-      <div className="relative">
-        <Avatar className="h-24 w-24 border-4 border-white dark:border-gray-800">
-          <AvatarImage alt="avatar" src={session.user.image} />
-          <AvatarFallback>{initials}</AvatarFallback>
-        </Avatar>
-        <div className="absolute -right-2 -bottom-2 rounded-full bg-primary p-1">
-          <CameraIcon className="h-5 w-5 text-white" />
+    <>
+      <CustomCursor />
+      <div className="flex flex-col items-center h-screen justify-center gap-6 px-4 py-8 md:px-6 lg:px-8">
+        <div className="relative">
+          <Avatar className="h-24 w-24 border-4 border-white dark:border-gray-800">
+            <AvatarImage alt="avatar" src={session.user.image} />
+            <AvatarFallback>{initials}</AvatarFallback>
+          </Avatar>
+          <div className="absolute -right-2 -bottom-2 rounded-full bg-primary p-1">
+            <CameraIcon className="h-5 w-5 text-white" />
+          </div>
+        </div>
+        <div className="grid gap-1 text-center">
+          <div className="text-2xl font-bold">{user.username}</div>
+          <div className="text-sm text-gray-500 dark:text-gray-400">
+            {user.email}
+          </div>
+        </div>
+        <div className="grid w-full max-w-md gap-4">
+          <div className="grid gap-1.5">
+            <div className="text-sm font-medium text-gray-500 dark:text-gray-400">
+              Location
+            </div>
+            <div className="flex items-center gap-2 rounded-md bg-gray-100 px-3 py-2 text-sm dark:bg-gray-800">
+              <MapPinIcon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+              <span>
+                {session.user.location ? session.user.location : 'India'}
+              </span>
+            </div>
+          </div>
+          <div className="grid gap-1.5">
+            <div className="text-sm font-medium text-gray-500 dark:text-gray-400">
+              Bio
+            </div>
+            <div className="rounded-md bg-gray-100 px-3 py-2 text-sm dark:bg-gray-800">
+              I&apos;m a software engineer and I love to code! In my free time, I
+              enjoy hiking and exploring the great outdoors.
+            </div>
+          </div>
+          <div className="grid gap-1.5">
+            <div className="text-sm font-medium text-gray-500 dark:text-gray-400">
+              Joined
+            </div>
+            <div className="flex items-center gap-2 rounded-md bg-gray-100 px-3 py-2 text-sm dark:bg-gray-800">
+              <CalendarDaysIcon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+              <span>To be added</span>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="grid gap-1 text-center">
-        <div className="text-2xl font-bold">{user.username}</div>
-        <div className="text-sm text-gray-500 dark:text-gray-400">
-          {user.email}
-        </div>
-      </div>
-      <div className="grid w-full max-w-md gap-4">
-        <div className="grid gap-1.5">
-          <div className="text-sm font-medium text-gray-500 dark:text-gray-400">
-            Location
-          </div>
-          <div className="flex items-center gap-2 rounded-md bg-gray-100 px-3 py-2 text-sm dark:bg-gray-800">
-            <MapPinIcon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
-            <span>
-              {session.user.location ? session.user.location : 'India'}
-            </span>
-          </div>
-        </div>
-        <div className="grid gap-1.5">
-          <div className="text-sm font-medium text-gray-500 dark:text-gray-400">
-            Bio
-          </div>
-          <div className="rounded-md bg-gray-100 px-3 py-2 text-sm dark:bg-gray-800">
-            I&apos;m a software engineer and I love to code! In my free time, I
-            enjoy hiking and exploring the great outdoors.
-          </div>
-        </div>
-        <div className="grid gap-1.5">
-          <div className="text-sm font-medium text-gray-500 dark:text-gray-400">
-            Joined
-          </div>
-          <div className="flex items-center gap-2 rounded-md bg-gray-100 px-3 py-2 text-sm dark:bg-gray-800">
-            <CalendarDaysIcon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
-            <span>To be added</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    </>
   );
 }
 

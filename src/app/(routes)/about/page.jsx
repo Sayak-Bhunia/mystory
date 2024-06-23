@@ -4,6 +4,8 @@ import { getServerSession } from 'next-auth';
 import { ThreeDCardDemo } from '../../../components/about/page';
 import BackToTop from '@/components/BackToTop';
 
+import CustomCursor from '@/components/ui/custom-cursor';
+
 export default async function Page() {
   // const session = await getServerSession(options);
   // console.log(session);
@@ -11,6 +13,8 @@ export default async function Page() {
   //   return <div>No Session</div>;
   // }
   return (
+    <>
+      <CustomCursor />
     <div className="flex flex-col items-center justify-center pt-[5rem] h-screen bg-white ">
       <div className="bg-gradient-to-r from-[#6C07CC] to-[#D3A5FF] p-6 px-10 rounded-3xl shadow-lg max-w-4xl text-white shadow-[10px_10px_50px_10px_rgba(202,147,255,0.5)] ">
         <h1 className="text-4xl font-bold mb-6 ">About</h1>
@@ -50,5 +54,5 @@ export default async function Page() {
       </div>
       <BackToTop />
     </div>
-  );
+  </>);
 }
