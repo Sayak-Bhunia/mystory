@@ -4,6 +4,7 @@ import { IoMdMail } from "react-icons/io";
 import { FiInstagram } from 'react-icons/fi';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
+import { FaDiscord } from 'react-icons/fa';
 import styles from '../page.module.css';
 import LocationDisplay from './LocationDisplay';
 import Clock from 'react-live-clock';
@@ -46,6 +47,12 @@ const Sample = () => {
                 target="_blank"
               >
                 <FaGithub className="dark:text-white text-2xl " />
+              </a>
+              <a
+                href="https://discord.com/"
+                target="_blank"
+              >
+                <FaDiscord className="dark:text-white text-2xl " />
               </a>
             </div>
             <a
