@@ -23,8 +23,12 @@
     }
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
     "@fortawesome/fontawesome-free": "^6.5.2",
     "@gsap/react": "^2.1.1",
+    "@mui/icons-material": "^5.15.20",
+    "@mui/material": "^5.15.20",
     "@radix-ui/react-avatar": "^1.0.4",
     "@studio-freight/lenis": "^1.0.42",
     "aos": "^2.3.4",
@@ -43,6 +47,7 @@
     "next": "14.2.3",
     "next-auth": "^4.24.7",
     "next-google-fonts": "^2.2.0",
+    "next-themes": "^0.3.0",
     "react": "^18",
     "react-accessible-accordion": "^5.0.0",
     "react-dom": "^18",

@@ -3,19 +3,44 @@ import React, { useEffect, useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { RxCross1 } from 'react-icons/rx';
 import { motion } from 'framer-motion';
+import { useTheme } from "next-themes";
 import { useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import toast, { Toaster } from 'react-hot-toast';
 import Image from 'next/image';
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import { dark } from '@mui/material/styles/createPalette';
+import Background from './Background';
 
 const NavBar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const { data: session } = useSession();
+  const [theme,setTheme] = useState(false);
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen); // Toggle the value of isNavOpen
   };
+
+
+
+  const toggleMode=() => {
+    setTheme(!theme)
+    if(theme===true)
+      {
+          document.body.style.color="#26355D";
+          document.body.style.backgroundColor="#071952"
+      }
+
+    else
+    {
+        document.body.style.color="#071952";
+        document.body.style.backgroundColor="#fff"
+    }
+
+  };
+
   const smNavClass = `py-1 px-2 w-full rounded-lg transition
     text-center
   hover:bg-[#F1F5F9] hover:text-black  font-semibold 
@@ -37,7 +62,7 @@ const NavBar = () => {
       <div className="mx-8 lg:mx-6 xl:mx-16 flex justify-between items-center">
         <Link href="/" className="text-4xl font-bold">
           <div className=" relative h-24 w-24 mr-6">
-            <Image src="/mystory-new-logo/mystory-logo.svg" fill />
+            {/* <Image src="/mystory-new-logo/mystory-logo.svg" fill /> */}
           </div>
         </Link>
 
@@ -66,6 +91,8 @@ const NavBar = () => {
             <i class="ri-settings-3-fill mr-2"></i>
             <span>Settings</span>
           </Link>
+         
+          
 
           {session ? (
             <>
@@ -97,8 +124,33 @@ const NavBar = () => {
             className="text-white py-1 inline-flex items-center justify-center rounded-full bg-purple-500 transform transition-all duration-300 font-semibold my-2  px-10 hover:px-6"
           >
             <p>Confess</p>
-          </Link>
+          </Link>    
+          
         </div>
+
+        {theme === true ? (
+                <div
+                  onHover={{ scale: 1.1 }}
+                  onTap={{ scale: 0.9 }}
+                  onClick={toggleMode}
+                  className="bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-800 dark:text-white  rounded-full mx-3 p-3 cursor-pointer hover:bg-gray-300 relative bottom-1"
+                >
+                  <LightModeIcon />
+                </div>
+            ) : (
+              
+                <div
+                  onHover={{ scale: 1.1 }}
+                  onTap={{ scale: 0.9 }}
+                  onClick={toggleMode}
+                  className="bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-800 dark:text-white  rounded-full mx-3 p-3 cursor-pointer hover:bg-gray-300 relative bottom-1"
+                >
+                  <DarkModeIcon />
+                </div>
+              
+            )}
+
+
         {!isNavOpen ? (
           <AiOutlineMenu
             onClick={toggleNav}
