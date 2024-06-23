@@ -9,6 +9,8 @@ import BackToTop from '@/components/BackToTop';
 import Background from '@/components/Background';
 import Spotify from '@/components/Spotify';
 
+import CustomCursor from '@/components/ui/custom-cursor';
+
 import Lenis from '@studio-freight/lenis';
 import { useEffect } from 'react';
 import { InfiniteMovingCardsDemo } from '../components/Testimonials';
@@ -24,19 +26,22 @@ export default function Home() {
     requestAnimationFrame(raf);
   }, []);
   return (
-    <main>
-      <Background>
-        <HeroScrollDemo />
-        <TitleSpecial />
-        <Features />
-        <BuyMeACoffee />
-        <Spotify />
-        <BackToTop />
+    <>
+      <CustomCursor />
+      <main>
+        <Background>
+          <HeroScrollDemo />
+          <TitleSpecial />
+          <Features />
+          <BuyMeACoffee />
+          <Spotify />
+          <BackToTop />
         <CardHoverEffectDemo />
-
-        <InfiniteMovingCardsDemo />
-      </Background>
-      <CallToAction />
-    </main>
+          
+          <InfiniteMovingCardsDemo />
+        </Background>
+        <CallToAction />
+      </main>
+    </>
   );
 }

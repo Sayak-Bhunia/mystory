@@ -1,0 +1,26 @@
+/* custom-cursor.css */
+.cursor {
+  pointer-events: none;
+}
+
+.cursor__ball {
+  position: absolute;
+  top: 0;
+  left: 0;
+  mix-blend-mode: difference;
+  z-index: 1000;
+}
+
+.cursor__ball circle {
+  fill: #f7f8fa;
+}
+
+.cursor__ball--big {
+  transition: transform 0.2s ease;
+}
+
+.cursor__ball--small {
+  transition: transform 0.1s ease;
+}
+
+/* Add your additional styles here */
