@@ -13,6 +13,7 @@ import { Button } from '../../components/ui/button';
 
 export function ThreeDCardDemo() {
   return (
+    <>
     <div className="container grid px-1  md:px-6">
       <h1 className="text-4xl text-center text-purple-600">Developer</h1>
 
@@ -78,5 +79,6 @@ export function ThreeDCardDemo() {
         </CardBody>
       </CardContainer>
     </div>
+    </>
   );
 }
