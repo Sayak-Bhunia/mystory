@@ -104,4 +104,9 @@ export const ContributorsData = [
     github: 'suraj-9849',
     imageUrl: 'https://avatars.githubusercontent.com/u/146669517?v=4',
   },
+  {
+    name: 'Parna Roy Chowdhury',
+    github: 'https://github.com/ParnaRoyChowdhury777',
+    imageUrl: 'https://avatars.githubusercontent.com/u/123104247?s=400&u=7b67eda7dd23abef1d177ec4936d83085fe4e08a&v=4',
+  },
 ];
