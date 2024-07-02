@@ -2,7 +2,7 @@
 import { Open_Sans } from 'next/font/google';
 import { IoMdMail } from "react-icons/io";
 import { FiInstagram } from 'react-icons/fi';
-import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaDiscord } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import styles from '../page.module.css';
 import LocationDisplay from './LocationDisplay';
@@ -46,6 +46,12 @@ const Sample = () => {
                 target="_blank"
               >
                 <FaGithub className="dark:text-white text-2xl " />
+              </a>
+              <a
+                href="https://discord.com"
+                target="_blank"
+              >
+                <FaDiscord className="dark:text-white text-2xl " />
               </a>
             </div>
             <a
